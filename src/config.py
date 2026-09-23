@@ -59,9 +59,18 @@ FAVORITE_TICKERS = [
     "ISAT.JK", "BBRI.JK", "ASII.JK", "ANTM.JK", "HEXA.JK",
 ]
 
-# Flatten all sectors into unique universe
+# Flatten all sectors into fallback unique universe
 ALL_SECTOR_TICKERS = [t for tickers in SECTOR_MAP.values() for t in tickers]
 DEFAULT_TICKERS = sorted(list(set(SWING_TICKERS + DIVIDEND_TICKERS + FAVORITE_TICKERS + ALL_SECTOR_TICKERS)))
+
+# Connect Dynamic Universe Manager (preserving capacity N=66)
+try:
+    from src.universe_manager import get_universe_manager
+    _univ_mgr = get_universe_manager()
+    DEFAULT_TICKERS = _univ_mgr.get_active_tickers()
+    SECTOR_MAP = _univ_mgr.get_sector_map()
+except Exception:
+    pass
 
 # 5. Global Macro & Market Catalysts
 MACRO_TICKERS = {

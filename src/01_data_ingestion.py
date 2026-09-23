@@ -316,12 +316,47 @@ class MarketDataIngestor:
 def run_ingestion_pipeline() -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """
     Main runner for 01_data_ingestion step.
+    Orchestrates dynamic universe health validation and market data ingestion.
     """
-    ingestor = MarketDataIngestor()
+    # 1. Evaluate Dynamic Universe Rebalancing & Active Tickers
+    active_tickers = DEFAULT_TICKERS
+    try:
+        from src.universe_manager import get_universe_manager
+        univ_mgr = get_universe_manager()
+        univ_mgr.check_and_run_rebalance()
+        active_tickers = univ_mgr.get_active_tickers()
+    except Exception as e:
+        logger.warning(f"Universe manager check bypassed: {e}")
+
+    # 2. Ingest Active Market Data
+    ingestor = MarketDataIngestor(tickers=active_tickers)
     df_raw = ingestor.fetch_data()
     df_bench = ingestor.fetch_benchmark_data()
     df_macro = ingestor.fetch_global_macro_data()
     df_fundamentals = ingestor.fetch_and_save_financial_statements()
+
+    # 3. Post-Ingestion Automated Health-Check & Standby Reserve Substitution
+    try:
+        from src.universe_manager import get_universe_manager
+        univ_mgr = get_universe_manager()
+        health_res = univ_mgr.run_health_check(df_raw)
+        
+        if health_res.get("replacements_count", 0) > 0:
+            reps = health_res.get("replacements", [])
+            logger.info(f"Health check swapped {len(reps)} tickers. Backfilling data for promoted standby reserves...")
+            promoted_tickers = [r["promoted_ticker"] for r in reps]
+            degraded_tickers = [r["degraded_ticker"] for r in reps]
+            
+            backfill_ingestor = MarketDataIngestor(tickers=promoted_tickers)
+            df_promoted = backfill_ingestor.fetch_data()
+            if not df_promoted.empty and not df_raw.empty:
+                df_raw = pd.concat([df_raw[~df_raw["Ticker"].isin(degraded_tickers)], df_promoted], ignore_index=True)
+                df_raw.sort_values(by=["Ticker", "Date"], inplace=True)
+                df_raw.reset_index(drop=True, inplace=True)
+    except Exception as e:
+        logger.warning(f"Post-ingestion health-check exception: {e}")
+
+    # 4. Safely persist all validated datasets
     ingestor.save_raw_data(df_raw, df_fundamentals, df_bench, df_macro)
     return df_raw, df_fundamentals, df_bench, df_macro
 

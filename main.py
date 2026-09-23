@@ -27,10 +27,20 @@ def run_all():
     logger.info("=========================================================")
 
     # Dynamic imports for quantitative pipeline modules
+    universe_mgr_mod = importlib.import_module("src.universe_manager")
     data_ingestion = importlib.import_module("src.01_data_ingestion")
     feature_eng = importlib.import_module("src.02_feature_eng")
     model_inference = importlib.import_module("src.03_model_inference")
     morning_brief = importlib.import_module("src.morning_brief")
+
+    # Step 0: Universe Health & Capacity Invariance
+    logger.info("[Step 0/4] Verifying Dynamic Universe Health & Capacity Invariance (N=66)...")
+    univ_mgr = universe_mgr_mod.get_universe_manager()
+    diag = univ_mgr.get_universe_diagnostics()
+    logger.info(
+        f"Active Universe: {diag['active_tickers_count']} emiten across 11 sectors | "
+        f"Healthy: {diag['health_summary']['healthy_count']} | Replacements: {diag['health_summary']['replaced_count']}"
+    )
 
     # Step 1: Data Ingestion
     logger.info("[Step 1/4] Ingesting Market OHLCV, Macro & Financial Data...")

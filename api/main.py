@@ -255,6 +255,27 @@ def get_sectors() -> Dict[str, List[str]]:
     return SECTOR_MAP
 
 
+@app.get("/universe", tags=["Universe Management"])
+@app.get("/api/universe", tags=["Universe Management"])
+def get_universe_telemetry() -> Dict[str, Any]:
+    """
+    Returns diagnostic telemetry for the 66-stock dynamic universe,
+    including sector distribution, health statuses, and standby replacements.
+    """
+    try:
+        from src.universe_manager import get_universe_manager
+        mgr = get_universe_manager()
+        return mgr.get_universe_diagnostics()
+    except Exception as e:
+        return {
+            "capacity": 66,
+            "active_tickers_count": len(DEFAULT_TICKERS),
+            "active_tickers": DEFAULT_TICKERS,
+            "sector_breakdown": {s: len(t) for s, t in SECTOR_MAP.items()},
+            "error": str(e),
+        }
+
+
 @app.get("/portfolio/allocate", response_model=List[AllocationItem], tags=["Portfolio Optimizer"])
 def get_portfolio_allocation(capital: float = Query(50000000.0, description="Total capital in IDR (Rupiah)")) -> List[Dict]:
     """
