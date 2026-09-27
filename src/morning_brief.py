@@ -304,7 +304,15 @@ class MorningBriefGenerator:
             f"dengan intervensi Bank Indonesia menopang likuiditas sektor perbankan dan pasar SBN domestik."
         )
 
-        # 4. Comprehensive 4-5 paragraph narrative
+        # 4. Key Takeaways
+        key_takeaways = [
+            f"🎯 Arah Indeks: IHSG diproyeksikan menguji rentang support {snapshot['ihsg_support']} hingga resistance {snapshot['ihsg_resistance']} dengan konsolidasi di sekitar pivot {snapshot['ihsg_pivot']}.",
+            f"🌐 Katalis Global: Pergerakan S&P 500 ({snapshot['sp500_change']}) dan yield US Treasury 10Y ({snapshot['ust_10y_yield']}) menjadi penentu arah sentimen risiko aset berkembang.",
+            f"⚠️ Risiko Makro: Fluktuasi minyak Brent ({oil_str}) dan kurs Rupiah ({usd_str}) menuntut kehati-hatian atas beban subsidi energi dan likuiditas perbankan.",
+            "💼 Panduan Taktis: Amankan kas cadangan 15-20%; alokasikan secara selektif pada emiten komoditas energi serta saham defensif berdividen tinggi."
+        ]
+
+        # 5. Comprehensive 4-5 paragraph narrative
         brief_body = (
             f"Untuk sesi perdagangan hari ini, Indeks Harga Saham Gabungan (IHSG) diperkirakan bergerak fluktuatif "
             f"dengan kecenderungan konsolidasi menguat pada rentang support {snapshot['ihsg_support']} hingga resistance {snapshot['ihsg_resistance']}. "
@@ -327,6 +335,7 @@ class MorningBriefGenerator:
             "brent_desc": brent_desc,
             "usd_idr_badge": usd_idr_badge,
             "usd_idr_desc": usd_idr_desc,
+            "key_takeaways": key_takeaways,
             "brief_content": brief_body,
         }
 
@@ -378,6 +387,12 @@ Kembalikan respon HANYA dalam format JSON valid (tanpa teks pembuka atau markdow
   "brent_desc": "Analisis isu politik luar negeri/geopolitik yang mempengaruhi harga minyak Brent dan pengaruhnya ke beban energi fiskal & emiten migas Indonesia (1-2 kalimat padat)",
   "usd_idr_badge": "Label status nilai tukar 2-4 kata (misal: Dolar AS Menguat Terbatas / Intervensi BI Terjaga / Tekanan DXY Kuat)",
   "usd_idr_desc": "Penyebab fluktuasi nilai tukar USD (DXY/Yield/Suku Bunga) dan pengaruhnya ke likuiditas pasar modal, obligasi, dan perbankan Indonesia (1-2 kalimat padat)",
+  "key_takeaways": [
+    "🎯 Arah Indeks: Ringkasan proyeksi pembukaan IHSG dan rentang support-resistance krusial hari ini (1 kalimat padat)",
+    "🌐 Katalis Global: Isu utama Wall Street/S&P 500 dan transmisi sentimennya ke IHSG (1 kalimat padat)",
+    "⚠️ Risiko Makro: Isu harga minyak Brent dan tekanan nilai tukar USD/IDR terhadap likuiditas domestik (1 kalimat padat)",
+    "💼 Panduan Taktis: Aksi alokasi portofolio spesifik dan porsi kas bagi manajer portofolio (1 kalimat padat)"
+  ],
   "brief_content": "Ulasan narasi riset pasar komprehensif (4 sampai 5 paragraf mengalir alami, membedah arah pembukaan IHSG, katalis Wall Street, isu geopolitik minyak, dinamika kurs USD/IDR, serta panduan taktis portofolio sebelum bel pembukaan BEI. JANGAN gunakan tanda bintang tebal ganda ** berlebihan)."
 }}
 """
@@ -431,6 +446,17 @@ Kembalikan respon HANYA dalam format JSON valid (tanpa teks pembuka atau markdow
         usd_idr_badge = str(parsed_data.get("usd_idr_badge", "Stabilitas Valuta")).replace("**", "").strip()
         usd_idr_desc = str(parsed_data.get("usd_idr_desc", "Stabilitas nilai tukar menopang arus modal asing.")).replace("**", "").strip()
 
+        # Sanitize key takeaways
+        raw_takeaways = parsed_data.get("key_takeaways", [])
+        if not isinstance(raw_takeaways, list) or len(raw_takeaways) == 0:
+            raw_takeaways = [
+                f"🎯 Arah Indeks: IHSG menguji rentang support {snapshot['ihsg_support']} hingga resistance {snapshot['ihsg_resistance']} di sekitar pivot {snapshot['ihsg_pivot']}.",
+                f"🌐 Katalis Global: Pengaruh pergerakan Wall Street ({snapshot['sp500_change']}) dan yield obligasi US Treasury ({snapshot['ust_10y_yield']}).",
+                f"⚠️ Risiko Makro: Minyak Brent {snapshot['brent_oil']} dan kurs Rupiah {snapshot['usd_idr']} menjadi variabel likuiditas kunci.",
+                "💼 Panduan Taktis: Disiplin alokasi kas 15-20% dan akumulasi bertahap pada saham likuid berfundamental prima."
+            ]
+        clean_takeaways = [str(t).replace("**", "").replace("*", "").strip() for t in raw_takeaways]
+
         # Update snapshot with dynamic card content for full backward compatibility
         snapshot["sp500_badge"] = sp500_badge
         snapshot["sp500_desc"] = sp500_desc
@@ -438,6 +464,7 @@ Kembalikan respon HANYA dalam format JSON valid (tanpa teks pembuka atau markdow
         snapshot["brent_desc"] = brent_desc
         snapshot["usd_idr_badge"] = usd_idr_badge
         snapshot["usd_idr_desc"] = usd_idr_desc
+        snapshot["key_takeaways"] = clean_takeaways
 
         cards_data = {
             "sp500": {
@@ -466,6 +493,7 @@ Kembalikan respon HANYA dalam format JSON valid (tanpa teks pembuka atau markdow
             "date": snapshot["date"],
             "headline": title.replace("&", "dan"),
             "cards": cards_data,
+            "key_takeaways": clean_takeaways,
             "brief_content": brief_body,
             "snapshot": snapshot,
         }
