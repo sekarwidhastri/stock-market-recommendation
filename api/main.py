@@ -199,13 +199,29 @@ class AuthLoginRequest(BaseModel):
 @app.post("/api/v1/auth/login", tags=["Auth"])
 def auth_login(req: AuthLoginRequest) -> Dict[str, Any]:
     username = req.username.strip().lower()
-    if "sekar" in username or "analyst" in username:
+    if "ifan" in username:
+        user_data = {
+            "name": "Ifan Apres",
+            "role": "Lead Quantitative Engineer (TIM New York)",
+            "email": "ifan.apres@stockmarket.id",
+            "initials": "IA",
+            "access_level": "Lead Quant & Systems Architect (Full Access)",
+        }
+    elif "sekar" in username:
         user_data = {
             "name": "Sekar Widhastri",
-            "role": "Research Analyst",
+            "role": "Senior Market Analyst (TIM New York)",
             "email": "sekar.widhastri@stockmarket.id",
             "initials": "SW",
-            "access_level": "Senior Analyst (Full Access)",
+            "access_level": "Senior Research Analyst (Full Access)",
+        }
+    elif "newyork" in username or "team" in username or "tim" in username or "analyst" in username:
+        user_data = {
+            "name": "TIM New York",
+            "role": "Quantitative Strategy Team",
+            "email": "team.newyork@stockmarket.id",
+            "initials": "NY",
+            "access_level": "Institutional Suite (Ifan & Sekar)",
         }
     elif "portfolio" in username or "manager" in username:
         user_data = {
@@ -229,6 +245,7 @@ def auth_login(req: AuthLoginRequest) -> Dict[str, Any]:
         "token": "bearer-jwt-idx-quant-2026",
         "user": user_data,
     }
+
 
 
 @app.get("/morning-brief", tags=["Morning Market Brief"])

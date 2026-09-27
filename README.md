@@ -1,11 +1,12 @@
 # 📈 Stock Market Recommendation: AI & Quant Platform
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsekarwidhastri%2Fstock-market-recommendation)
-[![GitHub Repository](https://img.shields.io/badge/GitHub-sekarwidhastri%2Fstock--market--recommendation-blue?logo=github)](https://github.com/sekarwidhastri/stock-market-recommendation)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FIfan-Apres%2Fstock-market-recommendation)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Ifan--Apres%2Fstock--market--recommendation-blue?logo=github)](https://github.com/Ifan-Apres/stock-market-recommendation)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 > **Platform Rekomendasi Saham Kuantitatif Berbasis Multi-Engine Machine Learning (GBDT + LSTM + ARIMA + GARCH), Institutional Morning Brief AI (Gemini 3.6 Flash), dan Kalkulator Lot & Modal Ramah Pemula untuk Bursa Efek Indonesia (BEI / IDX).**
+> **Dikembangkan dan Dikelola oleh TIM New York: Ifan Apres & Sekar Widhastri.**
 
 ---
 
@@ -251,6 +252,18 @@ Proyek ini dilengkapi dengan skrip otomatis `.github/workflows/daily_pipeline.ym
 
 ---
 
+## 👥 Tim Riset Kuantitatif & Rekayasa Sistem (TIM New York)
+
+Platform ini dikembangkan dan dikelola secara kolaboratif oleh **TIM New York**:
+
+| Nama Kontributor | Peran & Tanggung Jawab Utama | Kontak / Profil |
+| :--- | :--- | :--- |
+| **Ifan Apres** | *Lead Quantitative Engineer & Fullstack Systems Architect* — Bertanggung jawab atas arsitektur komputasi, pipeline data kuantitatif, integrasi model ensemble (GBDT + LSTM), deployment Vercel & CI/CD automation. | [GitHub @Ifan-Apres](https://github.com/Ifan-Apres) |
+| **Sekar Widhastri** | *Senior Market & Research Analyst* — Bertanggung jawab atas formulasi strategi analisis pasar ekonometrika, metodologi risk-parity alokasi portofolio, evaluasi sinyal teknikal BEI, dan kurasi editorial riset pasar. | [GitHub @sekarwidhastri](https://github.com/sekarwidhastri) |
+
+---
+
 ## ⚖️ Disclaimer & Batasan Tanggung Jawab
 
 *Aplikasi ini dikembangkan untuk tujuan riset kuantitatif, analisis data, dan edukasi finansial. Seluruh rekomendasi yang dihasilkan oleh model machine learning dan kecerdasan buatan merupakan indikator probabilitas statistik pasar dan bukan merupakan anjuran mutlak untuk membeli atau menjual efek tertentu. Keputusan investasi dan manajemen risiko sepenuhnya berada di tangan investor masing-masing.*
+

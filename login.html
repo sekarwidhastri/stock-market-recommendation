@@ -93,8 +93,8 @@
                                     id="usernameInput" 
                                     required 
                                     class="w-full bg-slate-800/80 border border-slate-700 focus:border-emerald-500 text-sm text-white placeholder:text-slate-500 rounded-xl pl-10 pr-4 py-3 focus:outline-none transition-colors"
-                                    placeholder="sekar.widhastri@stockmarket.id"
-                                    value="sekar.widhastri@stockmarket.id"
+                                    placeholder="ifan.apres@stockmarket.id / team.newyork@stockmarket.id"
+                                    value="team.newyork@stockmarket.id"
                                 />
                             </div>
                         </div>
@@ -142,7 +142,7 @@
                     <div class="relative my-6 flex items-center justify-center">
                         <div class="border-t border-slate-800 w-full"></div>
                         <span class="bg-slate-900 px-3 text-[11px] text-slate-500 uppercase tracking-wider font-semibold absolute">
-                            Atau Akses Cepat 1-Klik
+                            Atau Akses Cepat 1-Klik (TIM New York)
                         </span>
                     </div>
 
@@ -150,46 +150,46 @@
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                         <button 
                             type="button" 
+                            onclick="quickLogin('Ifan Apres', 'Lead Quantitative Engineer', 'ifan.apres@stockmarket.id', 'IA')"
+                            class="p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/90 border border-slate-700 text-left transition-all group flex flex-col justify-between active:scale-95"
+                        >
+                            <div class="flex items-center justify-between">
+                                <span class="w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold text-[10px] flex items-center justify-center">IA</span>
+                                <span class="material-symbols-outlined text-[14px] text-slate-500 group-hover:text-emerald-400">login</span>
+                            </div>
+                            <div class="mt-2">
+                                <div class="text-[11px] font-bold text-white group-hover:text-emerald-400 transition-colors">Ifan Apres</div>
+                                <div class="text-[9px] text-slate-400">Lead Quant Eng.</div>
+                            </div>
+                        </button>
+
+                        <button 
+                            type="button" 
                             onclick="quickLogin('Sekar Widhastri', 'Research Analyst', 'sekar.widhastri@stockmarket.id', 'SW')"
                             class="p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/90 border border-slate-700 text-left transition-all group flex flex-col justify-between active:scale-95"
                         >
                             <div class="flex items-center justify-between">
-                                <span class="w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold text-[10px] flex items-center justify-center">SW</span>
-                                <span class="material-symbols-outlined text-[14px] text-slate-500 group-hover:text-emerald-400">login</span>
+                                <span class="w-6 h-6 rounded-lg bg-blue-500/20 text-blue-400 font-bold text-[10px] flex items-center justify-center">SW</span>
+                                <span class="material-symbols-outlined text-[14px] text-slate-500 group-hover:text-blue-400">login</span>
                             </div>
                             <div class="mt-2">
-                                <div class="text-[11px] font-bold text-white group-hover:text-emerald-400 transition-colors">Sekar Widhastri</div>
+                                <div class="text-[11px] font-bold text-white group-hover:text-blue-400 transition-colors">Sekar Widhastri</div>
                                 <div class="text-[9px] text-slate-400">Research Analyst</div>
                             </div>
                         </button>
 
                         <button 
                             type="button" 
-                            onclick="quickLogin('Portfolio Manager', 'Asset Management', 'portfolio.manager@stockmarket.id', 'PM')"
+                            onclick="quickLogin('TIM New York', 'Quantitative Strategy Team', 'team.newyork@stockmarket.id', 'NY')"
                             class="p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/90 border border-slate-700 text-left transition-all group flex flex-col justify-between active:scale-95"
                         >
                             <div class="flex items-center justify-between">
-                                <span class="w-6 h-6 rounded-lg bg-blue-500/20 text-blue-400 font-bold text-[10px] flex items-center justify-center">PM</span>
-                                <span class="material-symbols-outlined text-[14px] text-slate-500 group-hover:text-blue-400">login</span>
-                            </div>
-                            <div class="mt-2">
-                                <div class="text-[11px] font-bold text-white group-hover:text-blue-400 transition-colors">Portofolio Manager</div>
-                                <div class="text-[9px] text-slate-400">Demo Asset Mgmt</div>
-                            </div>
-                        </button>
-
-                        <button 
-                            type="button" 
-                            onclick="quickLogin('Tamu Pengunjung', 'Market Explorer', 'guest@stockmarket.id', 'TM')"
-                            class="p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/90 border border-slate-700 text-left transition-all group flex flex-col justify-between active:scale-95"
-                        >
-                            <div class="flex items-center justify-between">
-                                <span class="w-6 h-6 rounded-lg bg-purple-500/20 text-purple-400 font-bold text-[10px] flex items-center justify-center">TM</span>
+                                <span class="w-6 h-6 rounded-lg bg-purple-500/20 text-purple-400 font-bold text-[10px] flex items-center justify-center">NY</span>
                                 <span class="material-symbols-outlined text-[14px] text-slate-500 group-hover:text-purple-400">arrow_forward</span>
                             </div>
                             <div class="mt-2">
-                                <div class="text-[11px] font-bold text-white group-hover:text-purple-400 transition-colors">Akses Tamu</div>
-                                <div class="text-[9px] text-slate-400">Eksplorasi Publik</div>
+                                <div class="text-[11px] font-bold text-white group-hover:text-purple-400 transition-colors">TIM New York</div>
+                                <div class="text-[9px] text-slate-400">Ifan & Sekar</div>
                             </div>
                         </button>
                     </div>
@@ -356,16 +356,55 @@
 
                 if (!userData) {
                     // Fallback autentikasi klien
-                    const isSekar = username.toLowerCase().includes('sekar') || username.toLowerCase().includes('analyst');
-                    const isPM = username.toLowerCase().includes('portfolio') || username.toLowerCase().includes('manager');
+                    const uLow = username.toLowerCase();
+                    const isIfan = uLow.includes('ifan');
+                    const isSekar = uLow.includes('sekar');
+                    const isNewYork = uLow.includes('newyork') || uLow.includes('team') || uLow.includes('tim') || uLow.includes('analyst');
+                    const isPM = uLow.includes('portfolio') || uLow.includes('manager');
                     
-                    userData = {
-                        name: isSekar ? "Sekar Widhastri" : (isPM ? "Portfolio Manager" : username.split('@')[0]),
-                        role: isSekar ? "Research Analyst" : (isPM ? "Asset Management" : "Market Explorer"),
-                        email: username,
-                        initials: isSekar ? "SW" : (isPM ? "PM" : "ME"),
-                        loginTime: new Date().toISOString()
-                    };
+                    if (isIfan) {
+                        userData = {
+                            name: "Ifan Apres",
+                            role: "Lead Quantitative Engineer (TIM New York)",
+                            email: username,
+                            initials: "IA",
+                            loginTime: new Date().toISOString()
+                        };
+                    } else if (isSekar) {
+                        userData = {
+                            name: "Sekar Widhastri",
+                            role: "Senior Market Analyst (TIM New York)",
+                            email: username,
+                            initials: "SW",
+                            loginTime: new Date().toISOString()
+                        };
+                    } else if (isNewYork) {
+                        userData = {
+                            name: "TIM New York",
+                            role: "Quantitative Strategy Team",
+                            email: username,
+                            initials: "NY",
+                            loginTime: new Date().toISOString()
+                        };
+                    } else if (isPM) {
+                        userData = {
+                            name: "Portfolio Manager",
+                            role: "Asset Management",
+                            email: username,
+                            initials: "PM",
+                            loginTime: new Date().toISOString()
+                        };
+                    } else {
+                        const cleanName = username.split('@')[0];
+                        userData = {
+                            name: cleanName.charAt(0).toUpperCase() + cleanName.slice(1),
+                            role: "Market Explorer",
+                            email: username,
+                            initials: cleanName.slice(0, 2).toUpperCase(),
+                            loginTime: new Date().toISOString()
+                        };
+                    }
+
                 }
 
                 // Simpan ke localStorage
