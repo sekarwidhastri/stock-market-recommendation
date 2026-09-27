@@ -4,18 +4,18 @@
   "cards": {
     "sp500": {
       "value": "+0.51%",
-      "badge": "Rebound Rentan Kenaikan Yield",
-      "desc": "Meskipun Wall Street membukukan rebound teknikal tipis semalam, lonjakan yield US Treasury 10-tahun ke 5,18% menekan valuasi saham bertumbuh dan membatasi minat beli investor asing pada Big Cap IHSG."
+      "badge": "Divergensi Yield dan Ekuitas",
+      "desc": "Meskipun Wall Street menguat tipis ditopang sektor siklikal, lonjakan yield US Treasury 10Y ke 5,18% memicu repricing equity risk premium global yang menekan valuasi Big Cap perbankan IHSG."
     },
     "brent": {
       "value": "US$ 97.44 / barel",
-      "badge": "Kekhawatiran Inflasi Energi Global",
-      "desc": "Lonjakan minyak mentah Brent ke US$ 97,44/barel akibat ketatnya pasokan memperberat beban subsidi energi dan neraca perdagangan domestik, meski menjadi katalis positif jangka pendek bagi emiten hulu migas."
+      "badge": "Tekanan Fiskal Energi Global",
+      "desc": "Lonjakan minyak Brent ke US$ 97,44 per barel memicu momentum jangka pendek bagi emiten hulu migas, namun memperberat risiko defisit transaksi berjalan serta beban subsidi energi APBN."
     },
     "usd_idr": {
       "value": "Rp 17,890 / US$",
-      "badge": "Tekanan Kuat Arus Keluar Modal",
-      "desc": "Pelemahan Rupiah ke Rp 17.890/US$ dipicu oleh tingginya imbal hasil obligasi AS dan ekspektasi hawkish The Fed, mempersempit likuiditas domestik serta memicu risiko foreign outflow di pasar SBN dan saham perbankan."
+      "badge": "Depresiasi Ekstrem Kurs Rupiah",
+      "desc": "Penguatan indeks DXY yang terdorong yield acuan AS di atas 5% menekan kurs Rupiah ke Rp 17.890 per US$, memperketat likuiditas perbankan domestik dan memicu risiko capital outflow dari pasar SBN."
     },
     "ihsg": {
       "value": "6462.43 (+0.4%)",
@@ -23,7 +23,7 @@
       "desc": "Fokus akumulasi pada saham likuid berkapitalisasi besar dengan disiplin level stop loss."
     }
   },
-  "brief_content": "Pasar modal Indonesia diperkirakan mengawali perdagangan hari ini dengan kecenderungan mixed dan rentan terhadap tekanan jual, menguji rentang support 6.420-6.460 serta resistance 6.460-6.503. Meskipun IHSG kemarin berhasil ditutup menguat 0,4% di level 6.462,43, sentimen makro global yang memburuk semalam menuntut kehati-hatian tinggi bagi manajer portofolio sebelum bel pembukaan bursa dibunyikan.\n\nDari pasar global, penguatan moderat indeks Wall Street seperti S&P 500 (+0,51%) dan Dow Jones (+0,93%) tertutupi oleh sinyal bahaya dari pasar obligasi AS. Yield US Treasury 10-tahun merangsek naik ke level 5,18%, level tertinggi dalam beberapa dekade, seiring meningkatnya ekspektasi pasar bahwa The Fed masih membuka ruang pengetatan suku bunga lanjutan. Fenomena lonjakan yield ini menyedot likuiditas global keluar dari aset ekuitas pasar berkembang (emerging markets) menuju instrumen safe-haven berbasis Dolar AS.\n\nKondisi semakin diperumit oleh harga minyak mentah Brent yang bertengger di US$ 97,44 per barel. Tingginya harga energi global bertindak sebagai pisau bermata dua; di satu sisi memberikan sentimen jangka pendek bagi emiten tambang dan migas, namun di sisi lain memperbesar beban subsidi APBN, meningkatkan imported inflation, dan menekan daya beli riil domestik jika harga BBM nonsubsidi disesuaikan ke atas.\n\nDinamika kurs Rupiah yang terdepresiasi ke posisi Rp 17.890 per US$ menjadi perhatian utama bagi investor institusi. Melebarnya selisih imbal hasil antara US Treasury dan Surat Berharga Negara (SBN) menekan posisi cadangan devisa serta membatasi ruang pelonggaran moneter Bank Indonesia. Kondisi ini secara langsung membebani sektor perbankan berkapitalisasi besar dan emiten padat modal yang memiliki liabilitas valuta asing tidak terlindung nilai.\n\nSebagai panduan taktis, kami merekomendasikan strategi alokasi portofolio defensif-selektif. Kurangi sementara eksposur pada sektor perbankan sensitif-likuiditas dan saham yang tertekan beban impor valas tinggi. Manfaatkan peluang tactical trading pada saham komoditas energi serta emiten berbasis ekspor yang diuntungkan pelemahan kurs, sembari mempertahankan porsi kas guna mengantisipasi volatilitas pengujian batas bawah support 6.420.",
+  "brief_content": "IHSG ditutup di level 6.462,43 (+0,4%) dengan proyeksi pergerakan hari ini terkonsolidasi dalam rentang support 6.420-6.460 dan resistance 6.460-6.503. Penguatan tipis Wall Street semalam—S&P 500 (+0,51%) dan Dow Jones (+0,93%)—memberikan sentimen psikologis positif di pra-pembukaan, namun upside IHSG tertahan resistensi kuat di area 6.460-6.500. Dari perspektif econophysics, mikrostruktur order book menunjukkan ketidakseimbangan aliran pesanan (order-flow imbalance) di mana penawaran jual institusional mendominasi puncak kurva likuiditas, menandakan fase akumulasi belum terbentuk secara solid di pasar reguler.\n\nPeringatan makro utama berasal dari pasar obligasi global, di mana yield US Treasury 10-tahun merangsek ke 5,18% dan tenor 30-tahun menyentuh level tertinggi multi-dekade. Ekspektasi pelaku pasar terhadap kenaikan suku bunga The Fed lanjutan memicu repricing aset berisiko secara serentak. Fenomena pelarian modal investor global ke instrumen likuid alternatif memperlebar sovereign credit spread Indonesia, sehingga menekan valuasi saham berkapitalisasi pasar besar seperti perbankan komersial yang sensitif terhadap pergeseran foreign fund flow.\n\nKenaikan harga minyak mentah Brent ke US$ 97,44 per barel akibat ketatnya pasokan dan premi risiko geopolitik memberikan transmisi asimetris ke pasar modal domestik. Emiten sektor energi dan jasa migas berpeluang mengalami rotasi likuiditas spekulatif intraday. Namun, secara fundamental makroekonomi, tren harga energi yang tinggi ini mengancam margin operasional sektor manufaktur, memperlebar imported inflation, serta menuntut alokasi belanja kompensasi energi APBN yang berpotensi membatasi ruang stimulus fiskal.\n\nFaktor risiko paling krusial berakar pada pelemahan nilai tukar Rupiah yang kini terdepresiasi ke Rp 17.890 per US$. Kondisi ini mengindikasikan tekanan likuiditas valuta asing yang parah, memaksa Bank Indonesia untuk bersiap mengintensifkan intervensi pasar terbuka dan menaikkan suku bunga pro-market. Implikasi langsung bagi perbankan domestik adalah kenaikan cost of fund, potensi kompresi net interest margin (NIM), serta ancaman pelarian modal asing lanjutan dari pasar obligasi pemerintah (SBN).\n\nSecara taktis, manajer portofolio direkomendasikan mengadopsi strategi defensif berbasis risk-adjusted return menjelang pembukaan perdagangan. Lakukan trimming pada saham-saham beta tinggi dengan profil utang berdenominasi valas yang signifikan. Alihkan eksposur ke emiten energi berorientasi ekspor dan defensif dividen dengan neraca kas bersih, sembari menaikkan alokasi kas hingga 15-20% untuk mengantisipasi potensi retest pada area support 6.420 jika tekanan net outflow asing terakselerasi di sesi pertama.",
   "snapshot": {
     "date": "2026-09-17",
     "ihsg_close": 6462.43,
@@ -65,11 +65,11 @@
         "3 Financial Stocks Retail Investors Are Watching As Bond Yields Hit 5% - Global government bond yields are jumping, the US 10 year Treasury has moved above 5%, and rate expectations are being reset in real time. That kind of shift does not just hit bond"
       ]
     },
-    "sp500_badge": "Rebound Rentan Kenaikan Yield",
-    "sp500_desc": "Meskipun Wall Street membukukan rebound teknikal tipis semalam, lonjakan yield US Treasury 10-tahun ke 5,18% menekan valuasi saham bertumbuh dan membatasi minat beli investor asing pada Big Cap IHSG.",
-    "brent_badge": "Kekhawatiran Inflasi Energi Global",
-    "brent_desc": "Lonjakan minyak mentah Brent ke US$ 97,44/barel akibat ketatnya pasokan memperberat beban subsidi energi dan neraca perdagangan domestik, meski menjadi katalis positif jangka pendek bagi emiten hulu migas.",
-    "usd_idr_badge": "Tekanan Kuat Arus Keluar Modal",
-    "usd_idr_desc": "Pelemahan Rupiah ke Rp 17.890/US$ dipicu oleh tingginya imbal hasil obligasi AS dan ekspektasi hawkish The Fed, mempersempit likuiditas domestik serta memicu risiko foreign outflow di pasar SBN dan saham perbankan."
+    "sp500_badge": "Divergensi Yield dan Ekuitas",
+    "sp500_desc": "Meskipun Wall Street menguat tipis ditopang sektor siklikal, lonjakan yield US Treasury 10Y ke 5,18% memicu repricing equity risk premium global yang menekan valuasi Big Cap perbankan IHSG.",
+    "brent_badge": "Tekanan Fiskal Energi Global",
+    "brent_desc": "Lonjakan minyak Brent ke US$ 97,44 per barel memicu momentum jangka pendek bagi emiten hulu migas, namun memperberat risiko defisit transaksi berjalan serta beban subsidi energi APBN.",
+    "usd_idr_badge": "Depresiasi Ekstrem Kurs Rupiah",
+    "usd_idr_desc": "Penguatan indeks DXY yang terdorong yield acuan AS di atas 5% menekan kurs Rupiah ke Rp 17.890 per US$, memperketat likuiditas perbankan domestik dan memicu risiko capital outflow dari pasar SBN."
   }
 }

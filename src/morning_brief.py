@@ -45,6 +45,33 @@ class MorningBriefGenerator:
 
     def __init__(self):
         self.api_key = GEMINI_API_KEY
+        self.doctrine = self.load_alphatech_doctrine()
+
+    def load_alphatech_doctrine(self) -> str:
+        """
+        Loads AlphaTech.antigravityrules quantitative doctrine to instruct Gemini 3.8 Flash
+        as 'New York' - an elite Quantitative Investment Manager, ML Engineer, and Business Strategist.
+        """
+        rules_path = ROOT_DIR / "AlphaTech.antigravityrules"
+        if rules_path.exists():
+            try:
+                content = rules_path.read_text(encoding="utf-8").strip()
+                if content:
+                    logger.info("AlphaTech.antigravityrules successfully loaded as AI System Doctrine.")
+                    return content
+            except Exception as e:
+                logger.warning(f"Could not read AlphaTech rules file: {e}")
+
+        return (
+            "You are 'New York', an elite AI agent combining the expertise of a Quantitative Investment Manager, "
+            "a Senior Fullstack/Machine Learning Engineer, and a Business Strategist. "
+            "Your primary objective is to assist in analyzing financial markets, evaluating macroeconomic transmissions, "
+            "and ensuring all insights deliver measurable commercial value and risk-adjusted alpha for institutional fund managers. "
+            "Frameworks: Commercial Acumen & Business Strategy, Quantitative Investment & Market Analysis "
+            "(Sharpe ratio, max drawdown, risk-to-reward, IHSG equities, dividend yields, order book dynamics, and econophysics crowd behavior / statistical mechanics distributions for collective sentiment), "
+            "Machine Learning & Data Engineering, and Fullstack Scalability. "
+            "Tone: Analytical, sharp, pragmatic, heavily data-driven, precise financial terminology, concise and direct."
+        )
 
     def collect_macro_news(self) -> Dict[str, List[str]]:
         """
@@ -315,8 +342,14 @@ class MorningBriefGenerator:
         forex_news = "\n".join([f"- {h}" for h in news_dict.get("forex", [])[:4]]) or "- Pergerakan US Dollar Index dan Yield US Treasury"
 
         prompt = f"""
-Bertindaklah sebagai Senior Institutional Equity Research Analyst di pasar modal Indonesia (TIM New York).
-Susun laporan Morning Market Brief harian untuk para investor institusi dan manajer portofolio sebelum bursa BEI dibuka pagi ini.
+Bertindaklah sebagai "New York" (Senior Quantitative Investment Manager & Strategist) sesuai doktrin AlphaTech.
+Susun laporan Morning Market Brief harian berstandar institusi untuk para manajer portofolio dan pelaku pasar profesional sebelum bel pembukaan Bursa Efek Indonesia (BEI) pagi ini.
+
+Terapkan kerangka kerja AlphaTech secara konsisten:
+1. Evaluasi profil risiko ketat (Risk-to-Reward ratio, volatilitas pasar, rentang support-resistance teknikal IHSG).
+2. Analisis dinamika pasar modal Indonesia secara mendalam (likuiditas emiten Big Cap, arus dana asing/foreign flow, yield obligasi pemerintah SBN, dan transmisi nilai tukar).
+3. Pendekatan makro & econophysics dalam membaca transmisi sentimen massa global (Wall Street, pasar energi minyak mentah, dan indeks dolar DXY) ke pasar domestik.
+4. Gaya bahasa tajam, analitis, pragmatis, berbasis data, tanpa kalimat basa-basi atau asterisk ganda berlebihan.
 
 Data Angka Pasar Hari Ini:
 - Tanggal: {snapshot['date']}
@@ -352,9 +385,12 @@ Kembalikan respon HANYA dalam format JSON valid (tanpa teks pembuka atau markdow
         parsed_data = None
         if self.api_key:
             try:
-                # Menggunakan model Gemini 3.8 Flash sesuai instruksi pengguna
-                logger.info("Generating Morning Brief using Gemini 3.8 Flash model...")
-                model = genai.GenerativeModel("gemini-3.8-flash")
+                # Menggunakan model Gemini 3.8 Flash yang didoktrin AlphaTech (New York)
+                logger.info("Generating Morning Brief using Gemini 3.8 Flash indoctrinated with AlphaTech rules...")
+                model = genai.GenerativeModel(
+                    model_name="gemini-3.8-flash",
+                    system_instruction=self.doctrine,
+                )
                 response = model.generate_content(prompt)
                 raw_text = response.text.strip()
 
@@ -369,7 +405,7 @@ Kembalikan respon HANYA dalam format JSON valid (tanpa teks pembuka atau markdow
                 clean_json_str = clean_json_str.strip()
 
                 parsed_data = json.loads(clean_json_str)
-                logger.info("Successfully received and parsed structured brief from Gemini 3.8 Flash.")
+                logger.info("Successfully received and parsed structured brief from Gemini 3.8 Flash (AlphaTech Indoctrinated).")
             except Exception as e:
                 logger.error(f"Failed to generate brief via Gemini 3.8 Flash API: {str(e)}")
 
