@@ -50,7 +50,7 @@ class MarketDataIngestor:
     ):
         self.tickers = tickers
         self.start_date = start_date
-        self.end_date = end_date or datetime.today().strftime("%Y-%m-%d")
+        self.end_date = end_date
         self.benchmark_ticker = benchmark_ticker
 
     def fetch_data(self) -> pd.DataFrame:
@@ -58,7 +58,7 @@ class MarketDataIngestor:
         Downloads historical price & volume data for specified tickers.
         """
         logger.info(
-            f"Fetching market data for {len(self.tickers)} emiten | Range: {self.start_date} to {self.end_date}"
+            f"Fetching market data for {len(self.tickers)} emiten | Range: {self.start_date} to {self.end_date or 'Latest Available'}"
         )
         try:
             cleaned_records = []

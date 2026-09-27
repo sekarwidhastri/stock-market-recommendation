@@ -122,11 +122,52 @@ class MorningBriefGenerator:
         Gathers overnight global market closes and IHSG technical status using Floor Pivots and real data.
         """
         if not BENCHMARK_DATA_FILE.exists():
-            raise FileNotFoundError(f"Benchmark file {BENCHMARK_DATA_FILE} not found. Ingestion must run first.")
+            b_df = pd.DataFrame()
+        else:
+            b_df = pd.read_csv(BENCHMARK_DATA_FILE)
 
-        b_df = pd.read_csv(BENCHMARK_DATA_FILE)
+        # Check live IHSG (^JKSE) to ensure we always reflect the latest completed trading session
+        try:
+            import yfinance as yf
+            live_ihsg = yf.download("^JKSE", period="1mo", progress=False)
+            if not live_ihsg.empty:
+                if isinstance(live_ihsg.columns, pd.MultiIndex):
+                    live_ihsg.columns = [col[0] if isinstance(col, tuple) else col for col in live_ihsg.columns]
+                live_ihsg = live_ihsg.reset_index()
+                live_ihsg["Date"] = pd.to_datetime(live_ihsg["Date"])
+                if "Adj Close" not in live_ihsg.columns:
+                    live_ihsg["Adj Close"] = live_ihsg["Close"]
+                live_ihsg["Benchmark_Return_1D"] = live_ihsg["Adj Close"].pct_change(1)
+
+                latest_live_date = str(live_ihsg.iloc[-1]["Date"])[:10]
+                latest_local_date = str(b_df.iloc[-1]["Date"])[:10] if not b_df.empty else ""
+
+                if latest_live_date > latest_local_date:
+                    logger.info(
+                        f"Live IHSG market session detected: {latest_live_date} "
+                        f"(newer than local {latest_local_date}). Synchronizing benchmark data."
+                    )
+                    if not b_df.empty:
+                        b_df["Date"] = pd.to_datetime(b_df["Date"])
+                        combined = pd.concat([b_df, live_ihsg], ignore_index=True)
+                        combined.drop_duplicates(subset=["Date"], keep="last", inplace=True)
+                        combined.sort_values(by="Date", inplace=True)
+                        combined.reset_index(drop=True, inplace=True)
+                        b_df = combined
+                    else:
+                        b_df = live_ihsg.sort_values(by="Date").reset_index(drop=True)
+
+                    try:
+                        BENCHMARK_DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
+                        b_df.to_csv(BENCHMARK_DATA_FILE, index=False)
+                        logger.info(f"BENCHMARK_DATA_FILE successfully updated on disk to session {latest_live_date}.")
+                    except Exception as ex_save:
+                        logger.warning(f"Could not persist updated benchmark data (non-fatal): {ex_save}")
+        except Exception as e_live:
+            logger.warning(f"Live IHSG check skipped (using local data): {e_live}")
+
         if b_df.empty:
-            raise ValueError(f"Benchmark file {BENCHMARK_DATA_FILE} is empty.")
+            raise ValueError(f"Benchmark file {BENCHMARK_DATA_FILE} is empty and live fetch failed.")
 
         last_row = b_df.iloc[-1]
         prev_row = b_df.iloc[-2] if len(b_df) > 1 else last_row
