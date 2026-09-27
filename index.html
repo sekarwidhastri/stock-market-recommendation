@@ -221,36 +221,36 @@
                                     <span class="text-[11px] sm:text-xs text-slate-400 uppercase tracking-wider font-semibold">Bursa Wall Street</span>
                                     <div class="my-1.5 sm:my-2">
                                         <div class="text-base sm:text-lg font-bold text-white">S&P 500 <span class="text-emerald-400 font-extrabold" id="metricSP500">+0.65%</span></div>
-                                        <span class="text-[11px] sm:text-xs text-emerald-300">Katalis Positif</span>
+                                        <span class="text-[11px] sm:text-xs text-emerald-300 font-medium" id="metricSP500Badge">Katalis Positif</span>
                                     </div>
-                                    <p class="text-[11px] sm:text-xs text-slate-300">Sentimen bursa AS memberikan dorongan awal bagi IHSG.</p>
+                                    <p class="text-[11px] sm:text-xs text-slate-300 leading-relaxed" id="metricSP500Desc">Sentimen bursa AS memberikan dorongan awal bagi IHSG.</p>
                                 </div>
 
                                 <div class="p-3.5 sm:p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col justify-between">
                                     <span class="text-[11px] sm:text-xs text-slate-400 uppercase tracking-wider font-semibold">Minyak Mentah Brent</span>
                                     <div class="my-1.5 sm:my-2">
                                         <div class="text-base sm:text-lg font-bold text-white" id="metricBrent">US$ 78.50 / barel</div>
-                                        <span class="text-[11px] sm:text-xs text-slate-300">Stabil Terkendali</span>
+                                        <span class="text-[11px] sm:text-xs text-slate-300 font-medium" id="metricBrentBadge">Stabil Terkendali</span>
                                     </div>
-                                    <p class="text-[11px] sm:text-xs text-slate-300">Biaya energi dan inflasi manufaktur domestik terjaga.</p>
+                                    <p class="text-[11px] sm:text-xs text-slate-300 leading-relaxed" id="metricBrentDesc">Biaya energi dan inflasi manufaktur domestik terjaga.</p>
                                 </div>
 
                                 <div class="p-3.5 sm:p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col justify-between">
                                     <span class="text-[11px] sm:text-xs text-slate-400 uppercase tracking-wider font-semibold">Kurs USD / IDR</span>
                                     <div class="my-1.5 sm:my-2">
                                         <div class="text-base sm:text-lg font-bold text-white" id="metricUSDIDR">Rp 15.850 / US$</div>
-                                        <span class="text-[11px] sm:text-xs text-emerald-300">Rupiah Terjaga</span>
+                                        <span class="text-[11px] sm:text-xs text-emerald-300 font-medium" id="metricUSDIDRBadge">Rupiah Terjaga</span>
                                     </div>
-                                    <p class="text-[11px] sm:text-xs text-slate-300">Stabilitas nilai tukar menopang arus modal asing.</p>
+                                    <p class="text-[11px] sm:text-xs text-slate-300 leading-relaxed" id="metricUSDIDRDesc">Stabilitas nilai tukar menopang arus modal asing.</p>
                                 </div>
 
                                 <div class="p-3.5 sm:p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col justify-between">
                                     <span class="text-[11px] sm:text-xs text-slate-400 uppercase tracking-wider font-semibold">Level Acuan IHSG</span>
                                     <div class="my-1.5 sm:my-2">
                                         <div class="text-base sm:text-lg font-bold text-white" id="metricIHSG">6.462,43 <span class="text-emerald-400" id="metricIHSGChange">+0.40%</span></div>
-                                        <span class="text-[11px] sm:text-xs text-slate-300" id="metricRange">Support 6.398 • Resistance 6.540</span>
+                                        <span class="text-[11px] sm:text-xs text-slate-300 font-medium" id="metricRange">Support 6.398 • Resistance 6.540</span>
                                     </div>
-                                    <p class="text-[11px] sm:text-xs text-slate-300">Fokus akumulasi pada saham likuid berkapitalisasi besar.</p>
+                                    <p class="text-[11px] sm:text-xs text-slate-300 leading-relaxed" id="metricIHSGDesc">Fokus akumulasi pada saham likuid berkapitalisasi besar.</p>
                                 </div>
                             </div>
 
@@ -1455,11 +1455,40 @@
                 if (data.date) {
                     document.getElementById('briefDateBadge').innerText = `Laporan Riset Harian • Sesi ${data.date}`;
                 }
+                if (data.cards) {
+                    const c = data.cards;
+                    if (c.sp500) {
+                        if (c.sp500.value) document.getElementById('metricSP500').innerText = c.sp500.value;
+                        if (c.sp500.badge) document.getElementById('metricSP500Badge').innerText = c.sp500.badge;
+                        if (c.sp500.desc) document.getElementById('metricSP500Desc').innerText = c.sp500.desc;
+                    }
+                    if (c.brent) {
+                        if (c.brent.value) document.getElementById('metricBrent').innerText = c.brent.value;
+                        if (c.brent.badge) document.getElementById('metricBrentBadge').innerText = c.brent.badge;
+                        if (c.brent.desc) document.getElementById('metricBrentDesc').innerText = c.brent.desc;
+                    }
+                    if (c.usd_idr) {
+                        if (c.usd_idr.value) document.getElementById('metricUSDIDR').innerText = c.usd_idr.value;
+                        if (c.usd_idr.badge) document.getElementById('metricUSDIDRBadge').innerText = c.usd_idr.badge;
+                        if (c.usd_idr.desc) document.getElementById('metricUSDIDRDesc').innerText = c.usd_idr.desc;
+                    }
+                    if (c.ihsg && c.ihsg.desc) {
+                        document.getElementById('metricIHSGDesc').innerText = c.ihsg.desc;
+                    }
+                }
+
                 if (data.snapshot) {
                     const s = data.snapshot;
-                    if (s.sp500_change) document.getElementById('metricSP500').innerText = s.sp500_change;
-                    if (s.brent_oil) document.getElementById('metricBrent').innerText = s.brent_oil;
-                    if (s.usd_idr) document.getElementById('metricUSDIDR').innerText = s.usd_idr;
+                    if (s.sp500_change && !data.cards?.sp500?.value) document.getElementById('metricSP500').innerText = s.sp500_change;
+                    if (s.brent_oil && !data.cards?.brent?.value) document.getElementById('metricBrent').innerText = s.brent_oil;
+                    if (s.usd_idr && !data.cards?.usd_idr?.value) document.getElementById('metricUSDIDR').innerText = s.usd_idr;
+                    if (s.sp500_badge && !data.cards?.sp500?.badge) document.getElementById('metricSP500Badge').innerText = s.sp500_badge;
+                    if (s.sp500_desc && !data.cards?.sp500?.desc) document.getElementById('metricSP500Desc').innerText = s.sp500_desc;
+                    if (s.brent_badge && !data.cards?.brent?.badge) document.getElementById('metricBrentBadge').innerText = s.brent_badge;
+                    if (s.brent_desc && !data.cards?.brent?.desc) document.getElementById('metricBrentDesc').innerText = s.brent_desc;
+                    if (s.usd_idr_badge && !data.cards?.usd_idr?.badge) document.getElementById('metricUSDIDRBadge').innerText = s.usd_idr_badge;
+                    if (s.usd_idr_desc && !data.cards?.usd_idr?.desc) document.getElementById('metricUSDIDRDesc').innerText = s.usd_idr_desc;
+
                     if (s.ihsg_close) {
                         const sign = s.ihsg_change_pct >= 0 ? "+" : "";
                         document.getElementById('metricIHSG').innerHTML = `${s.ihsg_close} <span class="text-emerald-400 text-sm">${sign}${s.ihsg_change_pct}%</span>`;

@@ -1,25 +1,75 @@
 {
-  "date": "2026-09-21",
-  "headline": "Morning Brief IHSG: Katalis Wall Street dan Arah Pasar Hari Ini (2026-09-21)",
-  "brief_content": "Untuk perdagangan hari ini, IHSG diperkirakan bergerak fluktuatif dengan kecenderungan konsolidasi menguat pada rentang 6,360 - 6,406 hingga 6,406 - 6,430. Sentimen eksternal terdorong oleh pergerakan Wall Street (S&P 500 +1.49%, Nasdaq +2.26%), sementara yield US Treasury berada di kisaran 4.96% dan minyak mentah Brent bertengger di US$ 100.34 / barel.\n\nDari domestik, kurs rupiah berada di kisaran Rp 17,806 / US$. Investor disarankan menerapkan strategi Selective Buy on Weakness pada saham-saham likuid berfundamental solid dengan disiplin level stop loss.",
+  "date": "2026-09-17",
+  "headline": "Morning Brief IHSG: Katalis Wall Street dan Arah Pasar Hari Ini (2026-09-17)",
+  "cards": {
+    "sp500": {
+      "value": "+0.51%",
+      "badge": "Rebound Rentan Kenaikan Yield",
+      "desc": "Meskipun Wall Street membukukan rebound teknikal tipis semalam, lonjakan yield US Treasury 10-tahun ke 5,18% menekan valuasi saham bertumbuh dan membatasi minat beli investor asing pada Big Cap IHSG."
+    },
+    "brent": {
+      "value": "US$ 97.44 / barel",
+      "badge": "Kekhawatiran Inflasi Energi Global",
+      "desc": "Lonjakan minyak mentah Brent ke US$ 97,44/barel akibat ketatnya pasokan memperberat beban subsidi energi dan neraca perdagangan domestik, meski menjadi katalis positif jangka pendek bagi emiten hulu migas."
+    },
+    "usd_idr": {
+      "value": "Rp 17,890 / US$",
+      "badge": "Tekanan Kuat Arus Keluar Modal",
+      "desc": "Pelemahan Rupiah ke Rp 17.890/US$ dipicu oleh tingginya imbal hasil obligasi AS dan ekspektasi hawkish The Fed, mempersempit likuiditas domestik serta memicu risiko foreign outflow di pasar SBN dan saham perbankan."
+    },
+    "ihsg": {
+      "value": "6462.43 (+0.4%)",
+      "range": "Support 6,420 - 6,460 • Resistance 6,460 - 6,503",
+      "desc": "Fokus akumulasi pada saham likuid berkapitalisasi besar dengan disiplin level stop loss."
+    }
+  },
+  "brief_content": "Pasar modal Indonesia diperkirakan mengawali perdagangan hari ini dengan kecenderungan mixed dan rentan terhadap tekanan jual, menguji rentang support 6.420-6.460 serta resistance 6.460-6.503. Meskipun IHSG kemarin berhasil ditutup menguat 0,4% di level 6.462,43, sentimen makro global yang memburuk semalam menuntut kehati-hatian tinggi bagi manajer portofolio sebelum bel pembukaan bursa dibunyikan.\n\nDari pasar global, penguatan moderat indeks Wall Street seperti S&P 500 (+0,51%) dan Dow Jones (+0,93%) tertutupi oleh sinyal bahaya dari pasar obligasi AS. Yield US Treasury 10-tahun merangsek naik ke level 5,18%, level tertinggi dalam beberapa dekade, seiring meningkatnya ekspektasi pasar bahwa The Fed masih membuka ruang pengetatan suku bunga lanjutan. Fenomena lonjakan yield ini menyedot likuiditas global keluar dari aset ekuitas pasar berkembang (emerging markets) menuju instrumen safe-haven berbasis Dolar AS.\n\nKondisi semakin diperumit oleh harga minyak mentah Brent yang bertengger di US$ 97,44 per barel. Tingginya harga energi global bertindak sebagai pisau bermata dua; di satu sisi memberikan sentimen jangka pendek bagi emiten tambang dan migas, namun di sisi lain memperbesar beban subsidi APBN, meningkatkan imported inflation, dan menekan daya beli riil domestik jika harga BBM nonsubsidi disesuaikan ke atas.\n\nDinamika kurs Rupiah yang terdepresiasi ke posisi Rp 17.890 per US$ menjadi perhatian utama bagi investor institusi. Melebarnya selisih imbal hasil antara US Treasury dan Surat Berharga Negara (SBN) menekan posisi cadangan devisa serta membatasi ruang pelonggaran moneter Bank Indonesia. Kondisi ini secara langsung membebani sektor perbankan berkapitalisasi besar dan emiten padat modal yang memiliki liabilitas valuta asing tidak terlindung nilai.\n\nSebagai panduan taktis, kami merekomendasikan strategi alokasi portofolio defensif-selektif. Kurangi sementara eksposur pada sektor perbankan sensitif-likuiditas dan saham yang tertekan beban impor valas tinggi. Manfaatkan peluang tactical trading pada saham komoditas energi serta emiten berbasis ekspor yang diuntungkan pelemahan kurs, sembari mempertahankan porsi kas guna mengantisipasi volatilitas pengujian batas bawah support 6.420.",
   "snapshot": {
-    "date": "2026-09-21",
-    "ihsg_close": 6384.73,
-    "ihsg_change_pct": -0.88,
-    "ihsg_ma20": 6540.44,
-    "ihsg_pivot": 6405.88,
-    "ihsg_support": "6,360 - 6,406",
-    "ihsg_resistance": "6,406 - 6,430",
-    "ihsg_s1": 6360,
-    "ihsg_r1": 6430,
-    "ihsg_s2": 6336,
-    "ihsg_r2": 6476,
-    "sp500_change": "+1.49%",
-    "nasdaq_change": "+2.26%",
-    "dow_change": "Data Belum Tersedia",
-    "ust_10y_yield": "4.96%",
-    "brent_oil": "US$ 100.34 / barel",
-    "usd_idr": "Rp 17,806 / US$",
-    "dowjones_change": "+0.71%"
+    "date": "2026-09-17",
+    "ihsg_close": 6462.43,
+    "ihsg_change_pct": 0.4,
+    "ihsg_ma20": 6550.51,
+    "ihsg_pivot": 6460.32,
+    "ihsg_support": "6,420 - 6,460",
+    "ihsg_resistance": "6,460 - 6,503",
+    "ihsg_s1": 6420,
+    "ihsg_r1": 6503,
+    "ihsg_s2": 6378,
+    "ihsg_r2": 6543,
+    "sp500_change": "+0.51%",
+    "nasdaq_change": "+0.48%",
+    "dow_change": "+0.93%",
+    "ust_10y_yield": "5.18%",
+    "brent_oil": "US$ 97.44 / barel",
+    "usd_idr": "Rp 17,890 / US$",
+    "sp500_close": 7743.41015625,
+    "brent_oil_close": 97.44000244140625,
+    "usd_idr_close": 17890.0,
+    "news": {
+      "sp500": [
+        "This Stock's 10% Yield Beats the Market. Its 10-Year Return Doesn't. Is It a Value Trap, or a Real Opportunity? - Ladder Capital has certainly been a value trap over the past decade.",
+        "This S&P 500 ETF Could Help Protect You Against One of the Stock Market's Biggest Risks Right Now - Limiting downside can be as important as maximizing upside.",
+        "Prediction: A Stock Market Crash Is Coming. Here’s the One Move You Should Make, According to History. - This move has resulted in investing success.",
+        "Goldman Sachs says 80% of ultra-rich investors are fleeing stocks for alternative assets — and it's not bonds - Hint: It’s not bonds."
+      ],
+      "oil": [
+        "Nvidia leads tech stocks lower as Treasury yields surge: AlphaCheck - Here's a check of the markets in the first few minutes of trading.",
+        "30-year Treasury yield hits highest level since 2004 — what it means for stocks: Chart of the Day - The 30-year Treasury yield rose to its highest level since 2004 on Thursday as stocks fell, raising questions about whether volatility in bond yields could prompt a larger pullback",
+        "10-year Treasury yield hits highest level since 2007 as market prices in another Fed rate hike - The 10-year Treasury yield rose to its highest level since 2007 on Wednesday.",
+        "'This could be something more substantial': Wall Street braces for more Fed rate hikes - Investors have priced in more than a 50% chance of another rate hike in October after the Federal Reserve voted unanimously last week to increase rates."
+      ],
+      "forex": [
+        "The Weekly Spread: What Shaped US Yields And The Dollar This Week - Surging oil prices, expanded bond buybacks, hawkish comments from multiple Federal Reserve officials, and persistent inflation fears drove a global bond market selloff this week.",
+        "S&P shifts Czech outlook to positive as economic resilience counters fiscal easing - Investing.com -- S&P Global Ratings has revised its outlook on the Czech Republic to positive from stable, signaling a potential sovereign credit rating upgrade over the next 12 to",
+        "The deeper reason behind the relentless rise in bond yields - Ignore hysteria calls on rising bond yields.",
+        "3 Financial Stocks Retail Investors Are Watching As Bond Yields Hit 5% - Global government bond yields are jumping, the US 10 year Treasury has moved above 5%, and rate expectations are being reset in real time. That kind of shift does not just hit bond"
+      ]
+    },
+    "sp500_badge": "Rebound Rentan Kenaikan Yield",
+    "sp500_desc": "Meskipun Wall Street membukukan rebound teknikal tipis semalam, lonjakan yield US Treasury 10-tahun ke 5,18% menekan valuasi saham bertumbuh dan membatasi minat beli investor asing pada Big Cap IHSG.",
+    "brent_badge": "Kekhawatiran Inflasi Energi Global",
+    "brent_desc": "Lonjakan minyak mentah Brent ke US$ 97,44/barel akibat ketatnya pasokan memperberat beban subsidi energi dan neraca perdagangan domestik, meski menjadi katalis positif jangka pendek bagi emiten hulu migas.",
+    "usd_idr_badge": "Tekanan Kuat Arus Keluar Modal",
+    "usd_idr_desc": "Pelemahan Rupiah ke Rp 17.890/US$ dipicu oleh tingginya imbal hasil obligasi AS dan ekspektasi hawkish The Fed, mempersempit likuiditas domestik serta memicu risiko foreign outflow di pasar SBN dan saham perbankan."
   }
 }
