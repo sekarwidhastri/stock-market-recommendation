@@ -24,6 +24,7 @@ from src.config import (  # type: ignore # pyrefly: ignore [missing-import]
     FINANCIAL_STATEMENTS_DIR,
     FUNDAMENTAL_DATA_FILE,
     GLOBAL_MACRO_FILE,
+    HISTORICAL_MACRO_FILE,
     LOG_FORMAT,
     MACRO_TICKERS,
     RAW_DATA_FILE,
@@ -174,6 +175,49 @@ class MarketDataIngestor:
             return combined_macro
         return pd.DataFrame()
 
+    def fetch_historical_macro_data(self) -> pd.DataFrame:
+        """
+        Downloads multi-year historical series for US 10Y Yield, USD/IDR, Brent, and S&P500.
+        Computes yield delta and 1D returns for macro-aware machine learning models.
+        """
+        logger.info("Fetching multi-year historical macro series for LSTM & GBDT...")
+        try:
+            macro_map = {
+                "^TNX": "US_10Y_Yield",
+                "USDIDR=X": "USD_IDR",
+                "BZ=F": "Brent_Oil",
+                "^GSPC": "SP500",
+            }
+            raw = yf.download(
+                list(macro_map.keys()),
+                start=self.start_date,
+                end=self.end_date,
+                auto_adjust=False,
+                progress=False,
+            )
+            if raw.empty:
+                return pd.DataFrame()
+
+            close_df = raw["Close"].rename(columns=macro_map).copy()
+            close_df.reset_index(inplace=True)
+            close_df["Date"] = pd.to_datetime(close_df["Date"]).dt.tz_localize(None)
+
+            if "US_10Y_Yield" in close_df.columns:
+                close_df["US_10Y_Yield_Delta"] = close_df["US_10Y_Yield"].diff()
+            if "USD_IDR" in close_df.columns:
+                close_df["USD_IDR_Return_1D"] = close_df["USD_IDR"].pct_change()
+            if "Brent_Oil" in close_df.columns:
+                close_df["Brent_Oil_Return_1D"] = close_df["Brent_Oil"].pct_change()
+            if "SP500" in close_df.columns:
+                close_df["SP500_Return_1D"] = close_df["SP500"].pct_change()
+
+            close_df.sort_values(by="Date", inplace=True)
+            close_df.reset_index(drop=True, inplace=True)
+            return close_df
+        except Exception as e:
+            logger.warning(f"Could not fetch historical macro series: {e}")
+            return pd.DataFrame()
+
     def fetch_and_save_financial_statements(self) -> pd.DataFrame:
         """
         Fetches fundamental financial ratios and balance sheet statements per emiten.
@@ -288,6 +332,7 @@ class MarketDataIngestor:
         fundamental_df: Optional[pd.DataFrame] = None,
         benchmark_df: Optional[pd.DataFrame] = None,
         macro_df: Optional[pd.DataFrame] = None,
+        hist_macro_df: Optional[pd.DataFrame] = None,
     ) -> None:
         """
         Persists all raw datasets to disk.
@@ -312,6 +357,11 @@ class MarketDataIngestor:
             macro_df.to_csv(GLOBAL_MACRO_FILE, index=False)
             logger.info(f"Global macro dataset persisted to {GLOBAL_MACRO_FILE}")
 
+        if hist_macro_df is not None and not hist_macro_df.empty:
+            HISTORICAL_MACRO_FILE.parent.mkdir(parents=True, exist_ok=True)
+            hist_macro_df.to_csv(HISTORICAL_MACRO_FILE, index=False)
+            logger.info(f"Historical macro dataset persisted to {HISTORICAL_MACRO_FILE}")
+
 
 def run_ingestion_pipeline() -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """
@@ -333,6 +383,7 @@ def run_ingestion_pipeline() -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, 
     df_raw = ingestor.fetch_data()
     df_bench = ingestor.fetch_benchmark_data()
     df_macro = ingestor.fetch_global_macro_data()
+    df_hist_macro = ingestor.fetch_historical_macro_data()
     df_fundamentals = ingestor.fetch_and_save_financial_statements()
 
     # 3. Post-Ingestion Automated Health-Check & Standby Reserve Substitution
@@ -357,7 +408,7 @@ def run_ingestion_pipeline() -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, 
         logger.warning(f"Post-ingestion health-check exception: {e}")
 
     # 4. Safely persist all validated datasets
-    ingestor.save_raw_data(df_raw, df_fundamentals, df_bench, df_macro)
+    ingestor.save_raw_data(df_raw, df_fundamentals, df_bench, df_macro, df_hist_macro)
     return df_raw, df_fundamentals, df_bench, df_macro
 
 

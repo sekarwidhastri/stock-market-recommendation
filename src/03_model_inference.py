@@ -59,9 +59,29 @@ FEATURE_COLUMNS = [
     "Market_Cap",
     "PB_Ratio",
     "MACD_Signal",
+    "IHSG_Return_1D",
+    "US_10Y_Yield_Delta",
+    "USD_IDR_Return_1D",
+    "Brent_Oil_Return_1D",
+    "Oil_Energy_Tailwind",
+    "Rate_Bank_Sensitivity",
+    "FX_Consumer_Headwind",
 ]
 
-LSTM_FEATURE_COLS = ["Return_1D", "RSI_14", "Dist_SMA_20", "CMF_20", "Volume_Ratio"]
+LSTM_FEATURE_COLS = [
+    "Return_1D",
+    "RSI_14",
+    "Dist_SMA_20",
+    "CMF_20",
+    "Volume_Ratio",
+    "IHSG_Return_1D",
+    "US_10Y_Yield_Delta",
+    "USD_IDR_Return_1D",
+    "Brent_Oil_Return_1D",
+    "Oil_Energy_Tailwind",
+    "Rate_Bank_Sensitivity",
+    "FX_Consumer_Headwind",
+]
 TARGET_COLUMN = "Target_Class_5D"
 MODEL_PATH = DATA_DIR / "processed" / "alpha_model.joblib"
 LSTM_MODEL_PATH = DATA_DIR / "processed" / "lstm_model.pth"
@@ -308,7 +328,7 @@ class QuantitativeAlphaModel:
         X_train, y_train = train_df[FEATURE_COLUMNS], train_df[TARGET_COLUMN].astype(int)
         X_test, y_test = test_df[FEATURE_COLUMNS], test_df[TARGET_COLUMN].astype(int)
 
-        logger.info("Fitting Tabular GBDT Model...")
+        logger.info("Fitting Tabular GBDT Model with Macro Context...")
         self.gbdt_model.fit(X_train, y_train)
 
         test_probs = self.gbdt_model.predict_proba(X_test)[:, 1]
@@ -318,8 +338,34 @@ class QuantitativeAlphaModel:
         prec = precision_score(y_test, test_preds, zero_division=0)
         auc = roc_auc_score(y_test, test_probs)
 
-        logger.info("Fitting PyTorch LSTM Sequence Model...")
-        self.lstm_trainer.train_lstm(train_df, epochs=6, batch_size=256)
+        # High-Conviction (Threshold >= 0.55)
+        high_conv_mask = (test_probs >= 0.55)
+        if np.sum(high_conv_mask) > 0:
+            high_conv_prec = precision_score(y_test[high_conv_mask], (test_probs[high_conv_mask] >= 0.5).astype(int), zero_division=0)
+        else:
+            high_conv_prec = prec
+
+        # Top Decile (Top 10% highest conviction predictions)
+        top_decile_cutoff = np.percentile(test_probs, 90)
+        top_decile_mask = (test_probs >= top_decile_cutoff)
+        top_decile_prec = precision_score(y_test[top_decile_mask], (test_probs[top_decile_mask] >= 0.5).astype(int), zero_division=0)
+
+        logger.info("Fitting Macro-Aware PyTorch LSTM Sequence Model...")
+        lstm_train_loss = self.lstm_trainer.train_lstm(train_df, epochs=6, batch_size=256)
+
+        # Evaluate LSTM on test split sequences
+        X_lstm_test, y_lstm_test = self.lstm_trainer.prepare_sequences(test_df)
+        if len(X_lstm_test) > 0:
+            self.lstm_trainer.model.eval()
+            with torch.no_grad():
+                lstm_test_probs = self.lstm_trainer.model(X_lstm_test.to(self.lstm_trainer.device)).cpu().numpy().flatten()
+            y_lstm_true = y_lstm_test.numpy().flatten()
+            lstm_preds = (lstm_test_probs >= 0.5).astype(int)
+            lstm_acc = accuracy_score(y_lstm_true, lstm_preds)
+            lstm_prec = precision_score(y_lstm_true, lstm_preds, zero_division=0)
+            lstm_auc = roc_auc_score(y_lstm_true, lstm_test_probs)
+        else:
+            lstm_acc, lstm_prec, lstm_auc = 0.5, 0.5, 0.5
 
         MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
         joblib.dump(self.gbdt_model, MODEL_PATH)
@@ -328,6 +374,12 @@ class QuantitativeAlphaModel:
             "GBDT_Accuracy": round(float(acc), 4),
             "GBDT_Precision": round(float(prec), 4),
             "GBDT_ROC_AUC": round(float(auc), 4),
+            "High_Conviction_Precision_55": round(float(high_conv_prec), 4),
+            "Top_Decile_Precision": round(float(top_decile_prec), 4),
+            "LSTM_Accuracy": round(float(lstm_acc), 4),
+            "LSTM_Precision": round(float(lstm_prec), 4),
+            "LSTM_ROC_AUC": round(float(lstm_auc), 4),
+            "LSTM_Train_Loss": round(float(lstm_train_loss), 4),
         }
 
     def get_or_extract_latest_rows(self, df: pd.DataFrame, ticker_filter: Optional[List[str]] = None) -> pd.DataFrame:
@@ -342,7 +394,7 @@ class QuantitativeAlphaModel:
 
     def _extract_latest_rows_with_ensemble(self, df: pd.DataFrame, ticker_filter: List[str]) -> pd.DataFrame:
         filtered_df = df[df["Ticker"].isin(ticker_filter)].copy()
-        latest_records = []
+        pre_records = []
 
         for ticker, group in filtered_df.groupby("Ticker"):
             grp = group.sort_values(by="Date")
@@ -361,6 +413,23 @@ class QuantitativeAlphaModel:
             latest_row["LSTM_Prob"] = lstm_prob
             latest_row["Bullish_Probability"] = blended_prob
             latest_row["Conviction_Score"] = np.abs(blended_prob - 0.50)
+            latest_row["_grp"] = grp
+            pre_records.append(latest_row)
+
+        if not pre_records:
+            return pd.DataFrame()
+
+        # Cross-Sectional Ranking: Top Decile (top 10% highest conviction picks across active universe)
+        all_probs = [r["Bullish_Probability"] for r in pre_records]
+        top_decile_cutoff = float(np.percentile(all_probs, 90)) if len(all_probs) >= 10 else 0.55
+
+        latest_records = []
+        for latest_row in pre_records:
+            grp = latest_row.pop("_grp")
+            ticker = latest_row["Ticker"]
+            blended_prob = latest_row["Bullish_Probability"]
+            is_top_decile = bool(blended_prob >= top_decile_cutoff)
+            latest_row["Is_Top_Decile"] = is_top_decile
 
             # Calculate 14-day Average True Range (ATR)
             high_low = grp["High"] - grp["Low"]
@@ -378,13 +447,16 @@ class QuantitativeAlphaModel:
             res1 = float(latest_row.get("Resistance_1", close * 1.03) or (close * 1.03))
             sup1 = float(latest_row.get("Support_1", close * 0.97) or (close * 0.97))
 
-            if blended_prob >= 0.52 and (rsi <= 45.0 or close <= sup1 * 1.01):
+            # High-Conviction Ambang Eksekusi (>= 0.55 atau Top Decile dengan floor >= 0.52)
+            is_buy_eligible = (blended_prob >= 0.55) or (is_top_decile and blended_prob >= 0.52)
+
+            if is_buy_eligible and (rsi <= 45.0 or close <= sup1 * 1.01):
                 action = "BUY ON WEAKNESS"
-            elif blended_prob >= 0.52 and vol_ratio >= 1.25 and close >= res1 * 0.99:
+            elif is_buy_eligible and vol_ratio >= 1.25 and close >= res1 * 0.99:
                 action = "BUY ON BREAKOUT"
-            elif blended_prob >= 0.53:
+            elif is_buy_eligible:
                 action = "TRADING BUY"
-            elif blended_prob <= 0.46 or rsi >= 70.0:
+            elif blended_prob <= 0.45 or rsi >= 70.0:
                 action = "SELL ON STRENGTH"
             else:
                 action = "HOLD"

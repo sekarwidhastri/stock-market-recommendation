@@ -101,6 +101,7 @@ ARIMA_FORECAST_STEPS = 5
 RAW_DATA_FILE = RAW_DATA_DIR / "raw_market_data.csv"
 BENCHMARK_DATA_FILE = RAW_DATA_DIR / "benchmark_market_data.csv"
 GLOBAL_MACRO_FILE = RAW_DATA_DIR / "global_macro_data.csv"
+HISTORICAL_MACRO_FILE = RAW_DATA_DIR / "historical_macro_data.csv"
 FUNDAMENTAL_DATA_FILE = RAW_DATA_DIR / "fundamental_financial_data.csv"
 PROCESSED_DATA_FILE = PROCESSED_DATA_DIR / "processed_market_features.csv"
 ADVANCED_METRICS_FILE = PROCESSED_DATA_DIR / "advanced_quant_metrics.csv"
