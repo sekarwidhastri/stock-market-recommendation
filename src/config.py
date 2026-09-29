@@ -59,9 +59,18 @@ FAVORITE_TICKERS = [
     "ISAT.JK", "BBRI.JK", "ASII.JK", "ANTM.JK", "HEXA.JK",
 ]
 
-# Flatten all sectors into unique universe
+# Flatten all sectors into fallback unique universe
 ALL_SECTOR_TICKERS = [t for tickers in SECTOR_MAP.values() for t in tickers]
 DEFAULT_TICKERS = sorted(list(set(SWING_TICKERS + DIVIDEND_TICKERS + FAVORITE_TICKERS + ALL_SECTOR_TICKERS)))
+
+# Connect Dynamic Universe Manager (preserving capacity N=66)
+try:
+    from src.universe_manager import get_universe_manager
+    _univ_mgr = get_universe_manager()
+    DEFAULT_TICKERS = _univ_mgr.get_active_tickers()
+    SECTOR_MAP = _univ_mgr.get_sector_map()
+except Exception:
+    pass
 
 # 5. Global Macro & Market Catalysts
 MACRO_TICKERS = {
@@ -92,6 +101,7 @@ ARIMA_FORECAST_STEPS = 5
 RAW_DATA_FILE = RAW_DATA_DIR / "raw_market_data.csv"
 BENCHMARK_DATA_FILE = RAW_DATA_DIR / "benchmark_market_data.csv"
 GLOBAL_MACRO_FILE = RAW_DATA_DIR / "global_macro_data.csv"
+HISTORICAL_MACRO_FILE = RAW_DATA_DIR / "historical_macro_data.csv"
 FUNDAMENTAL_DATA_FILE = RAW_DATA_DIR / "fundamental_financial_data.csv"
 PROCESSED_DATA_FILE = PROCESSED_DATA_DIR / "processed_market_features.csv"
 ADVANCED_METRICS_FILE = PROCESSED_DATA_DIR / "advanced_quant_metrics.csv"

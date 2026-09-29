@@ -116,8 +116,8 @@
                 <div class="flex items-center gap-2.5">
                     <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
                     <div class="flex flex-col text-left">
-                        <span class="font-bold text-primary group-hover:text-accent transition-colors" id="sidebarUserName">Sekar Widhastri</span>
-                        <span class="text-[10px] text-text-muted" id="sidebarUserRole">Research Analyst</span>
+                        <span class="font-bold text-primary group-hover:text-accent transition-colors" id="sidebarUserName">TIM New York</span>
+                        <span class="text-[10px] text-text-muted" id="sidebarUserRole">Ifan Apres & Sekar W.</span>
                     </div>
                 </div>
                 <span class="material-symbols-outlined text-[18px] text-slate-400 group-hover:text-primary transition-colors">login</span>
@@ -154,11 +154,11 @@
                 <div class="relative">
                     <button type="button" class="flex items-center gap-2 p-1 sm:p-1.5 rounded-xl hover:bg-slate-100 transition-colors focus:outline-none" onclick="toggleUserDropdown()" id="userProfileBtn">
                         <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xs shadow-sm" id="headerUserAvatar">
-                            SW
+                            NY
                         </div>
                         <div class="flex flex-col text-left hidden md:flex">
-                            <span class="text-sm font-bold text-primary leading-tight" id="headerUserName">Sekar Widhastri</span>
-                            <span class="text-xs text-text-muted leading-tight font-medium" id="headerUserRole">Research Analyst</span>
+                            <span class="text-sm font-bold text-primary leading-tight" id="headerUserName">TIM New York</span>
+                            <span class="text-xs text-text-muted leading-tight font-medium" id="headerUserRole">Ifan Apres & Sekar W.</span>
                         </div>
                         <span class="material-symbols-outlined text-[16px] sm:text-[18px] text-slate-400 hidden sm:inline-block">expand_more</span>
                     </button>
@@ -167,11 +167,11 @@
                     <div class="absolute right-0 top-full mt-2 w-56 sm:w-64 bg-white rounded-2xl border border-surface-border shadow-xl p-3 hidden flex-col gap-2 z-50 animate-in fade-in zoom-in-95 duration-150" id="userDropdownMenu">
                         <div class="p-3 rounded-xl bg-slate-50 border border-slate-100 flex flex-col gap-0.5">
                             <div class="flex items-center gap-2">
-                                <span class="text-xs font-bold text-primary" id="dropdownUserName">Sekar Widhastri</span>
+                                <span class="text-xs font-bold text-primary" id="dropdownUserName">TIM New York</span>
                                 <span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold">Aktif</span>
                             </div>
-                            <span class="text-[11px] text-text-muted" id="dropdownUserEmail">sekar.widhastri@stockmarket.id</span>
-                            <span class="text-[10px] text-slate-400 mt-1">Sesi Terotentikasi Analis BEI</span>
+                            <span class="text-[11px] text-text-muted" id="dropdownUserEmail">team.newyork@stockmarket.id</span>
+                            <span class="text-[10px] text-slate-400 mt-1">Ifan Apres & Sekar Widhastri (BEI Quant)</span>
                         </div>
 
                         <div class="flex flex-col gap-1 pt-1 border-t border-slate-100">
@@ -221,40 +221,69 @@
                                     <span class="text-[11px] sm:text-xs text-slate-400 uppercase tracking-wider font-semibold">Bursa Wall Street</span>
                                     <div class="my-1.5 sm:my-2">
                                         <div class="text-base sm:text-lg font-bold text-white">S&P 500 <span class="text-emerald-400 font-extrabold" id="metricSP500">+0.65%</span></div>
-                                        <span class="text-[11px] sm:text-xs text-emerald-300">Katalis Positif</span>
+                                        <span class="text-[11px] sm:text-xs text-emerald-300 font-medium" id="metricSP500Badge">Katalis Positif</span>
                                     </div>
-                                    <p class="text-[11px] sm:text-xs text-slate-300">Sentimen bursa AS memberikan dorongan awal bagi IHSG.</p>
+                                    <p class="text-[11px] sm:text-xs text-slate-300 leading-relaxed" id="metricSP500Desc">Sentimen bursa AS memberikan dorongan awal bagi IHSG.</p>
                                 </div>
 
                                 <div class="p-3.5 sm:p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col justify-between">
                                     <span class="text-[11px] sm:text-xs text-slate-400 uppercase tracking-wider font-semibold">Minyak Mentah Brent</span>
                                     <div class="my-1.5 sm:my-2">
                                         <div class="text-base sm:text-lg font-bold text-white" id="metricBrent">US$ 78.50 / barel</div>
-                                        <span class="text-[11px] sm:text-xs text-slate-300">Stabil Terkendali</span>
+                                        <span class="text-[11px] sm:text-xs text-slate-300 font-medium" id="metricBrentBadge">Stabil Terkendali</span>
                                     </div>
-                                    <p class="text-[11px] sm:text-xs text-slate-300">Biaya energi dan inflasi manufaktur domestik terjaga.</p>
+                                    <p class="text-[11px] sm:text-xs text-slate-300 leading-relaxed" id="metricBrentDesc">Biaya energi dan inflasi manufaktur domestik terjaga.</p>
                                 </div>
 
                                 <div class="p-3.5 sm:p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col justify-between">
                                     <span class="text-[11px] sm:text-xs text-slate-400 uppercase tracking-wider font-semibold">Kurs USD / IDR</span>
                                     <div class="my-1.5 sm:my-2">
                                         <div class="text-base sm:text-lg font-bold text-white" id="metricUSDIDR">Rp 15.850 / US$</div>
-                                        <span class="text-[11px] sm:text-xs text-emerald-300">Rupiah Terjaga</span>
+                                        <span class="text-[11px] sm:text-xs text-emerald-300 font-medium" id="metricUSDIDRBadge">Rupiah Terjaga</span>
                                     </div>
-                                    <p class="text-[11px] sm:text-xs text-slate-300">Stabilitas nilai tukar menopang arus modal asing.</p>
+                                    <p class="text-[11px] sm:text-xs text-slate-300 leading-relaxed" id="metricUSDIDRDesc">Stabilitas nilai tukar menopang arus modal asing.</p>
                                 </div>
 
                                 <div class="p-3.5 sm:p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col justify-between">
                                     <span class="text-[11px] sm:text-xs text-slate-400 uppercase tracking-wider font-semibold">Level Acuan IHSG</span>
                                     <div class="my-1.5 sm:my-2">
                                         <div class="text-base sm:text-lg font-bold text-white" id="metricIHSG">6.462,43 <span class="text-emerald-400" id="metricIHSGChange">+0.40%</span></div>
-                                        <span class="text-[11px] sm:text-xs text-slate-300" id="metricRange">Support 6.398 • Resistance 6.540</span>
+                                        <span class="text-[11px] sm:text-xs text-slate-300 font-medium" id="metricRange">Support 6.398 • Resistance 6.540</span>
                                     </div>
-                                    <p class="text-[11px] sm:text-xs text-slate-300">Fokus akumulasi pada saham likuid berkapitalisasi besar.</p>
+                                    <p class="text-[11px] sm:text-xs text-slate-300 leading-relaxed" id="metricIHSGDesc">Fokus akumulasi pada saham likuid berkapitalisasi besar.</p>
                                 </div>
                             </div>
 
-                            <!-- Editorial Narrative Body (Formatted Clean HTML without asterisks) -->
+                            <!-- 1. Executive Key Takeaways Card (Pilihan 1: Kartu Poin Kunci Terpisah) -->
+                            <div class="p-4 sm:p-5 rounded-xl bg-gradient-to-r from-emerald-950/40 via-slate-900/60 to-slate-950/40 border border-emerald-500/30 shadow-lg flex flex-col gap-3">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2 text-emerald-400 font-bold text-xs sm:text-sm">
+                                        <span class="material-symbols-outlined text-[18px]">bolt</span>
+                                        <span>Poin Kunci & Aksi Taktis Pasar (Executive Takeaways):</span>
+                                    </div>
+                                    <span class="text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Fast Read 10-Detik</span>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3 text-xs sm:text-sm text-slate-200" id="briefKeyTakeaways">
+                                    <div class="p-2.5 rounded-lg bg-white/5 border border-white/5 flex items-start gap-2">
+                                        <span class="text-emerald-400 font-bold text-sm">🎯</span>
+                                        <span class="leading-relaxed">Arah Indeks: Memuat proyeksi pembukaan dan level support-resistance...</span>
+                                    </div>
+                                    <div class="p-2.5 rounded-lg bg-white/5 border border-white/5 flex items-start gap-2">
+                                        <span class="text-blue-400 font-bold text-sm">🌐</span>
+                                        <span class="leading-relaxed">Katalis Global: Memuat transmisi sentimen Wall Street dan obligasi AS...</span>
+                                    </div>
+                                    <div class="p-2.5 rounded-lg bg-white/5 border border-white/5 flex items-start gap-2">
+                                        <span class="text-amber-400 font-bold text-sm">⚠️</span>
+                                        <span class="leading-relaxed">Risiko Makro: Memuat dinamika harga minyak Brent dan kurs Rupiah...</span>
+                                    </div>
+                                    <div class="p-2.5 rounded-lg bg-white/5 border border-white/5 flex items-start gap-2">
+                                        <span class="text-purple-400 font-bold text-sm">💼</span>
+                                        <span class="leading-relaxed">Panduan Taktis: Memuat rekomendasi alokasi kas dan seleksi emiten...</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2. Editorial Narrative Body (Formatted Clean HTML without asterisks) -->
                             <div class="p-4 sm:p-5 rounded-xl bg-white/10 border border-white/10 flex flex-col gap-2.5 sm:gap-3">
                                 <div class="flex items-center gap-2 text-emerald-300 font-bold text-xs sm:text-sm">
                                     <span class="material-symbols-outlined text-[17px] sm:text-[18px]">article</span>
@@ -1455,11 +1484,40 @@
                 if (data.date) {
                     document.getElementById('briefDateBadge').innerText = `Laporan Riset Harian • Sesi ${data.date}`;
                 }
+                if (data.cards) {
+                    const c = data.cards;
+                    if (c.sp500) {
+                        if (c.sp500.value) document.getElementById('metricSP500').innerText = c.sp500.value;
+                        if (c.sp500.badge) document.getElementById('metricSP500Badge').innerText = c.sp500.badge;
+                        if (c.sp500.desc) document.getElementById('metricSP500Desc').innerText = c.sp500.desc;
+                    }
+                    if (c.brent) {
+                        if (c.brent.value) document.getElementById('metricBrent').innerText = c.brent.value;
+                        if (c.brent.badge) document.getElementById('metricBrentBadge').innerText = c.brent.badge;
+                        if (c.brent.desc) document.getElementById('metricBrentDesc').innerText = c.brent.desc;
+                    }
+                    if (c.usd_idr) {
+                        if (c.usd_idr.value) document.getElementById('metricUSDIDR').innerText = c.usd_idr.value;
+                        if (c.usd_idr.badge) document.getElementById('metricUSDIDRBadge').innerText = c.usd_idr.badge;
+                        if (c.usd_idr.desc) document.getElementById('metricUSDIDRDesc').innerText = c.usd_idr.desc;
+                    }
+                    if (c.ihsg && c.ihsg.desc) {
+                        document.getElementById('metricIHSGDesc').innerText = c.ihsg.desc;
+                    }
+                }
+
                 if (data.snapshot) {
                     const s = data.snapshot;
-                    if (s.sp500_change) document.getElementById('metricSP500').innerText = s.sp500_change;
-                    if (s.brent_oil) document.getElementById('metricBrent').innerText = s.brent_oil;
-                    if (s.usd_idr) document.getElementById('metricUSDIDR').innerText = s.usd_idr;
+                    if (s.sp500_change && !data.cards?.sp500?.value) document.getElementById('metricSP500').innerText = s.sp500_change;
+                    if (s.brent_oil && !data.cards?.brent?.value) document.getElementById('metricBrent').innerText = s.brent_oil;
+                    if (s.usd_idr && !data.cards?.usd_idr?.value) document.getElementById('metricUSDIDR').innerText = s.usd_idr;
+                    if (s.sp500_badge && !data.cards?.sp500?.badge) document.getElementById('metricSP500Badge').innerText = s.sp500_badge;
+                    if (s.sp500_desc && !data.cards?.sp500?.desc) document.getElementById('metricSP500Desc').innerText = s.sp500_desc;
+                    if (s.brent_badge && !data.cards?.brent?.badge) document.getElementById('metricBrentBadge').innerText = s.brent_badge;
+                    if (s.brent_desc && !data.cards?.brent?.desc) document.getElementById('metricBrentDesc').innerText = s.brent_desc;
+                    if (s.usd_idr_badge && !data.cards?.usd_idr?.badge) document.getElementById('metricUSDIDRBadge').innerText = s.usd_idr_badge;
+                    if (s.usd_idr_desc && !data.cards?.usd_idr?.desc) document.getElementById('metricUSDIDRDesc').innerText = s.usd_idr_desc;
+
                     if (s.ihsg_close) {
                         const sign = s.ihsg_change_pct >= 0 ? "+" : "";
                         document.getElementById('metricIHSG').innerHTML = `${s.ihsg_close} <span class="text-emerald-400 text-sm">${sign}${s.ihsg_change_pct}%</span>`;
@@ -1467,6 +1525,27 @@
                     if (s.ihsg_support && s.ihsg_resistance) {
                         document.getElementById('metricRange').innerText = `Support ${s.ihsg_support} • Resistance ${s.ihsg_resistance}`;
                     }
+                }
+
+                // Render Kartu Poin Kunci & Aksi Taktis (Executive Takeaways)
+                const takeawaysContainer = document.getElementById('briefKeyTakeaways');
+                const rawTakeaways = data.key_takeaways || data.snapshot?.key_takeaways;
+                if (takeawaysContainer && Array.isArray(rawTakeaways) && rawTakeaways.length > 0) {
+                    const defaultIcons = ['🎯', '🌐', '⚠️', '💼'];
+                    takeawaysContainer.innerHTML = rawTakeaways.map((item, idx) => {
+                        let text = String(item).trim();
+                        let icon = defaultIcons[idx % defaultIcons.length];
+                        if (text.startsWith('🎯') || text.startsWith('🌐') || text.startsWith('⚠️') || text.startsWith('💼')) {
+                            icon = text.slice(0, 2);
+                            text = text.slice(2).trim();
+                        }
+                        return `
+                            <div class="p-2.5 sm:p-3 rounded-lg bg-white/5 border border-white/10 flex items-start gap-2.5 hover:bg-white/10 transition-colors">
+                                <span class="text-base sm:text-lg shrink-0 select-none">${icon}</span>
+                                <span class="leading-relaxed text-slate-200 text-xs sm:text-sm font-medium">${text}</span>
+                            </div>
+                        `;
+                    }).join('');
                 }
             } catch (e) {
                 console.log("Menggunakan data brief bawaan.");

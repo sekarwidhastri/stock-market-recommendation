@@ -199,13 +199,29 @@ class AuthLoginRequest(BaseModel):
 @app.post("/api/v1/auth/login", tags=["Auth"])
 def auth_login(req: AuthLoginRequest) -> Dict[str, Any]:
     username = req.username.strip().lower()
-    if "sekar" in username or "analyst" in username:
+    if "ifan" in username:
+        user_data = {
+            "name": "Ifan Apres",
+            "role": "Lead Quantitative Engineer (TIM New York)",
+            "email": "ifan.apres@stockmarket.id",
+            "initials": "IA",
+            "access_level": "Lead Quant & Systems Architect (Full Access)",
+        }
+    elif "sekar" in username:
         user_data = {
             "name": "Sekar Widhastri",
-            "role": "Research Analyst",
+            "role": "Senior Market Analyst (TIM New York)",
             "email": "sekar.widhastri@stockmarket.id",
             "initials": "SW",
-            "access_level": "Senior Analyst (Full Access)",
+            "access_level": "Senior Research Analyst (Full Access)",
+        }
+    elif "newyork" in username or "team" in username or "tim" in username or "analyst" in username:
+        user_data = {
+            "name": "TIM New York",
+            "role": "Quantitative Strategy Team",
+            "email": "team.newyork@stockmarket.id",
+            "initials": "NY",
+            "access_level": "Institutional Suite (Ifan & Sekar)",
         }
     elif "portfolio" in username or "manager" in username:
         user_data = {
@@ -231,6 +247,7 @@ def auth_login(req: AuthLoginRequest) -> Dict[str, Any]:
     }
 
 
+
 @app.get("/morning-brief", tags=["Morning Market Brief"])
 def get_morning_brief() -> Dict[str, Any]:
     """
@@ -253,6 +270,27 @@ def get_sectors() -> Dict[str, List[str]]:
     Returns the 11 official IDX sectors and their constituent tickers.
     """
     return SECTOR_MAP
+
+
+@app.get("/universe", tags=["Universe Management"])
+@app.get("/api/universe", tags=["Universe Management"])
+def get_universe_telemetry() -> Dict[str, Any]:
+    """
+    Returns diagnostic telemetry for the 66-stock dynamic universe,
+    including sector distribution, health statuses, and standby replacements.
+    """
+    try:
+        from src.universe_manager import get_universe_manager
+        mgr = get_universe_manager()
+        return mgr.get_universe_diagnostics()
+    except Exception as e:
+        return {
+            "capacity": 66,
+            "active_tickers_count": len(DEFAULT_TICKERS),
+            "active_tickers": DEFAULT_TICKERS,
+            "sector_breakdown": {s: len(t) for s, t in SECTOR_MAP.items()},
+            "error": str(e),
+        }
 
 
 @app.get("/portfolio/allocate", response_model=List[AllocationItem], tags=["Portfolio Optimizer"])

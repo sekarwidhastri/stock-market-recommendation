@@ -52,5 +52,5 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action Bot"
-          git add data/processed/
+          git add data/processed/ data/raw/benchmark_market_data.csv data/raw/global_macro_data.csv
           git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update daily alpha recommendations & morning brief [skip ci]" && git push)

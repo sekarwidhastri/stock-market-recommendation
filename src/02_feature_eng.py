@@ -1,6 +1,7 @@
 import logging
 from pathlib import Path
 import sys
+from typing import Optional, Dict, Any, List
 
 # Ensure project root is in sys.path
 ROOT_DIR = Path(__file__).resolve().parent.parent
@@ -19,6 +20,7 @@ from src.config import (  # type: ignore # pyrefly: ignore [missing-import]
     BENCHMARK_DATA_FILE,
     FUNDAMENTAL_DATA_FILE,
     GLOBAL_MACRO_FILE,
+    HISTORICAL_MACRO_FILE,
     LOG_FORMAT,
     PROCESSED_DATA_FILE,
     RAW_DATA_FILE,
@@ -43,10 +45,12 @@ class QuantitativeFeatureEngineer:
         self,
         raw_data_path: str = str(RAW_DATA_FILE),
         benchmark_path: str = str(BENCHMARK_DATA_FILE),
+        macro_path: str = str(HISTORICAL_MACRO_FILE),
         risk_free_rate: float = RISK_FREE_RATE,
     ):
         self.raw_data_path = raw_data_path
         self.benchmark_path = benchmark_path
+        self.macro_path = macro_path
         self.risk_free_rate = risk_free_rate
         # Invert sector map for fast ticker -> sector lookup
         self.ticker_to_sector = {}
@@ -67,14 +71,28 @@ class QuantitativeFeatureEngineer:
 
     def load_benchmark_data(self) -> pd.DataFrame:
         """
-        Loads benchmark (^JKSE / IHSG) market data.
+        Loads benchmark (^JKSE / IHSG) market data and computes 1D and 5D forward return.
         """
-        if BENCHMARK_DATA_FILE.exists():
+        if Path(self.benchmark_path).exists():
             bench_df = pd.read_csv(self.benchmark_path)
             bench_df["Date"] = pd.to_datetime(bench_df["Date"])
             bench_df.sort_values(by="Date", inplace=True)
             bench_df.reset_index(drop=True, inplace=True)
+            bench_df["Benchmark_Return_1D"] = bench_df["Adj Close"].pct_change(1)
+            bench_df["Benchmark_Return_5D"] = np.log(bench_df["Adj Close"].shift(-5) / bench_df["Adj Close"])
             return bench_df
+        return pd.DataFrame()
+
+    def load_macro_data(self) -> pd.DataFrame:
+        """
+        Loads historical multi-year cross-asset macro dataset.
+        """
+        if Path(self.macro_path).exists():
+            macro_df = pd.read_csv(self.macro_path)
+            macro_df["Date"] = pd.to_datetime(macro_df["Date"])
+            macro_df.sort_values(by="Date", inplace=True)
+            macro_df.reset_index(drop=True, inplace=True)
+            return macro_df
         return pd.DataFrame()
 
     def load_fundamental_data(self) -> pd.DataFrame:
@@ -203,7 +221,12 @@ class QuantitativeFeatureEngineer:
                 "nu": 8.0,
             }
 
-    def generate_ticker_features(self, group: pd.DataFrame, bench_df: pd.DataFrame) -> pd.DataFrame:
+    def generate_ticker_features(
+        self,
+        group: pd.DataFrame,
+        bench_df: pd.DataFrame,
+        macro_df: Optional[pd.DataFrame] = None,
+    ) -> pd.DataFrame:
         """
         Constructs technical, institutional money flow, support/resistance, and GARCH volatility metrics.
         """
@@ -299,12 +322,49 @@ class QuantitativeFeatureEngineer:
         df["ES_95_1D"] = garch_res["es_95_1d"]
         df["GARCH_Model"] = garch_res["model"]
 
-        # 7. Forward Target
+        # 7. Merge Benchmark & Global Macro Features
+        if not bench_df.empty:
+            bench_sub = bench_df[["Date", "Benchmark_Return_1D", "Benchmark_Return_5D"]].copy()
+            df = df.merge(bench_sub, on="Date", how="left")
+            df["IHSG_Return_1D"] = df["Benchmark_Return_1D"].fillna(0.0)
+        else:
+            df["Benchmark_Return_1D"] = 0.0
+            df["Benchmark_Return_5D"] = 0.0
+            df["IHSG_Return_1D"] = 0.0
+
+        if macro_df is not None and not macro_df.empty:
+            macro_cols = ["Date", "US_10Y_Yield_Delta", "USD_IDR_Return_1D", "Brent_Oil_Return_1D", "SP500_Return_1D"]
+            avail_cols = [c for c in macro_cols if c in macro_df.columns]
+            df = df.merge(macro_df[avail_cols], on="Date", how="left")
+            for c in ["US_10Y_Yield_Delta", "USD_IDR_Return_1D", "Brent_Oil_Return_1D", "SP500_Return_1D"]:
+                if c in df.columns:
+                    df[c] = df[c].ffill().bfill().fillna(0.0)
+                else:
+                    df[c] = 0.0
+        else:
+            df["US_10Y_Yield_Delta"] = 0.0
+            df["USD_IDR_Return_1D"] = 0.0
+            df["Brent_Oil_Return_1D"] = 0.0
+            df["SP500_Return_1D"] = 0.0
+
+        # 8. Sector-Macro Interaction Features (Sector Sensitivity)
+        sector_name = str(df["Sector"].iloc[0]) if "Sector" in df.columns else "General"
+        # Energy Tailwind: Oil return active specifically for Energy sector
+        df["Oil_Energy_Tailwind"] = np.where(sector_name == "Energy", df["Brent_Oil_Return_1D"], 0.0)
+        # Bank Yield Sensitivity: 10Y Yield delta active specifically for Financials
+        df["Rate_Bank_Sensitivity"] = np.where(sector_name == "Financials", df["US_10Y_Yield_Delta"], 0.0)
+        # Consumer FX Headwind: USD/IDR depreciation active for Consumer and Healthcare
+        consumer_sectors = ["Consumer Non-Cyclicals", "Consumer Cyclicals", "Healthcare"]
+        df["FX_Consumer_Headwind"] = np.where(sector_name in consumer_sectors, df["USD_IDR_Return_1D"], 0.0)
+
+        # 9. Forward Target: Excess Return (Alpha Relatif vs IHSG)
         df["Target_Return_5D"] = np.log(df["Adj Close"].shift(-5) / df["Adj Close"])
+        df["Target_Excess_Return_5D"] = df["Target_Return_5D"] - df["Benchmark_Return_5D"]
+        excess_val = df["Target_Excess_Return_5D"].fillna(df["Target_Return_5D"])
         df["Target_Class_5D"] = np.where(
             df["Target_Return_5D"].isna(),
             np.nan,
-            (df["Target_Return_5D"] > 0).astype(float),
+            (excess_val > 0.0).astype(float),
         )
 
         return df
@@ -315,12 +375,13 @@ class QuantitativeFeatureEngineer:
         """
         raw_df = self.load_raw_data()
         bench_df = self.load_benchmark_data()
+        macro_df = self.load_macro_data()
         fund_df = self.load_fundamental_data()
 
-        logger.info(f"Generating quant features across {raw_df['Ticker'].nunique()} emiten with GARCH...")
+        logger.info(f"Generating quant features across {raw_df['Ticker'].nunique()} emiten with GARCH, Excess Alpha & Macro Context...")
         processed_groups = []
         for _, group in raw_df.groupby("Ticker"):
-            ticker_features = self.generate_ticker_features(group, bench_df)
+            ticker_features = self.generate_ticker_features(group, bench_df, macro_df)
             processed_groups.append(ticker_features)
 
         feature_df = pd.concat(processed_groups, ignore_index=True)

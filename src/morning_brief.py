@@ -1,10 +1,11 @@
+import importlib
 import json
 import logging
 import os
-from datetime import datetime
 from pathlib import Path
+import re
 import sys
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 # Ensure project root is in sys.path
 ROOT_DIR = Path(__file__).resolve().parent.parent
@@ -39,23 +40,134 @@ class MorningBriefGenerator:
     """
     Automated Institutional Market Morning Brief Generator.
     Aggregates Wall Street closes, US Treasury yields, global oil prices, Rupiah exchange rate,
-    and IHSG technical levels into an institutional-grade daily brief using Gemini 1.5 Flash.
+    and IHSG technical levels, augmented with real-time news scraping and synthesized via Gemini 3.8 Flash.
     """
 
     def __init__(self):
         self.api_key = GEMINI_API_KEY
+        self.doctrine = self.load_alphatech_doctrine()
+
+    def load_alphatech_doctrine(self) -> str:
+        """
+        Loads AlphaTech.antigravityrules quantitative doctrine to instruct Gemini 3.8 Flash
+        as 'New York' - an elite Quantitative Investment Manager, ML Engineer, and Business Strategist.
+        """
+        rules_path = ROOT_DIR / "AlphaTech.antigravityrules"
+        if rules_path.exists():
+            try:
+                content = rules_path.read_text(encoding="utf-8").strip()
+                if content:
+                    logger.info("AlphaTech.antigravityrules successfully loaded as AI System Doctrine.")
+                    return content
+            except Exception as e:
+                logger.warning(f"Could not read AlphaTech rules file: {e}")
+
+        return (
+            "You are 'New York', an elite AI agent combining the expertise of a Quantitative Investment Manager, "
+            "a Senior Fullstack/Machine Learning Engineer, and a Business Strategist. "
+            "Your primary objective is to assist in analyzing financial markets, evaluating macroeconomic transmissions, "
+            "and ensuring all insights deliver measurable commercial value and risk-adjusted alpha for institutional fund managers. "
+            "Frameworks: Commercial Acumen & Business Strategy, Quantitative Investment & Market Analysis "
+            "(Sharpe ratio, max drawdown, risk-to-reward, IHSG equities, dividend yields, order book dynamics, and econophysics crowd behavior / statistical mechanics distributions for collective sentiment), "
+            "Machine Learning & Data Engineering, and Fullstack Scalability. "
+            "Tone: Analytical, sharp, pragmatic, heavily data-driven, precise financial terminology, concise and direct."
+        )
+
+    def collect_macro_news(self) -> Dict[str, List[str]]:
+        """
+        Scrapes real-time headlines and summaries for global macro catalysts:
+        - S&P 500 (^GSPC): Wall Street market drivers, Tech earnings, Fed sentiment
+        - Brent Crude Oil (BZ=F): Geopolitics, OPEC+ supply, global energy tensions
+        - DXY & US 10Y Yield (DX-Y.NYB, ^TNX): Dollar Index, Treasury yields, Forex drivers
+        """
+        news_data: Dict[str, List[str]] = {"sp500": [], "oil": [], "forex": []}
+        try:
+            import yfinance as yf
+
+            def fetch_ticker_news(ticker_symbol: str, limit: int = 4) -> List[str]:
+                results: List[str] = []
+                try:
+                    t = yf.Ticker(ticker_symbol)
+                    raw_news = t.news or []
+                    for item in raw_news[:limit]:
+                        content = item.get("content", {}) if isinstance(item, dict) else {}
+                        title = content.get("title") or item.get("title")
+                        summary = content.get("summary") or content.get("description") or item.get("summary") or ""
+                        if title:
+                            clean_t = str(title).strip()
+                            clean_s = str(summary).strip()[:180]
+                            entry = f"{clean_t} - {clean_s}" if clean_s else clean_t
+                            results.append(entry)
+                except Exception as ex:
+                    logger.debug(f"Could not fetch news feed for {ticker_symbol}: {ex}")
+                return results
+
+            news_data["sp500"] = fetch_ticker_news("^GSPC", limit=4)
+            news_data["oil"] = fetch_ticker_news("BZ=F", limit=4)
+            dxy_news = fetch_ticker_news("DX-Y.NYB", limit=2)
+            tnx_news = fetch_ticker_news("^TNX", limit=2)
+            news_data["forex"] = dxy_news + tnx_news
+
+            logger.info(
+                f"Scraped real-time macro news: S&P 500 ({len(news_data['sp500'])} items), "
+                f"Brent Oil ({len(news_data['oil'])} items), Forex/DXY ({len(news_data['forex'])} items)."
+            )
+        except Exception as e:
+            logger.warning(f"Error scraping real-time macro news: {e}")
+
+        return news_data
 
     def collect_market_snapshot(self) -> Dict[str, Any]:
         """
         Gathers overnight global market closes and IHSG technical status using Floor Pivots and real data.
-        Removes all hardcoded placeholders to prevent emitting false market figures.
         """
         if not BENCHMARK_DATA_FILE.exists():
-            raise FileNotFoundError(f"Benchmark file {BENCHMARK_DATA_FILE} not found. Ingestion must run first.")
+            b_df = pd.DataFrame()
+        else:
+            b_df = pd.read_csv(BENCHMARK_DATA_FILE)
 
-        b_df = pd.read_csv(BENCHMARK_DATA_FILE)
+        # Check live IHSG (^JKSE) to ensure we always reflect the latest completed trading session
+        try:
+            import yfinance as yf
+            live_ihsg = yf.download("^JKSE", period="1mo", progress=False)
+            if not live_ihsg.empty:
+                if isinstance(live_ihsg.columns, pd.MultiIndex):
+                    live_ihsg.columns = [col[0] if isinstance(col, tuple) else col for col in live_ihsg.columns]
+                live_ihsg = live_ihsg.reset_index()
+                live_ihsg["Date"] = pd.to_datetime(live_ihsg["Date"])
+                if "Adj Close" not in live_ihsg.columns:
+                    live_ihsg["Adj Close"] = live_ihsg["Close"]
+                live_ihsg["Benchmark_Return_1D"] = live_ihsg["Adj Close"].pct_change(1)
+
+                latest_live_date = str(live_ihsg.iloc[-1]["Date"])[:10]
+                latest_local_date = str(b_df.iloc[-1]["Date"])[:10] if not b_df.empty else ""
+
+                if latest_live_date > latest_local_date:
+                    logger.info(
+                        f"Live IHSG market session detected: {latest_live_date} "
+                        f"(newer than local {latest_local_date}). Synchronizing benchmark data."
+                    )
+                    if not b_df.empty:
+                        b_df["Date"] = pd.to_datetime(b_df["Date"])
+                        combined = pd.concat([b_df, live_ihsg], ignore_index=True)
+                        combined.drop_duplicates(subset=["Date"], keep="last", inplace=True)
+                        combined.sort_values(by="Date", inplace=True)
+                        combined.reset_index(drop=True, inplace=True)
+                        b_df = combined
+                    else:
+                        b_df = live_ihsg.sort_values(by="Date").reset_index(drop=True)
+
+                    try:
+                        BENCHMARK_DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
+                        b_df.to_csv(BENCHMARK_DATA_FILE, index=False)
+                        logger.info(f"BENCHMARK_DATA_FILE successfully updated on disk to session {latest_live_date}.")
+                    except Exception as ex_save:
+                        logger.warning(f"Could not persist updated benchmark data (non-fatal): {ex_save}")
+        except Exception as e_live:
+            logger.warning(f"Live IHSG check skipped (using local data): {e_live}")
+
         if b_df.empty:
-            raise ValueError(f"Benchmark file {BENCHMARK_DATA_FILE} is empty.")
+            raise ValueError(f"Benchmark file {BENCHMARK_DATA_FILE} is empty and live fetch failed.")
 
         last_row = b_df.iloc[-1]
         prev_row = b_df.iloc[-2] if len(b_df) > 1 else last_row
@@ -94,6 +206,9 @@ class MorningBriefGenerator:
             "ust_10y_yield": "Data Belum Tersedia",
             "brent_oil": "Data Belum Tersedia",
             "usd_idr": "Data Belum Tersedia",
+            "sp500_close": None,
+            "brent_oil_close": None,
+            "usd_idr_close": None,
         }
 
         # Read actual global macro data if available
@@ -109,14 +224,20 @@ class MorningBriefGenerator:
                             c0 = float(sub.iloc[-2]["Close"])
                             pct = round(((c1 - c0) / c0) * 100.0, 2)
                             snapshot[f"{asset.lower()}_change"] = f"{'+' if pct > 0 else ''}{pct}%"
+                            if asset == "SP500":
+                                snapshot["sp500_close"] = c1
 
                     oil_sub = m_df[m_df["Asset_Name"] == "Oil_Brent"]
                     if not oil_sub.empty:
-                        snapshot["brent_oil"] = f"US$ {float(oil_sub.iloc[-1]['Close']):.2f} / barel"
+                        oil_val = float(oil_sub.iloc[-1]["Close"])
+                        snapshot["brent_oil"] = f"US$ {oil_val:.2f} / barel"
+                        snapshot["brent_oil_close"] = oil_val
 
                     usd_sub = m_df[m_df["Asset_Name"] == "USD_IDR"]
                     if not usd_sub.empty:
-                        snapshot["usd_idr"] = f"Rp {float(usd_sub.iloc[-1]['Close']):,.0f} / US$"
+                        usd_val = float(usd_sub.iloc[-1]["Close"])
+                        snapshot["usd_idr"] = f"Rp {usd_val:,.0f} / US$"
+                        snapshot["usd_idr_close"] = usd_val
 
                     ust_sub = m_df[m_df["Asset_Name"] == "US_Treasury_10Y"]
                     if not ust_sub.empty:
@@ -125,10 +246,11 @@ class MorningBriefGenerator:
             except Exception as e:
                 logger.warning(f"Error reading macro file: {str(e)}")
 
-        # If macro dataset was absent, attempt on-the-fly fetch using yfinance
-        if not macro_loaded:
+        # If macro dataset was absent or missing change data, attempt on-the-fly fetch using yfinance
+        if not macro_loaded or snapshot["sp500_change"] == "Data Belum Tersedia":
             try:
                 import yfinance as yf
+
                 macro_map = {
                     "SP500": "^GSPC",
                     "Nasdaq": "^IXIC",
@@ -149,22 +271,28 @@ class MorningBriefGenerator:
                                 pct = round(((c1 - c0) / c0) * 100.0, 2)
                                 if name in ["SP500", "Nasdaq"]:
                                     snapshot[f"{name.lower()}_change"] = f"{'+' if pct > 0 else ''}{pct}%"
+                                    if name == "SP500":
+                                        snapshot["sp500_close"] = c1
                                 elif name == "DowJones":
                                     snapshot["dow_change"] = f"{'+' if pct > 0 else ''}{pct}%"
                                 elif name == "Oil_Brent":
                                     snapshot["brent_oil"] = f"US$ {c1:.2f} / barel"
+                                    snapshot["brent_oil_close"] = c1
                                 elif name == "USD_IDR":
                                     snapshot["usd_idr"] = f"Rp {c1:,.0f} / US$"
+                                    snapshot["usd_idr_close"] = c1
                                 elif name == "US_Treasury_10Y":
                                     snapshot["ust_10y_yield"] = f"{c1:.2f}%"
 
-                                live_records.append({
-                                    "Date": str(ticker_data.index[-1])[:10],
-                                    "Asset_Name": name,
-                                    "Symbol": symbol,
-                                    "Close": c1,
-                                    "Volume": 0,
-                                })
+                                live_records.append(
+                                    {
+                                        "Date": str(ticker_data.index[-1])[:10],
+                                        "Asset_Name": name,
+                                        "Symbol": symbol,
+                                        "Close": c1,
+                                        "Volume": 0,
+                                    }
+                                )
                     except Exception as ex:
                         logger.warning(f"Could not live-fetch {name}: {str(ex)}")
 
@@ -175,19 +303,105 @@ class MorningBriefGenerator:
             except ImportError:
                 pass
 
+        # Collect scraped news headlines
+        snapshot["news"] = self.collect_macro_news()
+
         return snapshot
+
+    def _generate_fallback_content(self, snapshot: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Generates robust, dynamic, institutional-grade fallback cards and narrative if Gemini API is offline.
+        """
+        sp_change_str = str(snapshot.get("sp500_change", ""))
+        is_sp_bullish = "+" in sp_change_str or (not sp_change_str.startswith("-") and "%" in sp_change_str)
+        oil_str = str(snapshot.get("brent_oil", ""))
+        usd_str = str(snapshot.get("usd_idr", ""))
+
+        # 1. S&P 500 dynamic fallback
+        if is_sp_bullish:
+            sp500_badge = "Katalis Risk-On Wall Street"
+            sp500_desc = (
+                f"Penguatan Wall Street ({snapshot['sp500_change']}) terdorong performa emiten teknologi AS, "
+                f"membuka ruang sentimen positif dan potensi aliran modal asing (inflow) ke saham blue-chip IHSG."
+            )
+        else:
+            sp500_badge = "Sikap Waspada Wall Street"
+            sp500_desc = (
+                f"Koreksi Wall Street ({snapshot['sp500_change']}) mencerminkan antisipasi pasar terhadap kebijakan The Fed, "
+                f"berpotensi memicu volatilitas jangka pendek pada saham berkapitalisasi besar di BEI."
+            )
+
+        # 2. Brent Oil dynamic fallback
+        brent_badge = "Dinamika Geopolitik Pasokan"
+        brent_desc = (
+            f"Minyak mentah Brent berada di {oil_str}. Isu tensi geopolitik Timur Tengah dan kebijakan produksi OPEC+ "
+            f"menopang harga komoditas energi, memberikan katalis bagi sektor tambang/migas (MEDC, ENRG) namun menambah beban biaya manufaktur."
+        )
+
+        # 3. USD/IDR dynamic fallback
+        usd_idr_badge = "Stabilitas Moneter Terjaga"
+        usd_idr_desc = (
+            f"Kurs Rupiah berada pada kisaran {usd_str}. Pergerakan dipengaruhi indeks Dolar AS (DXY) dan yield obligasi AS ({snapshot['ust_10y_yield']}), "
+            f"dengan intervensi Bank Indonesia menopang likuiditas sektor perbankan dan pasar SBN domestik."
+        )
+
+        # 4. Key Takeaways
+        key_takeaways = [
+            f"🎯 Arah Indeks: IHSG diproyeksikan menguji rentang support {snapshot['ihsg_support']} hingga resistance {snapshot['ihsg_resistance']} dengan konsolidasi di sekitar pivot {snapshot['ihsg_pivot']}.",
+            f"🌐 Katalis Global: Pergerakan S&P 500 ({snapshot['sp500_change']}) dan yield US Treasury 10Y ({snapshot['ust_10y_yield']}) menjadi penentu arah sentimen risiko aset berkembang.",
+            f"⚠️ Risiko Makro: Fluktuasi minyak Brent ({oil_str}) dan kurs Rupiah ({usd_str}) menuntut kehati-hatian atas beban subsidi energi dan likuiditas perbankan.",
+            "💼 Panduan Taktis: Amankan kas cadangan 15-20%; alokasikan secara selektif pada emiten komoditas energi serta saham defensif berdividen tinggi."
+        ]
+
+        # 5. Comprehensive 4-5 paragraph narrative
+        brief_body = (
+            f"Untuk sesi perdagangan hari ini, Indeks Harga Saham Gabungan (IHSG) diperkirakan bergerak fluktuatif "
+            f"dengan kecenderungan konsolidasi menguat pada rentang support {snapshot['ihsg_support']} hingga resistance {snapshot['ihsg_resistance']}. "
+            f"Secara teknikal, posisi indeks berada di atas pivot harian {snapshot['ihsg_pivot']}, mencerminkan momentum akumulasi yang relatif terjaga.\n\n"
+            f"Dari panggung global, Wall Street mencatatkan pergerakan {snapshot['sp500_change']} pada indeks S&P 500 dan {snapshot['nasdaq_change']} pada Nasdaq. "
+            f"Katalis utama bersumber dari dinamika rilis laporan keuangan korporasi AS serta evaluasi pelaku pasar terhadap proyeksi arah suku bunga The Fed. "
+            f"Sentimen ini memberikan efek rambatan (spillover effect) langsung terhadap minat risiko investor global di pasar negara berkembang, khususnya bursa domestik.\n\n"
+            f"Di pasar komoditas, harga minyak mentah Brent bertengger di {oil_str}. Fluktuasi ini dipengaruhi ketegangan geopolitik internasional serta pembatasan kuota suplai global. "
+            f"Bagi pasar modal Indonesia, level harga energi ini menjadi pisau bermata dua: menguntungkan pendapatan emiten energi dan migas, namun tetap perlu diwaspadai terhadap potensi tekanan inflasi impor bagi emiten konsumer dan transportasi.\n\n"
+            f"Sementara itu dari sisi moneter, kurs Rupiah tercatat di level {usd_str} dengan yield US Treasury 10-Tahun berada di {snapshot['ust_10y_yield']}. "
+            f"Kekuatan indeks dolar AS (DXY) memicu kehati-hatian pada arus dana portofolio, meski langkah stabilisasi Bank Indonesia diperkirakan menjaga stabilitas fundamental perbankan (BBCA, BBRI, BMRI).\n\n"
+            f"Sebagai pertimbangan taktis, investor institusi dan profesional disarankan menerapkan strategi Selective Buy on Weakness pada saham-saham likuid berfundamental solid, "
+            f"dengan tetap mematuhi disiplin level trailing stop loss pada rentang support krusial."
+        )
+
+        return {
+            "sp500_badge": sp500_badge,
+            "sp500_desc": sp500_desc,
+            "brent_badge": brent_badge,
+            "brent_desc": brent_desc,
+            "usd_idr_badge": usd_idr_badge,
+            "usd_idr_desc": usd_idr_desc,
+            "key_takeaways": key_takeaways,
+            "brief_content": brief_body,
+        }
 
     def generate_brief_text(self, snapshot: Dict[str, Any]) -> Dict[str, Any]:
         """
-        Generates editorial Morning Brief text using Gemini 3.6 Flash with clean institutional formatting.
+        Generates editorial Morning Brief text and structured dynamic cards using Gemini 3.8 Flash.
+        Incorporates scraped news for S&P 500, Brent Oil geopolitics, and USD/IDR drivers.
         """
         title = f"Morning Brief IHSG: Katalis Wall Street dan Arah Pasar Hari Ini ({snapshot['date']})"
+        news_dict = snapshot.get("news", {})
+        sp500_news = "\n".join([f"- {h}" for h in news_dict.get("sp500", [])[:4]]) or "- Sentimen umum bursa Wall Street"
+        oil_news = "\n".join([f"- {h}" for h in news_dict.get("oil", [])[:4]]) or "- Dinamika pasar komoditas energi internasional"
+        forex_news = "\n".join([f"- {h}" for h in news_dict.get("forex", [])[:4]]) or "- Pergerakan US Dollar Index dan Yield US Treasury"
 
         prompt = f"""
-Bertindaklah sebagai Senior Institutional Equity Research Analyst di pasar modal Indonesia.
-Susun laporan Morning Market Brief harian untuk para investor institusi dan profesional sebelum bursa BEI dibuka pagi ini.
+Bertindaklah sebagai "New York" (Senior Quantitative Investment Manager & Strategist) sesuai doktrin AlphaTech.
+Susun laporan Morning Market Brief harian berstandar institusi untuk para manajer portofolio dan pelaku pasar profesional sebelum bel pembukaan Bursa Efek Indonesia (BEI) pagi ini.
 
-Data Fakta Pasar Hari Ini:
+Terapkan kerangka kerja AlphaTech secara konsisten:
+1. Evaluasi profil risiko ketat (Risk-to-Reward ratio, volatilitas pasar, rentang support-resistance teknikal IHSG).
+2. Analisis dinamika pasar modal Indonesia secara mendalam (likuiditas emiten Big Cap, arus dana asing/foreign flow, yield obligasi pemerintah SBN, dan transmisi nilai tukar).
+3. Pendekatan makro & econophysics dalam membaca transmisi sentimen massa global (Wall Street, pasar energi minyak mentah, dan indeks dolar DXY) ke pasar domestik.
+4. Gaya bahasa tajam, analitis, pragmatis, berbasis data, tanpa kalimat basa-basi atau asterisk ganda berlebihan.
+
+Data Angka Pasar Hari Ini:
 - Tanggal: {snapshot['date']}
 - IHSG Terakhir: {snapshot['ihsg_close']} (Perubahan harian: {snapshot['ihsg_change_pct']}%)
 - Estimasi Range Hari Ini: Support {snapshot['ihsg_support']} | Resistance {snapshot['ihsg_resistance']}
@@ -196,67 +410,134 @@ Data Fakta Pasar Hari Ini:
 - Minyak Mentah Brent: {snapshot['brent_oil']}
 - Kurs Rupiah: {snapshot['usd_idr']}
 
-PANDUAN PENULISAN:
-1. JANGAN mencantumkan header judul berulang seperti "INSTITUTIONAL EQUITY RESEARCH" atau "Tanggal: ...", karena sistem sudah memiliki header tersendiri.
-2. JANGAN menggunakan tanda asterisk tebal ganda berlebihan (**) pada setiap kata. Tulis dalam paragraf naratif berita pasar yang mengalir alami dan profesional.
-3. Struktur Analisis:
-   - Paragraf 1: Ringkasan arah pembukaan IHSG hari ini dan proyeksi rentang pergerakan support-resisten.
-   - Paragraf 2: Analisis sentimen global (penutupan Wall Street, yield obligasi AS, komoditas minyak, dan transmisi dampaknya ke bursa domestik).
-   - Paragraf 3: Fundamental domestik, stabilitas kurs rupiah, dan ekspektasi arus dana asing (foreign inflow).
-   - Paragraf 4: Posisi teknikal IHSG dan batas risiko pivot harian.
-   - Paragraf 5: Panduan Taktis Hari Ini (misal: Selective Accumulation on Weakness atau Profit Taking bertahap).
+Headline Berita & Isu Terkini Pasar Global (Hasil Scraping Real-Time):
+- Isu S&P 500 & Wall Street:
+{sp500_news}
+- Isu Politik Luar Negeri & Pasar Minyak Brent:
+{oil_news}
+- Isu Indeks Dolar AS (DXY) & Yield Pasar Uang:
+{forex_news}
+
+INSTRUKSI WAJIB:
+Analisis secara tajam hubungan sebab-akibat (causality) antara isu global tersebut dengan pasar modal Indonesia (IHSG).
+Kembalikan respon HANYA dalam format JSON valid (tanpa teks pembuka atau markdown wrap ```json) dengan struktur:
+{{
+  "sp500_badge": "Label status singkat 2-4 kata (misal: Rally Big Tech AS / Reaksi Data Inflasi / Tekanan The Fed)",
+  "sp500_desc": "Analisis isu terkini yang mempengaruhi nilai S&P 500 semalam dan mekanisme pengaruh langsungnya ke IHSG serta saham Big Cap (1-2 kalimat padat)",
+  "brent_badge": "Label status geopolitik 2-4 kata (misal: Premi Risiko Geopolitik / Ketatnya Pasokan OPEC+ / Ekspektasi Permintaan)",
+  "brent_desc": "Analisis isu politik luar negeri/geopolitik yang mempengaruhi harga minyak Brent dan pengaruhnya ke beban energi fiskal & emiten migas Indonesia (1-2 kalimat padat)",
+  "usd_idr_badge": "Label status nilai tukar 2-4 kata (misal: Dolar AS Menguat Terbatas / Intervensi BI Terjaga / Tekanan DXY Kuat)",
+  "usd_idr_desc": "Penyebab fluktuasi nilai tukar USD (DXY/Yield/Suku Bunga) dan pengaruhnya ke likuiditas pasar modal, obligasi, dan perbankan Indonesia (1-2 kalimat padat)",
+  "key_takeaways": [
+    "🎯 Arah Indeks: Ringkasan proyeksi pembukaan IHSG dan rentang support-resistance krusial hari ini (1 kalimat padat)",
+    "🌐 Katalis Global: Isu utama Wall Street/S&P 500 dan transmisi sentimennya ke IHSG (1 kalimat padat)",
+    "⚠️ Risiko Makro: Isu harga minyak Brent dan tekanan nilai tukar USD/IDR terhadap likuiditas domestik (1 kalimat padat)",
+    "💼 Panduan Taktis: Aksi alokasi portofolio spesifik dan porsi kas bagi manajer portofolio (1 kalimat padat)"
+  ],
+  "brief_content": "Ulasan narasi riset pasar komprehensif (4 sampai 5 paragraf mengalir alami, membedah arah pembukaan IHSG, katalis Wall Street, isu geopolitik minyak, dinamika kurs USD/IDR, serta panduan taktis portofolio sebelum bel pembukaan BEI. JANGAN gunakan tanda bintang tebal ganda ** berlebihan)."
+}}
 """
 
-        if not self.api_key:
-            logger.warning("No Gemini API key configured. Generating deterministic fallback brief.")
-            brief_body = (
-                f"Untuk perdagangan hari ini, IHSG diperkirakan bergerak fluktuatif dengan kecenderungan konsolidasi menguat "
-                f"pada rentang {snapshot['ihsg_support']} hingga {snapshot['ihsg_resistance']}. Sentimen eksternal terdorong oleh "
-                f"pergerakan Wall Street (S&P 500 {snapshot['sp500_change']}, Nasdaq {snapshot['nasdaq_change']}), sementara "
-                f"yield US Treasury berada di kisaran {snapshot['ust_10y_yield']} dan minyak mentah Brent bertengger di {snapshot['brent_oil']}.\n\n"
-                f"Dari domestik, kurs rupiah berada di kisaran {snapshot['usd_idr']}. Investor disarankan menerapkan strategi "
-                f"Selective Buy on Weakness pada saham-saham likuid berfundamental solid dengan disiplin level stop loss."
-            )
-            return {
-                "date": snapshot["date"],
-                "headline": title,
-                "brief_content": brief_body,
-                "snapshot": snapshot,
-            }
+        parsed_data = None
+        if self.api_key:
+            try:
+                # Menggunakan model Gemini 3.8 Flash yang didoktrin AlphaTech (New York)
+                logger.info("Generating Morning Brief using Gemini 3.8 Flash indoctrinated with AlphaTech rules...")
+                model = genai.GenerativeModel(
+                    model_name="gemini-3.8-flash",
+                    system_instruction=self.doctrine,
+                )
+                response = model.generate_content(prompt)
+                raw_text = response.text.strip()
 
-        try:
-            model = genai.GenerativeModel("gemini-3.6-flash")
-            response = model.generate_content(prompt)
-            brief_body = response.text.strip()
-            
-            # Clean up any remaining repetitive headers, asterisks, and ampersands
-            lines = brief_body.split("\n")
-            cleaned_lines = []
-            for line in lines:
-                l_strip = line.strip()
-                if l_strip.startswith("**INSTITUTIONAL") or l_strip.startswith("INSTITUTIONAL") or l_strip.startswith("**Tanggal"):
-                    continue
-                cleaned_lines.append(line)
-            brief_body = "\n".join(cleaned_lines).replace("**", "").replace("*", "").replace(" & ", " dan ").strip()
+                # Clean markdown JSON wraps if present
+                clean_json_str = raw_text
+                if clean_json_str.startswith("```json"):
+                    clean_json_str = clean_json_str[7:]
+                if clean_json_str.startswith("```"):
+                    clean_json_str = clean_json_str[3:]
+                if clean_json_str.endswith("```"):
+                    clean_json_str = clean_json_str[:-3]
+                clean_json_str = clean_json_str.strip()
 
-            return {
-                "date": snapshot["date"],
-                "headline": title.replace("&", "dan"),
-                "brief_content": brief_body,
-                "snapshot": snapshot,
-            }
-        except Exception as e:
-            logger.error(f"Failed to generate brief via Gemini API: {str(e)}")
-            return {
-                "date": snapshot["date"],
-                "headline": title,
-                "brief_content": (
-                    f"IHSG diperkirakan menguji area {snapshot['ihsg_support']} - {snapshot['ihsg_resistance']}. "
-                    f"Sentimen pasar dipengaruhi penutupan Wall Street ({snapshot['sp500_change']}) dan kurs {snapshot['usd_idr']}. "
-                    f"Panduan taktis: Buy on Weakness pada emiten berbobot pasar defensif."
-                ),
-                "snapshot": snapshot,
-            }
+                parsed_data = json.loads(clean_json_str)
+                logger.info("Successfully received and parsed structured brief from Gemini 3.8 Flash (AlphaTech Indoctrinated).")
+            except Exception as e:
+                logger.error(f"Failed to generate brief via Gemini 3.8 Flash API: {str(e)}")
+
+        if not parsed_data:
+            logger.info("Falling back to deterministic quantitative macro brief generator.")
+            parsed_data = self._generate_fallback_content(snapshot)
+
+        # Sanitize narrative content
+        brief_body = str(parsed_data.get("brief_content", "")).strip()
+        lines = brief_body.split("\n")
+        cleaned_lines = []
+        for line in lines:
+            l_strip = line.strip()
+            if l_strip.startswith("**INSTITUTIONAL") or l_strip.startswith("INSTITUTIONAL") or l_strip.startswith("**Tanggal"):
+                continue
+            cleaned_lines.append(line)
+        brief_body = "\n".join(cleaned_lines).replace("**", "").replace("*", "").replace(" & ", " dan ").strip()
+
+        sp500_badge = str(parsed_data.get("sp500_badge", "Katalis Pasar AS")).replace("**", "").strip()
+        sp500_desc = str(parsed_data.get("sp500_desc", "Sentimen bursa AS memberikan dorongan awal bagi IHSG.")).replace("**", "").strip()
+        brent_badge = str(parsed_data.get("brent_badge", "Dinamika Komoditas")).replace("**", "").strip()
+        brent_desc = str(parsed_data.get("brent_desc", "Biaya energi dan inflasi manufaktur domestik terjaga.")).replace("**", "").strip()
+        usd_idr_badge = str(parsed_data.get("usd_idr_badge", "Stabilitas Valuta")).replace("**", "").strip()
+        usd_idr_desc = str(parsed_data.get("usd_idr_desc", "Stabilitas nilai tukar menopang arus modal asing.")).replace("**", "").strip()
+
+        # Sanitize key takeaways
+        raw_takeaways = parsed_data.get("key_takeaways", [])
+        if not isinstance(raw_takeaways, list) or len(raw_takeaways) == 0:
+            raw_takeaways = [
+                f"🎯 Arah Indeks: IHSG menguji rentang support {snapshot['ihsg_support']} hingga resistance {snapshot['ihsg_resistance']} di sekitar pivot {snapshot['ihsg_pivot']}.",
+                f"🌐 Katalis Global: Pengaruh pergerakan Wall Street ({snapshot['sp500_change']}) dan yield obligasi US Treasury ({snapshot['ust_10y_yield']}).",
+                f"⚠️ Risiko Makro: Minyak Brent {snapshot['brent_oil']} dan kurs Rupiah {snapshot['usd_idr']} menjadi variabel likuiditas kunci.",
+                "💼 Panduan Taktis: Disiplin alokasi kas 15-20% dan akumulasi bertahap pada saham likuid berfundamental prima."
+            ]
+        clean_takeaways = [str(t).replace("**", "").replace("*", "").strip() for t in raw_takeaways]
+
+        # Update snapshot with dynamic card content for full backward compatibility
+        snapshot["sp500_badge"] = sp500_badge
+        snapshot["sp500_desc"] = sp500_desc
+        snapshot["brent_badge"] = brent_badge
+        snapshot["brent_desc"] = brent_desc
+        snapshot["usd_idr_badge"] = usd_idr_badge
+        snapshot["usd_idr_desc"] = usd_idr_desc
+        snapshot["key_takeaways"] = clean_takeaways
+
+        cards_data = {
+            "sp500": {
+                "value": snapshot["sp500_change"],
+                "badge": sp500_badge,
+                "desc": sp500_desc,
+            },
+            "brent": {
+                "value": snapshot["brent_oil"],
+                "badge": brent_badge,
+                "desc": brent_desc,
+            },
+            "usd_idr": {
+                "value": snapshot["usd_idr"],
+                "badge": usd_idr_badge,
+                "desc": usd_idr_desc,
+            },
+            "ihsg": {
+                "value": f"{snapshot['ihsg_close']} ({'+' if snapshot['ihsg_change_pct'] >= 0 else ''}{snapshot['ihsg_change_pct']}%)",
+                "range": f"Support {snapshot['ihsg_support']} • Resistance {snapshot['ihsg_resistance']}",
+                "desc": "Fokus akumulasi pada saham likuid berkapitalisasi besar dengan disiplin level stop loss.",
+            },
+        }
+
+        return {
+            "date": snapshot["date"],
+            "headline": title.replace("&", "dan"),
+            "cards": cards_data,
+            "key_takeaways": clean_takeaways,
+            "brief_content": brief_body,
+            "snapshot": snapshot,
+        }
 
     def execute_and_save(self) -> Dict[str, Any]:
         snapshot = self.collect_market_snapshot()
