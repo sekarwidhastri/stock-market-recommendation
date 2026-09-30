@@ -1218,15 +1218,18 @@
 
     <!-- ==================== MODAL DETAIL EMITEN & MULTI-MODEL ==================== -->
     <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden items-center justify-center p-3 sm:p-4" id="stockDetailModal">
-        <div class="bg-white rounded-2xl max-w-xl w-full border border-surface-border shadow-2xl max-h-[92vh] flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+        <div class="bg-white rounded-2xl max-w-2xl w-full border border-surface-border shadow-2xl max-h-[92vh] flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
             <div class="p-4 sm:p-5 border-b border-surface-border flex items-center justify-between bg-slate-50 shrink-0">
                 <div class="flex items-center gap-3">
                     <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-primary text-white flex items-center justify-center font-bold text-sm sm:text-base" id="modalStockInitial">
                         B
                     </div>
                     <div class="flex flex-col">
-                        <h3 class="font-bold text-primary text-sm sm:text-base" id="modalStockTicker">BBCA</h3>
-                        <span class="text-[11px] sm:text-xs text-text-muted" id="modalStockSector">Financials</span>
+                        <div class="flex items-center gap-2">
+                            <h3 class="font-bold text-primary text-sm sm:text-base" id="modalStockTicker">BBCA</h3>
+                            <span class="px-2 py-0.5 rounded-full bg-slate-200 text-slate-700 text-[10px] font-bold" id="modalStockSector">Financials</span>
+                        </div>
+                        <span class="text-[11px] text-text-muted font-medium" id="modalStockFullName">PT Bank Central Asia Tbk</span>
                     </div>
                 </div>
                 <button type="button" class="w-8 h-8 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-200 flex items-center justify-center transition-colors" onclick="closeStockDetailModal()" aria-label="Tutup">
@@ -1234,82 +1237,184 @@
                 </button>
             </div>
 
+            <!-- Tab Switcher Modal -->
+            <div class="flex items-center px-4 sm:px-6 border-b border-surface-border bg-slate-50/70 shrink-0 gap-2">
+                <button type="button" class="py-2.5 px-3 border-b-2 border-primary text-primary font-bold text-xs transition-colors flex items-center gap-1.5 focus:outline-none" id="modalTabQuantBtn" onclick="switchModalTab('quant')">
+                    <span class="material-symbols-outlined text-[16px]">analytics</span>
+                    <span>Model Kuantitatif & Risiko</span>
+                </button>
+                <button type="button" class="py-2.5 px-3 border-b-2 border-transparent text-text-muted hover:text-text-main font-semibold text-xs transition-colors flex items-center gap-1.5 focus:outline-none" id="modalTabResearchBtn" onclick="switchModalTab('research')">
+                    <span class="material-symbols-outlined text-[16px]">menu_book</span>
+                    <span>Riset Teknikal & Fundamental</span>
+                    <span class="px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[9px] font-bold">Watchlist</span>
+                </button>
+            </div>
+
             <div class="p-4 sm:p-6 flex flex-col gap-4 sm:gap-5 text-xs overflow-y-auto">
-                <!-- Consensus Summary -->
-                <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-between">
-                    <div class="flex flex-col">
-                        <span class="text-text-muted font-medium">Konsensus Probabilitas Bullish</span>
-                        <div class="text-2xl font-black text-emerald-800 mt-0.5" id="modalConsensusProb">78.5%</div>
+                <!-- TAB 1: MODEL KUANTITATIF & RISIKO -->
+                <div class="flex flex-col gap-4 sm:gap-5" id="modalTabQuantContent">
+                    <!-- Consensus Summary -->
+                    <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-between">
+                        <div class="flex flex-col">
+                            <span class="text-text-muted font-medium">Konsensus Probabilitas Bullish</span>
+                            <div class="text-2xl font-black text-emerald-800 mt-0.5" id="modalConsensusProb">78.5%</div>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-emerald-200 text-emerald-900 font-bold" id="modalActionBadge">BUY ON WEAKNESS</span>
                     </div>
-                    <span class="px-3 py-1 rounded-full bg-emerald-200 text-emerald-900 font-bold" id="modalActionBadge">BUY ON WEAKNESS</span>
-                </div>
 
-                <!-- Multi-Engine Breakdown -->
-                <div class="flex flex-col gap-2">
-                    <span class="font-bold text-primary text-xs uppercase tracking-wider">Breakdown Model Inferensi:</span>
-                    <div class="grid grid-cols-3 gap-2.5 text-center">
-                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                            <span class="text-text-muted font-semibold">GBDT (Tabular)</span>
-                            <div class="text-sm font-bold text-primary mt-1" id="modalGBDTProb">76.2%</div>
-                            <span class="text-[10px] text-text-muted">Bobot 50%</span>
-                        </div>
-                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                            <span class="text-text-muted font-semibold">PyTorch LSTM</span>
-                            <div class="text-sm font-bold text-primary mt-1" id="modalLSTMProb">81.0%</div>
-                            <span class="text-[10px] text-text-muted">Bobot 30%</span>
-                        </div>
-                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                            <span class="text-text-muted font-semibold">ARIMA Waktu</span>
-                            <div class="text-sm font-bold text-primary mt-1" id="modalARIMAProb">79.5%</div>
-                            <span class="text-[10px] text-text-muted">Bobot 20%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Risk & Volatility Metrics -->
-                <div class="flex flex-col gap-2">
-                    <span class="font-bold text-primary text-xs uppercase tracking-wider">Parameter Ekonometrika dan Risiko:</span>
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-center">
-                        <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
-                            <span class="text-text-muted">Volatilitas GARCH</span>
-                            <div class="font-bold text-primary mt-0.5" id="modalGARCHVol">18.4% p.a.</div>
-                        </div>
-                        <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
-                            <span class="text-text-muted">1-Day VaR 95%</span>
-                            <div class="font-bold text-rose-700 mt-0.5" id="modalVaR">-1.85%</div>
-                        </div>
-                        <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
-                            <span class="text-text-muted">Beta IHSG</span>
-                            <div class="font-bold text-primary mt-0.5" id="modalBeta">0.85</div>
-                        </div>
-                        <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
-                            <span class="text-text-muted">Sharpe Ratio</span>
-                            <div class="font-bold text-primary mt-0.5" id="modalSharpe">1.42</div>
+                    <!-- Multi-Engine Breakdown -->
+                    <div class="flex flex-col gap-2">
+                        <span class="font-bold text-primary text-xs uppercase tracking-wider">Breakdown Model Inferensi:</span>
+                        <div class="grid grid-cols-3 gap-2.5 text-center">
+                            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                                <span class="text-text-muted font-semibold">GBDT (Tabular)</span>
+                                <div class="text-sm font-bold text-primary mt-1" id="modalGBDTProb">76.2%</div>
+                                <span class="text-[10px] text-text-muted">Bobot 50%</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                                <span class="text-text-muted font-semibold">PyTorch LSTM</span>
+                                <div class="text-sm font-bold text-primary mt-1" id="modalLSTMProb">81.0%</div>
+                                <span class="text-[10px] text-text-muted">Bobot 30%</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                                <span class="text-text-muted font-semibold">ARIMA Waktu</span>
+                                <div class="text-sm font-bold text-primary mt-1" id="modalARIMAProb">79.5%</div>
+                                <span class="text-[10px] text-text-muted">Bobot 20%</span>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Risk & Volatility Metrics -->
+                    <div class="flex flex-col gap-2">
+                        <span class="font-bold text-primary text-xs uppercase tracking-wider">Parameter Ekonometrika dan Risiko:</span>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-center">
+                            <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
+                                <span class="text-text-muted">Volatilitas GARCH</span>
+                                <div class="font-bold text-primary mt-0.5" id="modalGARCHVol">18.4% p.a.</div>
+                            </div>
+                            <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
+                                <span class="text-text-muted">1-Day VaR 95%</span>
+                                <div class="font-bold text-rose-700 mt-0.5" id="modalVaR">-1.85%</div>
+                            </div>
+                            <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
+                                <span class="text-text-muted">Beta IHSG</span>
+                                <div class="font-bold text-primary mt-0.5" id="modalBeta">0.85</div>
+                            </div>
+                            <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
+                                <span class="text-text-muted">Sharpe Ratio</span>
+                                <div class="font-bold text-primary mt-0.5" id="modalSharpe">1.42</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trading Plan Target Levels -->
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col gap-2">
+                        <span class="font-bold text-primary">Level Trading Terukur:</span>
+                        <div class="grid grid-cols-3 gap-2 text-center text-xs">
+                            <div>
+                                <span class="text-text-muted">Area Entry</span>
+                                <div class="font-bold text-primary mt-0.5" id="modalEntryPrice">Rp 9.900</div>
+                            </div>
+                            <div>
+                                <span class="text-text-muted">Target TP1</span>
+                                <div class="font-bold text-emerald-800 mt-0.5" id="modalTargetPrice">Rp 10.400</div>
+                            </div>
+                            <div>
+                                <span class="text-text-muted">Batas Stop Loss</span>
+                                <div class="font-bold text-rose-800 mt-0.5" id="modalStopLoss">Rp 9.650</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Trading Plan Target Levels -->
-                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col gap-2">
-                    <span class="font-bold text-primary">Level Trading Terukur:</span>
-                    <div class="grid grid-cols-3 gap-2 text-center text-xs">
-                        <div>
-                            <span class="text-text-muted">Area Entry</span>
-                            <div class="font-bold text-primary mt-0.5" id="modalEntryPrice">Rp 9.900</div>
+                <!-- TAB 2: RISET TEKNIKAL & FUNDAMENTAL LENGKAP -->
+                <div class="hidden flex-col gap-5" id="modalTabResearchContent">
+                    <!-- Company Header -->
+                    <div class="p-3.5 rounded-xl bg-slate-900 text-white flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-emerald-400 text-[18px]">verified</span>
+                            <span class="font-bold text-sm text-white" id="resCompanyName">PT Aneka Tambang Tbk (ANTM)</span>
                         </div>
-                        <div>
-                            <span class="text-text-muted">Target TP1</span>
-                            <div class="font-bold text-emerald-800 mt-0.5" id="modalTargetPrice">Rp 10.400</div>
+                        <button type="button" class="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-[11px] font-semibold text-emerald-300 transition-colors flex items-center gap-1" onclick="copyWatchlistResearchText()">
+                            <span class="material-symbols-outlined text-[14px]">content_copy</span>
+                            <span>Salin Laporan</span>
+                        </button>
+                    </div>
+
+                    <!-- Section Teknikal -->
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col gap-3">
+                        <div class="flex items-center gap-2 text-primary font-bold text-xs sm:text-sm uppercase tracking-wide">
+                            <span class="material-symbols-outlined text-emerald-600 text-[18px]">candlestick_chart</span>
+                            <span>Teknikal</span>
                         </div>
-                        <div>
-                            <span class="text-text-muted">Batas Stop Loss</span>
-                            <div class="font-bold text-rose-800 mt-0.5" id="modalStopLoss">Rp 9.650</div>
+                        <p class="text-text-main text-xs sm:text-sm leading-relaxed text-justify" id="resTeknikalNarrative">
+                            Memuat analisis pergerakan harga, momentum EMA, RSI, dan struktur chart pattern...
+                        </p>
+                        
+                        <!-- 6 Level Trading Presisi Sesuai Standar Riset -->
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-2 border-t border-slate-200">
+                            <div class="p-2.5 rounded-lg bg-white border border-slate-200 flex flex-col">
+                                <span class="text-[10px] text-text-muted font-semibold">Buy on Weakness:</span>
+                                <span class="font-extrabold text-emerald-700 text-xs sm:text-sm mt-0.5" id="resBOW">-</span>
+                            </div>
+                            <div class="p-2.5 rounded-lg bg-white border border-slate-200 flex flex-col">
+                                <span class="text-[10px] text-text-muted font-semibold">Buy on Breakout:</span>
+                                <span class="font-extrabold text-blue-700 text-xs sm:text-sm mt-0.5" id="resBOB">-</span>
+                            </div>
+                            <div class="p-2.5 rounded-lg bg-white border border-slate-200 flex flex-col">
+                                <span class="text-[10px] text-text-muted font-semibold">TP 1:</span>
+                                <span class="font-extrabold text-primary text-xs sm:text-sm mt-0.5" id="resTP1">-</span>
+                            </div>
+                            <div class="p-2.5 rounded-lg bg-white border border-slate-200 flex flex-col">
+                                <span class="text-[10px] text-text-muted font-semibold">TP 2:</span>
+                                <span class="font-extrabold text-primary text-xs sm:text-sm mt-0.5" id="resTP2">-</span>
+                            </div>
+                            <div class="p-2.5 rounded-lg bg-white border border-slate-200 flex flex-col">
+                                <span class="text-[10px] text-text-muted font-semibold">Target Utama:</span>
+                                <span class="font-extrabold text-emerald-800 text-xs sm:text-sm mt-0.5" id="resTargetUtama">-</span>
+                            </div>
+                            <div class="p-2.5 rounded-lg bg-white border border-slate-200 flex flex-col">
+                                <span class="text-[10px] text-text-muted font-semibold">Cut Loss:</span>
+                                <span class="font-extrabold text-rose-700 text-xs sm:text-sm mt-0.5" id="resCutLoss">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section Fundamental -->
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col gap-3.5">
+                        <div class="flex items-center gap-2 text-primary font-bold text-xs sm:text-sm uppercase tracking-wide">
+                            <span class="material-symbols-outlined text-blue-600 text-[18px]">account_balance</span>
+                            <span>Fundamental</span>
+                        </div>
+
+                        <!-- 1. Kinerja Laba Bersih -->
+                        <div class="p-3 rounded-lg bg-white border border-slate-200 flex flex-col gap-1">
+                            <span class="font-bold text-primary text-xs">1. Kinerja Laba Bersih</span>
+                            <p class="text-text-main text-xs leading-relaxed text-justify" id="resFund1">Memuat data laba bersih dan EPS...</p>
+                        </div>
+
+                        <!-- 2. Pendapatan dan Laba Operasional -->
+                        <div class="p-3 rounded-lg bg-white border border-slate-200 flex flex-col gap-1">
+                            <span class="font-bold text-primary text-xs">2. Pendapatan dan Laba Operasional</span>
+                            <p class="text-text-main text-xs leading-relaxed text-justify" id="resFund2">Memuat data pendapatan, gross margin, dan laba operasional...</p>
+                        </div>
+
+                        <!-- 3. EBITDA dan Margin -->
+                        <div class="p-3 rounded-lg bg-white border border-slate-200 flex flex-col gap-1">
+                            <span class="font-bold text-primary text-xs">3. EBITDA dan Margin</span>
+                            <p class="text-text-main text-xs leading-relaxed text-justify" id="resFund3">Memuat data EBITDA margin dan operating leverage...</p>
+                        </div>
+
+                        <!-- 4. Struktur Keuangan -->
+                        <div class="p-3 rounded-lg bg-white border border-slate-200 flex flex-col gap-1">
+                            <span class="font-bold text-primary text-xs">4. Struktur Keuangan</span>
+                            <p class="text-text-main text-xs leading-relaxed text-justify" id="resFund4">Memuat data neraca kas, utang, DER, dan kemampuan servicing debt...</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="p-4 border-t border-surface-border bg-slate-50 flex items-center justify-end gap-3">
+            <div class="p-4 border-t border-surface-border bg-slate-50 flex items-center justify-end gap-3 shrink-0">
                 <button type="button" class="px-4 py-2 rounded-xl text-text-muted hover:text-text-main font-semibold text-xs" onclick="closeStockDetailModal()">
                     Tutup
                 </button>
@@ -1441,39 +1546,195 @@
             }, 3000);
         }
 
-        // 3. Render Morning Brief Tanpa Karakter Bintang (**) dan Tanda (&)
+        // 3. Render Morning Brief Berstruktur Lengkap (Pergerakan IHSG, Net Foreign Flow, Sektor, Teknikal Outlook)
         function renderCleanMarkdown(rawText) {
             if (!rawText) return "";
-            
-            const paragraphs = rawText.split(/\n\s*\n/);
+
+            // Deteksi apakah teks menggunakan struktur riset pasar institusional
+            const hasPergerakan = rawText.includes("Pergerakan IHSG");
+            const hasForeignBuy = rawText.includes("Net Foreign Buy");
+            const hasTeknikal = rawText.includes("Teknikal Outlook");
+
+            if (!hasPergerakan && !hasTeknikal) {
+                // Fallback untuk teks narasi biasa
+                const paragraphs = rawText.split(/\n\s*\n/);
+                let html = "";
+                paragraphs.forEach(p => {
+                    let cleanP = p.trim().replace(/\*\*(.*?)\*\*/g, '$1').replace(/\*(.*?)\*/g, '$1').replace(/ & /g, ' dan ');
+                    if (cleanP && !cleanP.includes("INSTITUTIONAL EQUITY RESEARCH") && !cleanP.startsWith("Tanggal:")) {
+                        html += `<p class="text-slate-200 text-xs lg:text-sm leading-relaxed">${cleanP}</p>`;
+                    }
+                });
+                return html;
+            }
+
+            // Parser Cerdas Berdasarkan Seksi Riset Harian
+            const lines = rawText.split('\n');
             let html = "";
+            let currentSection = "";
+            let sectionBuffer = [];
 
-            paragraphs.forEach(p => {
-                let cleanP = p.trim();
-                if (!cleanP) return;
+            function flushSection() {
+                if (!currentSection && sectionBuffer.length === 0) return;
+                const content = sectionBuffer.join('\n').trim();
+                sectionBuffer = [];
 
-                if (cleanP.includes("INSTITUTIONAL EQUITY RESEARCH") || cleanP.startsWith("Tanggal:")) {
-                    return;
+                if (currentSection === "TITLE") {
+                    html += `
+                        <div class="pb-2.5 border-b border-white/10 mb-3.5 flex flex-wrap items-center justify-between gap-2">
+                            <span class="text-xs uppercase tracking-wider font-extrabold text-emerald-400 flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-[17px]">newspaper</span>
+                                <span>${content}</span>
+                            </span>
+                            <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-bold border border-emerald-500/30">Laporan Riset Harian Terkini</span>
+                        </div>
+                    `;
+                } else if (currentSection === "PERGERAKAN") {
+                    const paras = content.split(/\n\s*\n/).filter(p => p.trim());
+                    const parasHtml = paras.map(p => {
+                        let cp = p.trim().replace(/\*\*(.*?)\*\*/g, '$1').replace(/\*(.*?)\*/g, '$1').replace(/ & /g, ' dan ');
+                        return `<p class="text-slate-200 text-xs sm:text-sm leading-relaxed text-justify mb-2.5">${cp}</p>`;
+                    }).join('');
+                    html += `
+                        <div class="mb-4">
+                            <div class="flex items-center gap-2 mb-2 text-emerald-400 font-bold text-xs sm:text-sm uppercase tracking-wide">
+                                <span class="material-symbols-outlined text-[18px]">candlestick_chart</span>
+                                <span>Pergerakan IHSG</span>
+                            </div>
+                            ${parasHtml}
+                        </div>
+                    `;
+                } else if (currentSection === "FOREIGN_BUY" || currentSection === "FOREIGN_SELL") {
+                    const isBuy = currentSection === "FOREIGN_BUY";
+                    const titleText = isBuy ? "Net Foreign Buy" : "Net Foreign Sell";
+                    const iconName = isBuy ? "login" : "logout";
+                    const cardBg = isBuy ? "bg-emerald-950/30 border-emerald-500/30 text-emerald-300" : "bg-rose-950/30 border-rose-500/30 text-rose-300";
+                    const itemBorder = isBuy ? "border-emerald-500/20 bg-emerald-950/20" : "border-rose-500/20 bg-rose-950/20";
+                    const tagColor = isBuy ? "text-emerald-400" : "text-rose-400";
+
+                    const items = content.split('\n').filter(l => l.trim() && /^\d+\./.test(l.trim()));
+                    const itemsHtml = items.map(item => {
+                        const cleanItem = item.trim().replace(/^\d+\.\s*/, '');
+                        const parts = cleanItem.split(' - ');
+                        const ticker = parts[0] || '';
+                        const nominal = parts[1] || '';
+                        return `
+                            <div class="flex items-center justify-between p-2 rounded-lg border ${itemBorder}">
+                                <span class="font-bold ${tagColor}">${ticker}</span>
+                                <span class="text-slate-300 text-xs font-semibold">${nominal}</span>
+                            </div>
+                        `;
+                    }).join('');
+
+                    html += `
+                        <div class="p-3.5 rounded-xl border ${cardBg} mb-3.5">
+                            <div class="flex items-center gap-1.5 font-bold text-xs sm:text-sm mb-2.5">
+                                <span class="material-symbols-outlined text-[17px]">${iconName}</span>
+                                <span>${titleText}</span>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 text-xs">
+                                ${itemsHtml}
+                            </div>
+                        </div>
+                    `;
+                } else if (currentSection === "SEKTOR_MENGUAT" || currentSection === "SEKTOR_MELEMAH") {
+                    const isGaining = currentSection === "SEKTOR_MENGUAT";
+                    const titleText = isGaining ? "Sektor yang Menguat" : "Sektor yang Melemah";
+                    const iconName = isGaining ? "trending_up" : "trending_down";
+                    const chipBg = isGaining ? "bg-emerald-900/40 text-emerald-300 border-emerald-600/30" : "bg-rose-900/40 text-rose-300 border-rose-600/30";
+
+                    const items = content.split('\n').filter(l => l.trim().startsWith('-'));
+                    const chipsHtml = items.map(item => {
+                        const cleanItem = item.trim().replace(/^-\s*/, '');
+                        return `<span class="px-2.5 py-1 rounded-lg text-xs font-semibold border ${chipBg}">${cleanItem}</span>`;
+                    }).join('');
+
+                    html += `
+                        <div class="mb-3.5">
+                            <div class="flex items-center gap-1.5 font-bold text-xs sm:text-sm ${isGaining ? 'text-emerald-400' : 'text-rose-400'} mb-2">
+                                <span class="material-symbols-outlined text-[17px]">${iconName}</span>
+                                <span>${titleText}</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                ${chipsHtml}
+                            </div>
+                        </div>
+                    `;
+                } else if (currentSection === "TEKNIKAL") {
+                    const paras = content.split(/\n\s*\n/).filter(p => p.trim());
+                    const parasHtml = paras.map(p => {
+                        let cp = p.trim().replace(/\*\*(.*?)\*\*/g, '$1').replace(/\*(.*?)\*/g, '$1').replace(/ & /g, ' dan ');
+                        return `<p class="text-slate-200 text-xs sm:text-sm leading-relaxed text-justify mb-2.5">${cp}</p>`;
+                    }).join('');
+                    html += `
+                        <div class="mt-4 pt-3.5 border-t border-white/10">
+                            <div class="flex items-center gap-2 mb-2 text-blue-400 font-bold text-xs sm:text-sm uppercase tracking-wide">
+                                <span class="material-symbols-outlined text-[18px]">analytics</span>
+                                <span>Teknikal Outlook</span>
+                            </div>
+                            ${parasHtml}
+                        </div>
+                    `;
+                } else {
+                    if (content) {
+                        html += `<p class="text-slate-200 text-xs sm:text-sm leading-relaxed mb-2.5">${content}</p>`;
+                    }
+                }
+            }
+
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (!line) {
+                    if (sectionBuffer.length > 0) sectionBuffer.push('');
+                    continue;
                 }
 
-                // Hapus semua tanda bintang (**) dan (*) agar teks bersih tanpa format markdown raw
-                cleanP = cleanP.replace(/\*\*(.*?)\*\*/g, '$1');
-                cleanP = cleanP.replace(/\*(.*?)\*/g, '$1');
-                cleanP = cleanP.replace(/\*\*/g, '').replace(/\*/g, '');
-                // Ganti simbol & menjadi kata dan
-                cleanP = cleanP.replace(/ & /g, ' dan ');
-
-                html += `<p class="text-slate-200 text-xs lg:text-sm leading-relaxed">${cleanP}</p>`;
-            });
-
+                if (line.startsWith("Analisis IHSG -") || line.startsWith("Analisis IHSG")) {
+                    flushSection();
+                    currentSection = "TITLE";
+                    sectionBuffer.push(line);
+                } else if (line === "Pergerakan IHSG") {
+                    flushSection();
+                    currentSection = "PERGERAKAN";
+                } else if (line === "Net Foreign Buy") {
+                    flushSection();
+                    currentSection = "FOREIGN_BUY";
+                } else if (line === "Net Foreign Sell") {
+                    flushSection();
+                    currentSection = "FOREIGN_SELL";
+                } else if (line === "Sektor yang Menguat") {
+                    flushSection();
+                    currentSection = "SEKTOR_MENGUAT";
+                } else if (line === "Sektor yang Melemah") {
+                    flushSection();
+                    currentSection = "SEKTOR_MELEMAH";
+                } else if (line === "Teknikal Outlook") {
+                    flushSection();
+                    currentSection = "TEKNIKAL";
+                } else {
+                    sectionBuffer.push(line);
+                }
+            }
+            flushSection();
             return html;
         }
+
+        window.allWatchlistAnalyses = {};
 
         async function fetchMorningBrief() {
             try {
                 const res = await fetch('/morning-brief');
                 if (!res.ok) return;
                 const data = await res.json();
+
+                if (data.watchlist_analyses) {
+                    window.allWatchlistAnalyses = data.watchlist_analyses;
+                } else {
+                    // Coba muat dari /watchlist-analysis
+                    fetch('/watchlist-analysis').then(r => r.ok ? r.json() : {}).then(wa => {
+                        if (wa && Object.keys(wa).length > 0) window.allWatchlistAnalyses = wa;
+                    }).catch(() => {});
+                }
 
                 if (data.headline) {
                     document.getElementById('briefHeadline').innerText = data.headline;
@@ -1735,7 +1996,70 @@
             applyFilters();
         }
 
-        // 5. Modal Detail Emiten
+        // 5. Modal Detail Emiten & Riset Teknikal/Fundamental
+        let currentActiveAnalysis = null;
+
+        function switchModalTab(tabName) {
+            const quantBtn = document.getElementById('modalTabQuantBtn');
+            const researchBtn = document.getElementById('modalTabResearchBtn');
+            const quantContent = document.getElementById('modalTabQuantContent');
+            const researchContent = document.getElementById('modalTabResearchContent');
+
+            if (!quantBtn || !researchBtn || !quantContent || !researchContent) return;
+
+            if (tabName === 'research') {
+                quantBtn.className = "py-2.5 px-3 border-b-2 border-transparent text-text-muted hover:text-text-main font-semibold text-xs transition-colors flex items-center gap-1.5 focus:outline-none";
+                researchBtn.className = "py-2.5 px-3 border-b-2 border-primary text-primary font-bold text-xs transition-colors flex items-center gap-1.5 focus:outline-none";
+                quantContent.classList.add('hidden');
+                researchContent.classList.remove('hidden');
+            } else {
+                researchBtn.className = "py-2.5 px-3 border-b-2 border-transparent text-text-muted hover:text-text-main font-semibold text-xs transition-colors flex items-center gap-1.5 focus:outline-none";
+                quantBtn.className = "py-2.5 px-3 border-b-2 border-primary text-primary font-bold text-xs transition-colors flex items-center gap-1.5 focus:outline-none";
+                researchContent.classList.add('hidden');
+                quantContent.classList.remove('hidden');
+            }
+        }
+
+        function populateResearchModal(analysis, tickerClean) {
+            currentActiveAnalysis = analysis;
+            if (!analysis) return;
+
+            const companyName = analysis.company_name || tickerClean;
+            document.getElementById('modalStockFullName').innerText = companyName;
+            document.getElementById('resCompanyName').innerText = `${companyName} (${tickerClean})`;
+
+            if (analysis.teknikal) {
+                document.getElementById('resTeknikalNarrative').innerText = analysis.teknikal.narrative || "-";
+                const lvl = analysis.teknikal.levels || {};
+                document.getElementById('resBOW').innerText = lvl.buy_on_weakness || "-";
+                document.getElementById('resBOB').innerText = lvl.buy_on_breakout || "-";
+                document.getElementById('resTP1').innerText = lvl.tp_1 || "-";
+                document.getElementById('resTP2').innerText = lvl.tp_2 || "-";
+                document.getElementById('resTargetUtama').innerText = lvl.target_utama || "-";
+                document.getElementById('resCutLoss').innerText = lvl.cut_loss || "-";
+            }
+
+            if (analysis.fundamental) {
+                const f = analysis.fundamental;
+                document.getElementById('resFund1').innerText = f["1_kinerja_laba_bersih"] || "-";
+                document.getElementById('resFund2').innerText = f["2_pendapatan_dan_laba_operasional"] || "-";
+                document.getElementById('resFund3').innerText = f["3_ebitda_dan_margin"] || "-";
+                document.getElementById('resFund4').innerText = f["4_struktur_keuangan"] || "-";
+            }
+        }
+
+        function copyWatchlistResearchText() {
+            if (!currentActiveAnalysis || !currentActiveAnalysis.full_text) {
+                showToast("Laporan riset belum tersedia untuk disalin.", "error");
+                return;
+            }
+            navigator.clipboard.writeText(currentActiveAnalysis.full_text).then(() => {
+                showToast("Laporan Riset Teknikal & Fundamental berhasil disalin!", "success");
+            }).catch(() => {
+                showToast("Gagal menyalin teks laporan.", "error");
+            });
+        }
+
         function openStockDetailModal(tickerClean) {
             const fullTicker = tickerClean.includes('.JK') ? tickerClean : `${tickerClean}.JK`;
             const stock = allRecommendations.find(x => x.Ticker === fullTicker || x.Ticker === tickerClean);
@@ -1750,6 +2074,7 @@
             document.getElementById('modalStockInitial').innerText = tickerClean.charAt(0);
             document.getElementById('modalStockTicker').innerText = tickerClean;
             document.getElementById('modalStockSector').innerText = stock.Sector || 'General';
+            document.getElementById('modalStockFullName').innerText = `${tickerClean} • Bursa Efek Indonesia`;
             document.getElementById('modalConsensusProb').innerText = `${Math.round((stock.Bullish_Probability || 0.7) * 100)}%`;
             document.getElementById('modalActionBadge').innerText = (stock.Recommendation || 'BUY ON WEAKNESS').toUpperCase();
 
@@ -1765,6 +2090,37 @@
             document.getElementById('modalEntryPrice').innerText = formatIDR(entryPrice);
             document.getElementById('modalTargetPrice').innerText = formatIDR(targetPrice);
             document.getElementById('modalStopLoss').innerText = formatIDR(stopLoss);
+
+            // Buka tab default (Quant)
+            switchModalTab('quant');
+
+            // Muat Data Riset Teknikal & Fundamental
+            if (window.allWatchlistAnalyses && window.allWatchlistAnalyses[tickerClean]) {
+                populateResearchModal(window.allWatchlistAnalyses[tickerClean], tickerClean);
+            } else {
+                // Fetch on demand
+                fetch(`/stocks/analyze/${tickerClean}`)
+                    .then(r => r.ok ? r.json() : null)
+                    .then(analysis => {
+                        if (analysis) {
+                            if (!window.allWatchlistAnalyses) window.allWatchlistAnalyses = {};
+                            window.allWatchlistAnalyses[tickerClean] = analysis;
+                            populateResearchModal(analysis, tickerClean);
+                        }
+                    })
+                    .catch(() => {
+                        // Coba alternatif endpoint
+                        fetch(`/api/stocks/analyze/${tickerClean}`)
+                            .then(r => r.ok ? r.json() : null)
+                            .then(analysis => {
+                                if (analysis) {
+                                    if (!window.allWatchlistAnalyses) window.allWatchlistAnalyses = {};
+                                    window.allWatchlistAnalyses[tickerClean] = analysis;
+                                    populateResearchModal(analysis, tickerClean);
+                                }
+                            }).catch(() => {});
+                    });
+            }
 
             const modal = document.getElementById('stockDetailModal');
             modal.classList.remove('hidden');

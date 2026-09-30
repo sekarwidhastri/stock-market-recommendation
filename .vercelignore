@@ -1,0 +1,12 @@
+# Vercel Deployment Exclusions
+# Exclude heavy raw market data, intermediate feature matrices, and training checkpoints
+
+data/raw/**
+data/processed/processed_market_features.csv
+data/processed/*.joblib
+data/processed/*.pth
+.github/**
+scratch/**
+.env*
+*.pyc
+__pycache__

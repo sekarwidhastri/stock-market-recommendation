@@ -338,9 +338,20 @@ class MarketDataIngestor:
         Persists all raw datasets to disk.
         """
         if not df.empty:
+            num_tickers = df["Ticker"].nunique()
+            if num_tickers < 20:
+                logger.error(f"Ingestion sanity check failed: only {num_tickers} tickers found in download. Aborting raw overwrite.")
+                return
+
+            invalid_prices = (df[["Open", "High", "Low", "Close"]] <= 0).any().any()
+            if invalid_prices:
+                logger.warning("Sanity warning: detected zero or negative prices in raw data. Filtering out invalid bars.")
+                df = df[(df["Open"] > 0) & (df["High"] > 0) & (df["Low"] > 0) & (df["Close"] > 0)].copy()
+
             RAW_DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
             df.to_csv(RAW_DATA_FILE, index=False)
-            logger.info(f"Raw market data safely persisted to {RAW_DATA_FILE}")
+            logger.info(f"Raw market data safely persisted to {RAW_DATA_FILE} ({len(df)} rows across {num_tickers} tickers).")
+
 
         if fundamental_df is not None and not fundamental_df.empty:
             FUNDAMENTAL_DATA_FILE.parent.mkdir(parents=True, exist_ok=True)

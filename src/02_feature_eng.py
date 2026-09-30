@@ -281,15 +281,23 @@ class QuantitativeFeatureEngineer:
         df["CMF_20"] = mf_volume.rolling(window=20).sum() / (df["Volume"].rolling(window=20).sum() + 1e-9)
 
         # 5. Technical Floor Pivot Levels (Support & Resistance for BoW & BoB)
-        prev_h = df["High"].shift(1)
-        prev_l = df["Low"].shift(1)
-        prev_c = df["Close"].shift(1)
-        pivot = (prev_h + prev_l + prev_c) / 3.0
-        df["Pivot_Point"] = pivot
-        df["Support_1"] = (2.0 * pivot) - prev_h
-        df["Support_2"] = pivot - (prev_h - prev_l)
-        df["Resistance_1"] = (2.0 * pivot) - prev_l
-        df["Resistance_2"] = pivot + (prev_h - prev_l)
+        # Next-day pivot levels (projected from completed session t for next session t+1)
+        curr_h = df["High"]
+        curr_l = df["Low"]
+        curr_c = df["Close"]
+        next_pivot = (curr_h + curr_l + curr_c) / 3.0
+        df["Next_Pivot_Point"] = next_pivot
+        df["Next_Support_1"] = (2.0 * next_pivot) - curr_h
+        df["Next_Support_2"] = next_pivot - (curr_h - curr_l)
+        df["Next_Resistance_1"] = (2.0 * next_pivot) - curr_l
+        df["Next_Resistance_2"] = next_pivot + (curr_h - curr_l)
+
+        # Shifted pivot levels (for historical backtest rows without lookahead)
+        df["Pivot_Point"] = next_pivot.shift(1)
+        df["Support_1"] = df["Next_Support_1"].shift(1)
+        df["Support_2"] = df["Next_Support_2"].shift(1)
+        df["Resistance_1"] = df["Next_Resistance_1"].shift(1)
+        df["Resistance_2"] = df["Next_Resistance_2"].shift(1)
 
         # 6. Advanced Institutional Portfolio Risk Metrics
         df["Annualized_Return_1Y"] = df["Adj Close"].pct_change(252)
@@ -303,12 +311,14 @@ class QuantitativeFeatureEngineer:
             merged_bench = df[["Date", "Return_1D"]].merge(
                 bench_df[["Date", "Benchmark_Return_1D"]], on="Date", how="left"
             )
-            cov = merged_bench["Return_1D"].rolling(window=252).cov(merged_bench["Benchmark_Return_1D"])
-            var = merged_bench["Benchmark_Return_1D"].rolling(window=252).var()
+            merged_bench["Benchmark_Return_1D"] = merged_bench["Benchmark_Return_1D"].fillna(0.0)
+            cov = merged_bench["Return_1D"].rolling(window=252, min_periods=60).cov(merged_bench["Benchmark_Return_1D"])
+            var = merged_bench["Benchmark_Return_1D"].rolling(window=252, min_periods=60).var()
             beta_vals = np.clip((cov / (var + 1e-9)).fillna(1.0), -1.0, 4.0).to_numpy()
             df["Beta_IHSG"] = beta_vals
         else:
             df["Beta_IHSG"] = 1.0
+
 
         df["Sharpe_Ratio"] = np.clip(
             (df["Annualized_Return_1Y"] - self.risk_free_rate) / (df["Annualized_Vol_252D"] + 1e-6), -5.0, 10.0
@@ -400,11 +410,18 @@ class QuantitativeFeatureEngineer:
     def generate_advanced_metrics_snapshot(self, df: pd.DataFrame) -> None:
         latest_records = []
         for ticker, group in df.groupby("Ticker"):
-            latest_row = group.sort_values(by="Date").iloc[-1]
+            latest_row = group.sort_values(by="Date").iloc[-1].to_dict()
+            if "Next_Pivot_Point" in latest_row and pd.notna(latest_row["Next_Pivot_Point"]):
+                latest_row["Pivot_Point"] = latest_row["Next_Pivot_Point"]
+                latest_row["Support_1"] = latest_row["Next_Support_1"]
+                latest_row["Support_2"] = latest_row["Next_Support_2"]
+                latest_row["Resistance_1"] = latest_row["Next_Resistance_1"]
+                latest_row["Resistance_2"] = latest_row["Next_Resistance_2"]
             latest_records.append(latest_row)
 
         if not latest_records:
             return
+
 
         latest_df = pd.DataFrame(latest_records)
         cols = [

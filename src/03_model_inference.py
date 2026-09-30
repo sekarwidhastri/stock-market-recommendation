@@ -1,3 +1,5 @@
+from datetime import datetime
+import json
 import logging
 import os
 from pathlib import Path
@@ -32,12 +34,15 @@ from src.config import (  # type: ignore # pyrefly: ignore [missing-import]
     FAVORITES_RECOMMENDATION_FILE,
     LOG_FORMAT,
     LSTM_LOOKBACK,
+    MORNING_BRIEF_FILE,
     PORTFOLIO_ALLOCATION_FILE,
     PROCESSED_DATA_FILE,
     SECTOR_MAP,
+    SNAPSHOT_FILE,
     SWING_RECOMMENDATION_FILE,
     SWING_TICKERS,
 )
+
 
 warnings.filterwarnings("ignore")
 logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
@@ -564,7 +569,7 @@ class QuantitativeAlphaModel:
         """
         Optimal Portfolio Weighting Algorithm (Sharpe-Weighted Convex Capped Weights with Cash Reserve).
         Guarantees:
-        1. Candidates must be active BUY signals with positive Sharpe ratio (never holds losing stocks).
+        1. Candidates must be active BUY signals with positive Sharpe ratio.
         2. Maximum single-stock equity cap = 25%.
         3. Maximum total equity allocation = 80%, strictly guaranteeing Cash Reserve >= 20%.
         4. Exact unspent IDR from 100-shares lot rounding is added back to Cash Reserve.
@@ -572,18 +577,33 @@ class QuantitativeAlphaModel:
         logger.info(f"Computing optimal portfolio allocation for total capital: Rp {capital_idr:,.0f}...")
         latest_df = self.get_or_extract_latest_rows(df, DEFAULT_TICKERS)
 
-        # Select candidates with positive conviction (BUY recommendations ONLY)
-        buy_candidates = latest_df[
+        # 1. Primary candidates: active tactical BUY recommendations with positive Sharpe
+        tactical_buys = latest_df[
             latest_df["Recommendation"].isin(["BUY ON WEAKNESS", "BUY ON BREAKOUT", "TRADING BUY"])
+            & (latest_df["Sharpe_Ratio"].fillna(0.0) > 0.0)
         ].copy()
 
-        # Quantitative gate: Sharpe ratio must be strictly positive (> 0.0)
-        if not buy_candidates.empty:
-            buy_candidates = buy_candidates[buy_candidates["Sharpe_Ratio"].fillna(0.0) > 0.0].copy()
+        # 2. Institutional Core-Satellite: Supplement with top defensive Dividend/Value stocks
+        # if tactical buys with positive Sharpe are fewer than 3
+        if len(tactical_buys) < 3:
+            div_candidates = latest_df[
+                latest_df["Ticker"].isin(DIVIDEND_TICKERS)
+                & (~latest_df["Ticker"].isin(tactical_buys["Ticker"]))
+                & (latest_df["Recommendation"] != "SELL ON STRENGTH")
+                & (latest_df["Sharpe_Ratio"].fillna(0.0) > 0.0)
+            ].copy()
+            div_candidates = div_candidates.sort_values(
+                by=["Sharpe_Ratio", "Dividend_Yield"], ascending=[False, False]
+            )
+            needed = 4 - len(tactical_buys)
+            supplement = div_candidates.head(needed)
+            buy_candidates = pd.concat([tactical_buys, supplement], ignore_index=True)
+        else:
+            buy_candidates = tactical_buys.copy()
 
-        # If zero candidates pass the quantitative gate, reserve 100% in Cash
+        # If zero candidates pass the quantitative gate across universe, reserve 100% in Cash
         if len(buy_candidates) == 0:
-            logger.warning("No BUY candidates with positive Sharpe ratio found. Holding 100% Cash Reserve.")
+            logger.warning("No candidates with positive Sharpe ratio found. Holding 100% Cash Reserve.")
             allocation_records = [{
                 "Ticker": "KAS SIAGA (CASH)",
                 "Sector": "Money Market / Risk Reserve",
@@ -624,20 +644,22 @@ class QuantitativeAlphaModel:
             lot_price = close * 100.0
             num_lots = int(target_nominal // lot_price) if lot_price > 0 else 0
             actual_nominal = num_lots * lot_price
-            total_equity_spent += actual_nominal
 
-            allocation_records.append({
-                "Ticker": row["Ticker"],
-                "Sector": row.get("Sector", "General"),
-                "Recommendation": row["Recommendation"],
-                "Allocation_Pct": round(w * 100.0, 1),
-                "Nominal_IDR": round(actual_nominal, 0) if actual_nominal > 0 else round(target_nominal, 0),
-                "Shares_Lot": num_lots,
-                "Close_Price": close,
-                "Target_Price": row["Target_Price"],
-                "Stop_Loss": row["Stop_Loss"],
-                "Bullish_Probability": row["Bullish_Probability"],
-            })
+            if num_lots > 0:
+                total_equity_spent += actual_nominal
+                actual_pct = round((actual_nominal / capital_idr) * 100.0, 1)
+                allocation_records.append({
+                    "Ticker": row["Ticker"],
+                    "Sector": row.get("Sector", "General"),
+                    "Recommendation": row["Recommendation"],
+                    "Allocation_Pct": actual_pct,
+                    "Nominal_IDR": round(actual_nominal, 0),
+                    "Shares_Lot": num_lots,
+                    "Close_Price": close,
+                    "Target_Price": row["Target_Price"],
+                    "Stop_Loss": row["Stop_Loss"],
+                    "Bullish_Probability": row["Bullish_Probability"],
+                })
 
         # Remainder returned to Cash Reserve (including unspent fraction from 100-share lot rounding)
         actual_cash_idr = max(0.0, capital_idr - total_equity_spent)
@@ -663,18 +685,77 @@ class QuantitativeAlphaModel:
         return alloc_df
 
 
+def export_snapshot_json(
+    swing_df: pd.DataFrame,
+    div_df: pd.DataFrame,
+    fav_df: pd.DataFrame,
+    alloc_df: pd.DataFrame,
+    metrics: Dict[str, float],
+    all_df: Optional[pd.DataFrame] = None,
+) -> None:
+    brief_data = {}
+    if MORNING_BRIEF_FILE.exists():
+        try:
+            with open(MORNING_BRIEF_FILE, "r", encoding="utf-8") as f:
+                brief_data = json.load(f)
+        except Exception:
+            pass
+
+    def clean_records(df: pd.DataFrame) -> List[Dict[str, Any]]:
+        recs = df.to_dict(orient="records")
+        for r in recs:
+            for k, v in list(r.items()):
+                if pd.isna(v) or v is None:
+                    r[k] = None
+                elif isinstance(v, (np.floating, float)):
+                    r[k] = round(float(v), 4)
+                elif isinstance(v, (np.integer, int)):
+                    r[k] = int(v)
+        return recs
+
+    if all_df is not None and not all_df.empty:
+        all_recs = all_df.copy()
+    else:
+        all_recs = pd.concat([fav_df, div_df, swing_df], ignore_index=True).drop_duplicates(subset=["Ticker"])
+
+    if "Date" in all_recs.columns:
+        all_recs["Date"] = pd.to_datetime(all_recs["Date"]).dt.strftime("%Y-%m-%d")
+
+    snapshot = {
+        "status": "online",
+        "data_asof": str(swing_df["Date"].iloc[0]) if not swing_df.empty else datetime.today().strftime("%Y-%m-%d"),
+        "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "metrics": metrics,
+        "morning_brief": brief_data,
+        "portfolio_allocation": clean_records(alloc_df),
+        "recommendations_swing": clean_records(swing_df),
+        "recommendations_dividend": clean_records(div_df),
+        "recommendations_favorites": clean_records(fav_df),
+        "all_recommendations": clean_records(all_recs),
+    }
+
+    SNAPSHOT_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(SNAPSHOT_FILE, "w", encoding="utf-8") as f:
+        json.dump(snapshot, f, ensure_ascii=False, indent=2)
+    logger.info(f"Consolidated snapshot safely written to {SNAPSHOT_FILE}")
+
+
 def run_model_inference_pipeline() -> Tuple[Dict[str, float], pd.DataFrame]:
     model_engine = QuantitativeAlphaModel()
     df = model_engine.load_processed_data()
     metrics = model_engine.train_and_evaluate(df)
 
     swing_recs = model_engine.generate_swing_recommendations(df)
-    model_engine.generate_dividend_recommendations(df)
-    model_engine.generate_favorites_recommendations(df)
-    model_engine.optimize_portfolio_allocation(df, capital_idr=50000000.0)
+    div_recs = model_engine.generate_dividend_recommendations(df)
+    fav_recs = model_engine.generate_favorites_recommendations(df)
+    alloc_recs = model_engine.optimize_portfolio_allocation(df, capital_idr=50000000.0)
+
+    all_universe_df = model_engine.get_or_extract_latest_rows(df, DEFAULT_TICKERS)
+    export_snapshot_json(swing_recs, div_recs, fav_recs, alloc_recs, metrics, all_df=all_universe_df)
 
     return metrics, swing_recs
 
 
 if __name__ == "__main__":
     run_model_inference_pipeline()
+

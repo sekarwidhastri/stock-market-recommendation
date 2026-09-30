@@ -1,87 +1,638 @@
 {
-  "date": "2026-09-28",
-  "headline": "Morning Brief IHSG: Katalis Wall Street dan Arah Pasar Hari Ini (2026-09-28)",
+  "date": "2026-09-29",
+  "headline": "Analisis IHSG - 2026-09-29",
   "cards": {
     "sp500": {
-      "value": "+0.51%",
-      "badge": "Katalis Risk-On Wall Street",
-      "desc": "Penguatan Wall Street (+0.51%) terdorong performa emiten teknologi AS, membuka ruang sentimen positif dan potensi aliran modal asing (inflow) ke saham blue-chip IHSG."
+      "value": "-0.17%",
+      "badge": "Konsolidasi Melemah Tipis",
+      "desc": "Bursa Wall Street ditutup tertekan moderat akibat lonjakan yield US Treasury 10Y ke 5.255%, memicu penyesuaian valuasi aset berisiko di tengah sikap restriktif The Fed."
     },
     "brent": {
-      "value": "US$ 100.62 / barel",
-      "badge": "Dinamika Geopolitik Pasokan",
-      "desc": "Minyak mentah Brent berada di US$ 100.62 / barel. Isu tensi geopolitik Timur Tengah dan kebijakan produksi OPEC+ menopang harga komoditas energi, memberikan katalis bagi sektor tambang/migas (MEDC, ENRG) namun menambah beban biaya manufaktur."
+      "value": "US$ 96.55 / barel",
+      "badge": "Reli Menembus US$96",
+      "desc": "Minyak Brent mendekati US$96.55 per barel, memperbesar ancaman inflasi impor energi serta memberikan katalis bervariasi pada sektor komoditas domestik."
     },
     "usd_idr": {
-      "value": "Rp 17,970 / US$",
-      "badge": "Stabilitas Moneter Terjaga",
-      "desc": "Kurs Rupiah berada pada kisaran Rp 17,970 / US$. Pergerakan dipengaruhi indeks Dolar AS (DXY) dan yield obligasi AS (5.18%), dengan intervensi Bank Indonesia menopang likuiditas sektor perbankan dan pasar SBN domestik."
+      "value": "Rp 17.960 / US$",
+      "badge": "Tekanan Depresiasi Tajam",
+      "desc": "Rupiah tertekan ke kisaran Rp17.960-Rp17.998 per US$ seiring naiknya yield SBN 10Y\n ke 7.219%, menekan likuiditas sektor perbankan dan saham berkapitalisasi besar."
     },
     "ihsg": {
-      "value": "6147.86 (-1.51%)",
-      "range": "Support 6,116 - 6,172 • Resistance 6,172 - 6,204",
+      "value": "6121.7 (-0.43%)",
+      "range": "Support 6.040 - 6.095 • Resistance 6.095 - 6.177",
       "desc": "Fokus akumulasi pada saham likuid berkapitalisasi besar dengan disiplin level stop loss."
     }
   },
   "key_takeaways": [
-    "🎯 Arah Indeks: IHSG diproyeksikan menguji rentang support 6,116 - 6,172 hingga resistance 6,172 - 6,204 dengan konsolidasi di sekitar pivot 6172.03.",
-    "🌐 Katalis Global: Pergerakan S&P 500 (+0.51%) dan yield US Treasury 10Y (5.18%) menjadi penentu arah sentimen risiko aset berkembang.",
-    "⚠️ Risiko Makro: Fluktuasi minyak Brent (US$ 100.62 / barel) dan kurs Rupiah (Rp 17,970 / US$) menuntut kehati-hatian atas beban subsidi energi dan likuiditas perbankan.",
-    "💼 Panduan Taktis: Amankan kas cadangan 15-20%; alokasikan secara selektif pada emiten komoditas energi serta saham defensif berdividen tinggi."
+    "🎯 Arah Indeks: IHSG berpotensi menguji area support krusial 6.040 - 6.095 dengan peluang technical rebound terbatas menuju 6.177.",
+    "🌐 Katalis Global: Tekanan pasar obligasi AS dengan yield US 10Y di 5.255% memperkuat ekspektasi suku bunga higher-for-longer pasca rilis data inflasi PCE/CPI.",
+    "⚠️ Risiko Makro: Depresiasi Rupiah mendekati level psikologis Rp18.000/US$ dan kenaikan Brent ke US$96.55 memicu capital outflow lanjutan di pasar reguler.",
+    "💼 Panduan Taktis: Lakukan selective buy on weakness pada saham defensif dan emiten penerima manfaat rotasi komoditas; batasi ekspresi risiko pada big caps sensitif suku bunga."
   ],
-  "brief_content": "Untuk sesi perdagangan hari ini, Indeks Harga Saham Gabungan (IHSG) diperkirakan bergerak fluktuatif dengan kecenderungan konsolidasi menguat pada rentang support 6,116 - 6,172 hingga resistance 6,172 - 6,204. Secara teknikal, posisi indeks berada di atas pivot harian 6172.03, mencerminkan momentum akumulasi yang relatif terjaga.\n\nDari panggung global, Wall Street mencatatkan pergerakan +0.51% pada indeks S&P 500 dan +0.48% pada Nasdaq. Katalis utama bersumber dari dinamika rilis laporan keuangan korporasi AS serta evaluasi pelaku pasar terhadap proyeksi arah suku bunga The Fed. Sentimen ini memberikan efek rambatan (spillover effect) langsung terhadap minat risiko investor global di pasar negara berkembang, khususnya bursa domestik.\n\nDi pasar komoditas, harga minyak mentah Brent bertengger di US$ 100.62 / barel. Fluktuasi ini dipengaruhi ketegangan geopolitik internasional serta pembatasan kuota suplai global. Bagi pasar modal Indonesia, level harga energi ini menjadi pisau bermata dua: menguntungkan pendapatan emiten energi dan migas, namun tetap perlu diwaspadai terhadap potensi tekanan inflasi impor bagi emiten konsumer dan transportasi.\n\nSementara itu dari sisi moneter, kurs Rupiah tercatat di level Rp 17,970 / US$ dengan yield US Treasury 10-Tahun berada di 5.18%. Kekuatan indeks dolar AS (DXY) memicu kehati-hatian pada arus dana portofolio, meski langkah stabilisasi Bank Indonesia diperkirakan menjaga stabilitas fundamental perbankan (BBCA, BBRI, BMRI).\n\nSebagai pertimbangan taktis, investor institusi dan profesional disarankan menerapkan strategi Selective Buy on Weakness pada saham-saham likuid berfundamental solid, dengan tetap mematuhi disiplin level trailing stop loss pada rentang support krusial.",
-  "snapshot": {
-    "date": "2026-09-28",
-    "ihsg_close": 6147.86,
-    "ihsg_change_pct": -1.51,
-    "ihsg_ma20": 6483.82,
-    "ihsg_pivot": 6172.03,
-    "ihsg_support": "6,116 - 6,172",
-    "ihsg_resistance": "6,172 - 6,204",
-    "ihsg_s1": 6116,
-    "ihsg_r1": 6204,
-    "ihsg_s2": 6084,
-    "ihsg_r2": 6260,
-    "sp500_change": "+0.51%",
-    "nasdaq_change": "+0.48%",
-    "dow_change": "+0.93%",
-    "ust_10y_yield": "5.18%",
-    "brent_oil": "US$ 100.62 / barel",
-    "usd_idr": "Rp 17,970 / US$",
-    "sp500_close": 7743.41015625,
-    "brent_oil_close": 100.62000274658203,
-    "usd_idr_close": 17970.0,
-    "news": {
-      "sp500": [
-        "Prediction: Tesla Stock Will Plunge to $100 if the S&P 500 Enters a Bear Market - Tesla's sky-high valuation sets the stage for a significant potential correction.",
-        "If a Bear Market Is Coming, Warren Buffett Says This is the Best Move Investors Can Make - The stock market has been rallying for more than three years, but smart investors know the music won't go on forever.",
-        "Oil, Bond, AI Outlooks Damp Wall Street Pre-Bell; Asia Off, Europe Up - Wall Street futures pointed lower pre-bell Monday on rising crude prices and bond yields, and after",
-        "Stock Futures Drop as Iran Stalemate Drives Up Oil Prices - Stocks were on track to open lower after the U.S. and Iran failed to broker a deal to end the war in the Middle East, which drove up oil prices and bond yields.  Nasdaq 100 futures"
-      ],
-      "oil": [
-        "Nvidia leads tech stocks lower as Treasury yields surge: AlphaCheck - Here's a check of the markets in the first few minutes of trading.",
-        "30-year Treasury yield hits highest level since 2004 — what it means for stocks: Chart of the Day - The 30-year Treasury yield rose to its highest level since 2004 on Thursday as stocks fell, raising questions about whether volatility in bond yields could prompt a larger pullback",
-        "10-year Treasury yield hits highest level since 2007 as market prices in another Fed rate hike - The 10-year Treasury yield rose to its highest level since 2007 on Wednesday.",
-        "'This could be something more substantial': Wall Street braces for more Fed rate hikes - Investors have priced in more than a 50% chance of another rate hike in October after the Federal Reserve voted unanimously last week to increase rates."
-      ],
-      "forex": [
-        "Silver prices today, Monday, September 28, 2026: Silver prices slump as oil prices and higher-rate expectations rise - Silver opened at $64.66 per ounce on Monday, September 28, 2026, down 0.2% from Friday's closing price. Silver continues to fall this morning, reaching $61.75 as of 7:07 a.m. ET.",
-        "Energy markets rally after Trump rejects Iran truce offer - Oil futures surged more than four percent on Monday, alongside gains for natural gas and diesel prices, after US President Donald Trump rejected Iran's offer of a seven-day truce.\"",
-        "The deeper reason behind the relentless rise in bond yields - Ignore hysteria calls on rising bond yields.",
-        "Treasury Yields Surge Once Again - Treasury yields hit a fresh cycle high, with benchmark 10-year notes hitting the highest levels since 2007, amid a renewed surge in oil prices and solid economic data.  Bond market"
-      ]
+  "brief_content": "Analisis IHSG - 2026-09-29\n\nPergerakan IHSG\nPada perdagangan sebelumnya, Indeks Harga Saham Gabungan (IHSG) ditutup melemah -0.43% atau terpotong 26.16 poin ke level 6121.7. Indeks dibuka di level 6118.81, sempat mencatatkan level tertinggi intraday di 6150.55 sebelum tertekan hingga menyentuh titik terendah 6013.08, mencerminkan volatilitas intraday yang tajam. Likuiditas pasar relatif solid dengan turnover mencapai Rp13,24 triliun, didukung volume perdagangan sebanyak 38,34 miliar lembar saham (383,4 juta lot) dan frekuensi transaksi tercatat sebanyak 1,81 juta kali. Market breadth mengindikasikan dominasi tekanan jual dengan 373 saham melemah, 303 saham menguat, dan 118 saham stagnan. Investor asing mencatatkan aksi distribusi bersih (net foreign sell) di pasar reguler sebesar Rp536,70 miliar, mempertegas sikap risk-off institusi global.\n\nUntuk proyeksi perdagangan hari ini, IHSG diperkirakan bergerak pada rentang support 6.040 - 6.095 dan resisten 6.095 - 6.177. Dari sisi eksternal, indeks acuan Wall Street ditutup kompak di zona merah (Dow Jones -0.26%, S&P 500 -0.17%, Nasdaq -0.09%) tertekan oleh lonjakan yield US Treasury tenor 10 tahun yang menembus 5.255%. Retorika hawkish pejabat The Fed di tengah pembacaan data inflasi PCE/CPI yang masih kaku mempertahankan probabilitas Fed Funds Rate bertahan di level restriktif lebih lama. Kondisi ini diperberat oleh lonjakan harga minyak mentah Brent ke US$ 96.55 per barel, memperlebar defisit neraca dagang migas dan meningkatkan potensi imported inflation.\n\nDari ranah domestik, pelemahan nilai tukar Rupiah yang menyentuh level spot Rp 17.960 / US$ dan kurs referensi JISDOR di Rp 17.998 / US$ menjadi hambatan struktural utama. Lonjakan yield surat utang negara (SBN) 10 tahun ke level 7.219% meningkatkan yield spread premium dan membebani valuasi ekuitas, terutama saham-saham berkapitalisasi besar (big caps) dan sektor perbankan yang menghadapi kenaikan cost of funds serta tekanan foreign outflow pada portofolio core.\n\nNet Foreign Buy\n1. BBRI - Rp58,2 miliar\n2. TPIA - Rp38,2 miliar\n3. BRMS - Rp26,2 miliar\n4. EMAS - Rp25,9 miliar\n5. DEWA - Rp25,8 miliar\n\nNet Foreign Sell\n1. BMRI - Rp276,2 miliar\n2. TLKM - sekitar Rp160 miliar\n3. BBCA - Rp138,7 miliar\n4. PTBA - Rp57,3 miliar\n5. ADRO - Rp36,7 miliar\n\nSektor yang Menguat\n- Property: +12.96%\n- Energy: +1.10%\n- Technology: +1.03%\n- Transport: +0.98%\n- Basic Materials: +0.78%\n- Infrastructure: +0.57%\n- Non-Cyclical: +0.42%\n- Finance: +0.32%\n- Cyclical: +0.25%\n- Health: +0.16%\n\nSektor yang Melemah\n- Industrial: -3.67%\n\nTeknikal Outlook\nStruktur tren jangka pendek IHSG saat ini masih berada dalam fase koreksi konsolidatif. Price action perdagangan sebelumnya membentuk candlestick dengan formasi long lower shadow yang cukup signifikan setelah indeks menguji area support psikologis 6.000 (low 6013.08) dan mengalami rejection beli cepat menjelang penutupan. Pola ini mengindikasikan adanya absorption demand pada zona demand batas bawah, meski foreign outflow persisten di saham-saham perbankan membayangi konfirmasi pembalikan tren berkelanjutan.\n\nSecara teknikal, level support terdekat berada pada S1 6040, dengan bantalan support kedua di S2 5958 jika volatilitas global memicu aksi jual lanjutan. Di sisi atas, area resisten terdekat berada di R1 6177, disusul oleh resisten kedua di R2 6233. Peluang technical rebound terbuka untuk menguji area resisten 6.177 hingga 6.233 apabila indeks mampu bertahan stabil di atas 6.095. Namun, jika terjadi breakdown di bawah level support psikologis 6.000 secara konsisten, risiko akselerasi koreksi menuju kluster 5.958 akan terbuka lebar.\n\nPanduan strategi hari ini merekomendasikan pendekatan selective buy on weakness dengan konfirmasi rejection pada area support kunci, memprioritaskan emiten yang mencatat akumulasi bersih atau defensif terhadap fluktuasi nilai tukar. Ketahanan sektor energi dan properti dapat menjadi penahan tekanan eksternal di tengah risiko makro domestik. Bias indeks tetap waspada (neutral to defensive) hingga terkonfirmasi breakout volume tinggi menembus pivot 6.177 guna memastikan arah pemulihan struktural.",
+  "foreign_buy": [
+    {
+      "ticker": "BBRI",
+      "nominal": "Rp58,2 miliar"
     },
-    "sp500_badge": "Katalis Risk-On Wall Street",
-    "sp500_desc": "Penguatan Wall Street (+0.51%) terdorong performa emiten teknologi AS, membuka ruang sentimen positif dan potensi aliran modal asing (inflow) ke saham blue-chip IHSG.",
-    "brent_badge": "Dinamika Geopolitik Pasokan",
-    "brent_desc": "Minyak mentah Brent berada di US$ 100.62 / barel. Isu tensi geopolitik Timur Tengah dan kebijakan produksi OPEC+ menopang harga komoditas energi, memberikan katalis bagi sektor tambang/migas (MEDC, ENRG) namun menambah beban biaya manufaktur.",
-    "usd_idr_badge": "Stabilitas Moneter Terjaga",
-    "usd_idr_desc": "Kurs Rupiah berada pada kisaran Rp 17,970 / US$. Pergerakan dipengaruhi indeks Dolar AS (DXY) dan yield obligasi AS (5.18%), dengan intervensi Bank Indonesia menopang likuiditas sektor perbankan dan pasar SBN domestik.",
+    {
+      "ticker": "TPIA",
+      "nominal": "Rp38,2 miliar"
+    },
+    {
+      "ticker": "BRMS",
+      "nominal": "Rp26,2 miliar"
+    },
+    {
+      "ticker": "EMAS",
+      "nominal": "Rp25,9 miliar"
+    },
+    {
+      "ticker": "DEWA",
+      "nominal": "Rp25,8 miliar"
+    }
+  ],
+  "foreign_sell": [
+    {
+      "ticker": "BMRI",
+      "nominal": "Rp276,2 miliar"
+    },
+    {
+      "ticker": "TLKM",
+      "nominal": "sekitar Rp160 miliar"
+    },
+    {
+      "ticker": "BBCA",
+      "nominal": "Rp138,7 miliar"
+    },
+    {
+      "ticker": "PTBA",
+      "nominal": "Rp57,3 miliar"
+    },
+    {
+      "ticker": "ADRO",
+      "nominal": "Rp36,7 miliar"
+    }
+  ],
+  "sectors_gaining": [
+    {
+      "sector": "Property",
+      "change_pct": 12.96,
+      "formatted": "+12.96%"
+    },
+    {
+      "sector": "Energy",
+      "change_pct": 1.1,
+      "formatted": "+1.10%"
+    },
+    {
+      "sector": "Technology",
+      "change_pct": 1.03,
+      "formatted": "+1.03%"
+    },
+    {
+      "sector": "Transport",
+      "change_pct": 0.98,
+      "formatted": "+0.98%"
+    },
+    {
+      "sector": "Basic Materials",
+      "change_pct": 0.78,
+      "formatted": "+0.78%"
+    },
+    {
+      "sector": "Infrastructure",
+      "change_pct": 0.57,
+      "formatted": "+0.57%"
+    },
+    {
+      "sector": "Non-Cyclical",
+      "change_pct": 0.42,
+      "formatted": "+0.42%"
+    },
+    {
+      "sector": "Finance",
+      "change_pct": 0.32,
+      "formatted": "+0.32%"
+    },
+    {
+      "sector": "Cyclical",
+      "change_pct": 0.25,
+      "formatted": "+0.25%"
+    },
+    {
+      "sector": "Health",
+      "change_pct": 0.16,
+      "formatted": "+0.16%"
+    }
+  ],
+  "sectors_declining": [
+    {
+      "sector": "Industrial",
+      "change_pct": -3.67,
+      "formatted": "-3.67%"
+    }
+  ],
+  "snapshot": {
+    "date": "2026-09-29",
+    "ihsg_close": 6121.7,
+    "ihsg_open": 6118.81,
+    "ihsg_high": 6150.55,
+    "ihsg_low": 6013.08,
+    "ihsg_change_pct": -0.43,
+    "ihsg_change_point": -26.16,
+    "ihsg_ma20": 6459.91,
+    "ihsg_pivot": 6095.11,
+    "ihsg_support": "6.040 - 6.095",
+    "ihsg_resistance": "6.095 - 6.177",
+    "ihsg_s1": 6040,
+    "ihsg_r1": 6177,
+    "ihsg_s2": 5958,
+    "ihsg_r2": 6233,
+    "sp500_change": "-0.17%",
+    "nasdaq_change": "-0.09%",
+    "dow_change": "-0.26%",
+    "ust_10y_yield": "5.255%",
+    "brent_oil": "US$ 96.55 / barel",
+    "usd_idr": "Rp 17.960 / US$",
+    "sp500_close": 7670.83984375,
+    "brent_oil_close": 96.55000305175781,
+    "usd_idr_close": 17960.0,
+    "turnover_idr": "Rp13,24 triliun",
+    "volume_shares": "38,34 miliar saham (383,4 juta lot)",
+    "frequency_trades": "1,81 juta kali",
+    "stocks_adv": 303,
+    "stocks_dec": 373,
+    "stocks_flat": 118,
+    "foreign_net_sell_reg": "Rp536,70 miliar",
+    "sbn_10y_yield": "7.219%",
+    "jisdor": "Rp 17.998 / US$",
+    "sectors_gaining": [
+      {
+        "sector": "Property",
+        "change_pct": 12.96,
+        "formatted": "+12.96%"
+      },
+      {
+        "sector": "Energy",
+        "change_pct": 1.1,
+        "formatted": "+1.10%"
+      },
+      {
+        "sector": "Technology",
+        "change_pct": 1.03,
+        "formatted": "+1.03%"
+      },
+      {
+        "sector": "Transport",
+        "change_pct": 0.98,
+        "formatted": "+0.98%"
+      },
+      {
+        "sector": "Basic Materials",
+        "change_pct": 0.78,
+        "formatted": "+0.78%"
+      },
+      {
+        "sector": "Infrastructure",
+        "change_pct": 0.57,
+        "formatted": "+0.57%"
+      },
+      {
+        "sector": "Non-Cyclical",
+        "change_pct": 0.42,
+        "formatted": "+0.42%"
+      },
+      {
+        "sector": "Finance",
+        "change_pct": 0.32,
+        "formatted": "+0.32%"
+      },
+      {
+        "sector": "Cyclical",
+        "change_pct": 0.25,
+        "formatted": "+0.25%"
+      },
+      {
+        "sector": "Health",
+        "change_pct": 0.16,
+        "formatted": "+0.16%"
+      }
+    ],
+    "sectors_declining": [
+      {
+        "sector": "Industrial",
+        "change_pct": -3.67,
+        "formatted": "-3.67%"
+      }
+    ],
+    "foreign_buy": [
+      {
+        "ticker": "BBRI",
+        "nominal": "Rp58,2 miliar"
+      },
+      {
+        "ticker": "TPIA",
+        "nominal": "Rp38,2 miliar"
+      },
+      {
+        "ticker": "BRMS",
+        "nominal": "Rp26,2 miliar"
+      },
+      {
+        "ticker": "EMAS",
+        "nominal": "Rp25,9 miliar"
+      },
+      {
+        "ticker": "DEWA",
+        "nominal": "Rp25,8 miliar"
+      }
+    ],
+    "foreign_sell": [
+      {
+        "ticker": "BMRI",
+        "nominal": "Rp276,2 miliar"
+      },
+      {
+        "ticker": "TLKM",
+        "nominal": "sekitar Rp160 miliar"
+      },
+      {
+        "ticker": "BBCA",
+        "nominal": "Rp138,7 miliar"
+      },
+      {
+        "ticker": "PTBA",
+        "nominal": "Rp57,3 miliar"
+      },
+      {
+        "ticker": "ADRO",
+        "nominal": "Rp36,7 miliar"
+      }
+    ],
+    "news": {
+      "sp500": [],
+      "oil": [],
+      "forex": []
+    },
+    "sp500_badge": "Konsolidasi Melemah Tipis",
+    "sp500_desc": "Bursa Wall Street ditutup tertekan moderat akibat lonjakan yield US Treasury 10Y ke 5.255%, memicu penyesuaian valuasi aset berisiko di tengah sikap restriktif The Fed.",
+    "brent_badge": "Reli Menembus US$96",
+    "brent_desc": "Minyak Brent mendekati US$96.55 per barel, memperbesar ancaman inflasi impor energi serta memberikan katalis bervariasi pada sektor komoditas domestik.",
+    "usd_idr_badge": "Tekanan Depresiasi Tajam",
+    "usd_idr_desc": "Rupiah tertekan ke kisaran Rp17.960-Rp17.998 per US$ seiring naiknya yield SBN 10Y\n ke 7.219%, menekan likuiditas sektor perbankan dan saham berkapitalisasi besar.",
     "key_takeaways": [
-      "🎯 Arah Indeks: IHSG diproyeksikan menguji rentang support 6,116 - 6,172 hingga resistance 6,172 - 6,204 dengan konsolidasi di sekitar pivot 6172.03.",
-      "🌐 Katalis Global: Pergerakan S&P 500 (+0.51%) dan yield US Treasury 10Y (5.18%) menjadi penentu arah sentimen risiko aset berkembang.",
-      "⚠️ Risiko Makro: Fluktuasi minyak Brent (US$ 100.62 / barel) dan kurs Rupiah (Rp 17,970 / US$) menuntut kehati-hatian atas beban subsidi energi dan likuiditas perbankan.",
-      "💼 Panduan Taktis: Amankan kas cadangan 15-20%; alokasikan secara selektif pada emiten komoditas energi serta saham defensif berdividen tinggi."
+      "🎯 Arah Indeks: IHSG berpotensi menguji area support krusial 6.040 - 6.095 dengan peluang technical rebound terbatas menuju 6.177.",
+      "🌐 Katalis Global: Tekanan pasar obligasi AS dengan yield US 10Y di 5.255% memperkuat ekspektasi suku bunga higher-for-longer pasca rilis data inflasi PCE/CPI.",
+      "⚠️ Risiko Makro: Depresiasi Rupiah mendekati level psikologis Rp18.000/US$ dan kenaikan Brent ke US$96.55 memicu capital outflow lanjutan di pasar reguler.",
+      "💼 Panduan Taktis: Lakukan selective buy on weakness pada saham defensif dan emiten penerima manfaat rotasi komoditas; batasi ekspresi risiko pada big caps sensitif suku bunga."
     ]
+  },
+  "watchlist_analyses": {
+    "ANTM": {
+      "ticker": "ANTM",
+      "full_ticker": "ANTM.JK",
+      "company_name": "PT Aneka Tambang Tbk",
+      "teknikal": {
+        "narrative": "Secara teknikal, ANTM sedang berada dalam fase konsolidasi dan attempting bullish reversal setelah gagal melanjutkan breakout dari pola ascending triangle. Harga terakhir ditutup di 3.160 setelah sempat turun hingga 3.030 dan kemudian membentuk bullish rejection / hammer-like candle dari area support 3.050–3.100. Harga masih berada di bawah cluster EMA pendek-menengah sekitar 3.185–3.193, tetapi tetap di atas EMA yang lebih panjang sekitar 3.144. Artinya, momentum jangka pendek belum sepenuhnya pulih, tetapi struktur menengah belum berubah bearish selama support 3.050–3.100 mampu dipertahankan.\n\nStrategi buy on weakness dapat diperhatikan di area 3.050–3.100 selama rejection dari support tetap terjaga. Reclaim 3.185–3.200 menjadi konfirmasi awal reversal, sedangkan buy on breakout lebih ideal apabila ANTM mampu menembus 3.250–3.300 dengan peningkatan volume. Breakout tersebut akan menghidupkan kembali skenario ascending triangle dan membuka ruang menuju 3.380–3.420, kemudian 3.580–3.620 hingga 3.800–3.850. RSI 49,0 masih netral, MACD belum positif, volume belum ekspansif, dan foreign flow masih net sell sehingga reversal masih membutuhkan follow-through. Skenario bullish akan kehilangan validitas apabila harga close di bawah 3.050.",
+        "levels": {
+          "buy_on_weakness": "3.050–3.100",
+          "buy_on_breakout": "> 3.250–3.300",
+          "tp_1": "3.380–3.420",
+          "tp_2": "3.580–3.620",
+          "target_utama": "3.800–3.850",
+          "cut_loss": "< 3.050"
+        }
+      },
+      "fundamental": {
+        "1_kinerja_laba_bersih": "ANTAM melaporkan laba periode berjalan sebesar Rp6,91 triliun pada 6M2026, meningkat sekitar 34% YoY dari Rp5,14 triliun. Sementara itu, data laporan keuangan yang mengacu pada laba bersih attributable kepada pemilik entitas induk mencatat sekitar Rp6,39 triliun atau tumbuh 36% YoY, dengan EPS sekitar Rp265,85 per saham. Jadi, secara underlying bottom line pertumbuhannya tetap sangat kuat, jauh melampaui pertumbuhan penjualan.",
+        "2_pendapatan_dan_laba_operasional": "Penjualan bersih mencapai Rp62,71 triliun, meningkat sekitar 6,3% YoY dari Rp59,02 triliun. Gross profit tumbuh jauh lebih tinggi sebesar 31,7% menjadi Rp10,85 triliun, sementara laba operasional mencapai sekitar Rp8,44 triliun, menunjukkan ekspansi profitabilitas yang signifikan. Emas masih menjadi kontributor terbesar dengan penjualan Rp50,39 triliun atau sekitar 80% dari total revenue, sementara segmen nikel menyumbang Rp10,41 triliun dan tumbuh 32% YoY.\n\nSecara operasional, penjualan emas mencapai 18,08 ton, sementara produksi emas dari tambang sendiri sebesar 433 kg. Produksi bijih nikel mencapai 7,78 juta wmt dengan penjualan 6,77 juta wmt, sedangkan penjualan feronikel naik 32% menjadi 7.605 TNi. Segmen bauksit dan alumina juga meningkat 28% menjadi Rp1,88 triliun, sehingga meskipun emas masih dominan, kontribusi nikel dan bauksit tetap berkembang.",
+        "3_ebitda_dan_margin": "Menurut pelaporan resmi ANTAM, EBITDA 6M2026 mencapai Rp9,62 triliun, meningkat 35% YoY dari Rp7,11 triliun. Berdasarkan pendapatan Rp62,71 triliun, EBITDA margin berada di kisaran 15,3%, meningkat sejalan dengan perbaikan gross profit. Data IPS menggunakan definisi EBITDA sekitar Rp8,98 triliun dengan margin 14,3%, tetapi keduanya sama-sama menunjukkan operating leverage positif, karena pertumbuhan EBITDA jauh lebih tinggi daripada pertumbuhan revenue 6%.",
+        "4_struktur_keuangan": "Neraca ANTAM tetap sangat kuat. Per Juni 2026, perusahaan memiliki kas dan setara kas sekitar Rp9,23 triliun, dibandingkan total utang jangka pendek dan panjang sekitar Rp5,83 triliun, sehingga secara interest-bearing debt ANTAM berada dalam posisi net cash sekitar Rp3,4 triliun. Ekuitas mencapai Rp38,53 triliun, dengan DER hanya 0,15x, Debt/Total Capital 0,13x, Debt/EBITDA sekitar 0,65x, serta EBITDA/Interest Expense sekitar 25,9x. Ini menunjukkan leverage rendah dan kemampuan servicing debt yang sangat kuat."
+      },
+      "full_text": "PT Aneka Tambang Tbk (ANTM)\n\nTeknikal\nSecara teknikal, ANTM sedang berada dalam fase konsolidasi dan attempting bullish reversal setelah gagal melanjutkan breakout dari pola ascending triangle. Harga terakhir ditutup di 3.160 setelah sempat turun hingga 3.030 dan kemudian membentuk bullish rejection / hammer-like candle dari area support 3.050–3.100. Harga masih berada di bawah cluster EMA pendek-menengah sekitar 3.185–3.193, tetapi tetap di atas EMA yang lebih panjang sekitar 3.144. Artinya, momentum jangka pendek belum sepenuhnya pulih, tetapi struktur menengah belum berubah bearish selama support 3.050–3.100 mampu dipertahankan.\n\nStrategi buy on weakness dapat diperhatikan di area 3.050–3.100 selama rejection dari support tetap terjaga. Reclaim 3.185–3.200 menjadi konfirmasi awal reversal, sedangkan buy on breakout lebih ideal apabila ANTM mampu menembus 3.250–3.300 dengan peningkatan volume. Breakout tersebut akan menghidupkan kembali skenario ascending triangle dan membuka ruang menuju 3.380–3.420, kemudian 3.580–3.620 hingga 3.800–3.850. RSI 49,0 masih netral, MACD belum positif, volume belum ekspansif, dan foreign flow masih net sell sehingga reversal masih membutuhkan follow-through. Skenario bullish akan kehilangan validitas apabila harga close di bawah 3.050.\n\n- Buy on Weakness: 3.050–3.100\n- Buy on Breakout: > 3.250–3.300\n- TP 1: 3.380–3.420\n- TP 2: 3.580–3.620\n- Target Utama: 3.800–3.850\n- Cut Loss: < 3.050\n\nFundamental\n1. Kinerja Laba Bersih\nANTAM melaporkan laba periode berjalan sebesar Rp6,91 triliun pada 6M2026, meningkat sekitar 34% YoY dari Rp5,14 triliun. Sementara itu, data laporan keuangan yang mengacu pada laba bersih attributable kepada pemilik entitas induk mencatat sekitar Rp6,39 triliun atau tumbuh 36% YoY, dengan EPS sekitar Rp265,85 per saham. Jadi, secara underlying bottom line pertumbuhannya tetap sangat kuat, jauh melampaui pertumbuhan penjualan.\n\n2. Pendapatan dan Laba Operasional\nPenjualan bersih mencapai Rp62,71 triliun, meningkat sekitar 6,3% YoY dari Rp59,02 triliun. Gross profit tumbuh jauh lebih tinggi sebesar 31,7% menjadi Rp10,85 triliun, sementara laba operasional mencapai sekitar Rp8,44 triliun, menunjukkan ekspansi profitabilitas yang signifikan. Emas masih menjadi kontributor terbesar dengan penjualan Rp50,39 triliun atau sekitar 80% dari total revenue, sementara segmen nikel menyumbang Rp10,41 triliun dan tumbuh 32% YoY.\n\nSecara operasional, penjualan emas mencapai 18,08 ton, sementara produksi emas dari tambang sendiri sebesar 433 kg. Produksi bijih nikel mencapai 7,78 juta wmt dengan penjualan 6,77 juta wmt, sedangkan penjualan feronikel naik 32% menjadi 7.605 TNi. Segmen bauksit dan alumina juga meningkat 28% menjadi Rp1,88 triliun, sehingga meskipun emas masih dominan, kontribusi nikel dan bauksit tetap berkembang.\n\n3. EBITDA dan Margin\nMenurut pelaporan resmi ANTAM, EBITDA 6M2026 mencapai Rp9,62 triliun, meningkat 35% YoY dari Rp7,11 triliun. Berdasarkan pendapatan Rp62,71 triliun, EBITDA margin berada di kisaran 15,3%, meningkat sejalan dengan perbaikan gross profit. Data IPS menggunakan definisi EBITDA sekitar Rp8,98 triliun dengan margin 14,3%, tetapi keduanya sama-sama menunjukkan operating leverage positif, karena pertumbuhan EBITDA jauh lebih tinggi daripada pertumbuhan revenue 6%.\n\n4. Struktur Keuangan\nNeraca ANTAM tetap sangat kuat. Per Juni 2026, perusahaan memiliki kas dan setara kas sekitar Rp9,23 triliun, dibandingkan total utang jangka pendek dan panjang sekitar Rp5,83 triliun, sehingga secara interest-bearing debt ANTAM berada dalam posisi net cash sekitar Rp3,4 triliun. Ekuitas mencapai Rp38,53 triliun, dengan DER hanya 0,15x, Debt/Total Capital 0,13x, Debt/EBITDA sekitar 0,65x, serta EBITDA/Interest Expense sekitar 25,9x. Ini menunjukkan leverage rendah dan kemampuan servicing debt yang sangat kuat."
+    },
+    "BBCA": {
+      "ticker": "BBCA",
+      "full_ticker": "BBCA.JK",
+      "company_name": "PT Bank Central Asia Tbk",
+      "teknikal": {
+        "narrative": "Secara teknikal, BBCA sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 6,350 dengan pembentukan rejection positif di atas kluster support Rp 6,025–6,300. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 6,025–6,300 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 6,400–6,725 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 5,975.",
+        "levels": {
+          "buy_on_weakness": "6,025–6,300",
+          "buy_on_breakout": "> 6,400–6,725",
+          "tp_1": "6,450–6,550",
+          "tp_2": "6,875–6,975",
+          "target_utama": "7,100–7,300",
+          "cut_loss": "< 5,975"
+        }
+      },
+      "fundamental": {
+        "1_kinerja_laba_bersih": "PT Bank Central Asia Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 13.2x dan Return on Equity (ROE) mencapai 21.8%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Financials. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.",
+        "2_pendapatan_dan_laba_operasional": "Pendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.",
+        "3_ebitda_dan_margin": "EBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 2.84x dengan estimasi Dividend Yield sekitar 6.0%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.",
+        "4_struktur_keuangan": "Struktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 767.8 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+      },
+      "full_text": "PT Bank Central Asia Tbk (BBCA)\n\nTeknikal\nSecara teknikal, BBCA sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 6,350 dengan pembentukan rejection positif di atas kluster support Rp 6,025–6,300. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 6,025–6,300 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 6,400–6,725 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 5,975.\n\n- Buy on Weakness: 6,025–6,300\n- Buy on Breakout: > 6,400–6,725\n- TP 1: 6,450–6,550\n- TP 2: 6,875–6,975\n- Target Utama: 7,100–7,300\n- Cut Loss: < 5,975\n\nFundamental\n1. Kinerja Laba Bersih\nPT Bank Central Asia Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 13.2x dan Return on Equity (ROE) mencapai 21.8%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Financials. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.\n\n2. Pendapatan dan Laba Operasional\nPendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.\n\n3. EBITDA dan Margin\nEBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 2.84x dengan estimasi Dividend Yield sekitar 6.0%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.\n\n4. Struktur Keuangan\nStruktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 767.8 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+    },
+    "BBRI": {
+      "ticker": "BBRI",
+      "full_ticker": "BBRI.JK",
+      "company_name": "PT Bank Rakyat Indonesia (Persero) Tbk",
+      "teknikal": {
+        "narrative": "Secara teknikal, BBRI sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 3,330 dengan pembentukan rejection positif di atas kluster support Rp 3,160–3,310. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 3,160–3,310 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 3,360–3,530 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 3,130.",
+        "levels": {
+          "buy_on_weakness": "3,160–3,310",
+          "buy_on_breakout": "> 3,360–3,530",
+          "tp_1": "3,390–3,440",
+          "tp_2": "3,600–3,650",
+          "target_utama": "3,730–3,830",
+          "cut_loss": "< 3,130"
+        }
+      },
+      "fundamental": {
+        "1_kinerja_laba_bersih": "PT Bank Rakyat Indonesia (Persero) Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 8.0x dan Return on Equity (ROE) mencapai 19.0%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Financials. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.",
+        "2_pendapatan_dan_laba_operasional": "Pendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.",
+        "3_ebitda_dan_margin": "EBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 1.53x dengan estimasi Dividend Yield sekitar 12.6%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.",
+        "4_struktur_keuangan": "Struktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 491.2 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+      },
+      "full_text": "PT Bank Rakyat Indonesia (Persero) Tbk (BBRI)\n\nTeknikal\nSecara teknikal, BBRI sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 3,330 dengan pembentukan rejection positif di atas kluster support Rp 3,160–3,310. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 3,160–3,310 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 3,360–3,530 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 3,130.\n\n- Buy on Weakness: 3,160–3,310\n- Buy on Breakout: > 3,360–3,530\n- TP 1: 3,390–3,440\n- TP 2: 3,600–3,650\n- Target Utama: 3,730–3,830\n- Cut Loss: < 3,130\n\nFundamental\n1. Kinerja Laba Bersih\nPT Bank Rakyat Indonesia (Persero) Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 8.0x dan Return on Equity (ROE) mencapai 19.0%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Financials. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.\n\n2. Pendapatan dan Laba Operasional\nPendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.\n\n3. EBITDA dan Margin\nEBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 1.53x dengan estimasi Dividend Yield sekitar 12.6%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.\n\n4. Struktur Keuangan\nStruktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 491.2 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+    },
+    "BMRI": {
+      "ticker": "BMRI",
+      "full_ticker": "BMRI.JK",
+      "company_name": "PT Bank Mandiri (Persero) Tbk",
+      "teknikal": {
+        "narrative": "Secara teknikal, BMRI sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 4,350 dengan pembentukan rejection positif di atas kluster support Rp 4,130–4,240. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 4,130–4,240 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 4,300–4,610 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 4,090.",
+        "levels": {
+          "buy_on_weakness": "4,130–4,240",
+          "buy_on_breakout": "> 4,300–4,610",
+          "tp_1": "4,340–4,410",
+          "tp_2": "4,700–4,770",
+          "target_utama": "4,870–5,000",
+          "cut_loss": "< 4,090"
+        }
+      },
+      "fundamental": {
+        "1_kinerja_laba_bersih": "PT Bank Mandiri (Persero) Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 6.4x dan Return on Equity (ROE) mencapai 22.4%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Financials. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.",
+        "2_pendapatan_dan_laba_operasional": "Pendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.",
+        "3_ebitda_dan_margin": "EBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 1.40x dengan estimasi Dividend Yield sekitar 12.5%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.",
+        "4_struktur_keuangan": "Struktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 397.0 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+      },
+      "full_text": "PT Bank Mandiri (Persero) Tbk (BMRI)\n\nTeknikal\nSecara teknikal, BMRI sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 4,350 dengan pembentukan rejection positif di atas kluster support Rp 4,130–4,240. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 4,130–4,240 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 4,300–4,610 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 4,090.\n\n- Buy on Weakness: 4,130–4,240\n- Buy on Breakout: > 4,300–4,610\n- TP 1: 4,340–4,410\n- TP 2: 4,700–4,770\n- Target Utama: 4,870–5,000\n- Cut Loss: < 4,090\n\nFundamental\n1. Kinerja Laba Bersih\nPT Bank Mandiri (Persero) Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 6.4x dan Return on Equity (ROE) mencapai 22.4%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Financials. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.\n\n2. Pendapatan dan Laba Operasional\nPendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.\n\n3. EBITDA dan Margin\nEBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 1.40x dengan estimasi Dividend Yield sekitar 12.5%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.\n\n4. Struktur Keuangan\nStruktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 397.0 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+    },
+    "BBNI": {
+      "ticker": "BBNI",
+      "full_ticker": "BBNI.JK",
+      "company_name": "PT Bank Negara Indonesia (Persero) Tbk",
+      "teknikal": {
+        "narrative": "Secara teknikal, BBNI sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 3,740 dengan pembentukan rejection positif di atas kluster support Rp 3,550–3,710. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 3,550–3,710 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 3,760–3,960 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 3,520.",
+        "levels": {
+          "buy_on_weakness": "3,550–3,710",
+          "buy_on_breakout": "> 3,760–3,960",
+          "tp_1": "3,800–3,860",
+          "tp_2": "4,040–4,100",
+          "target_utama": "4,190–4,300",
+          "cut_loss": "< 3,520"
+        }
+      },
+      "fundamental": {
+        "1_kinerja_laba_bersih": "PT Bank Negara Indonesia (Persero) Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 6.6x dan Return on Equity (ROE) mencapai 12.4%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Financials. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.",
+        "2_pendapatan_dan_laba_operasional": "Pendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.",
+        "3_ebitda_dan_margin": "EBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 0.83x dengan estimasi Dividend Yield sekitar 9.3%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.",
+        "4_struktur_keuangan": "Struktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 136.0 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+      },
+      "full_text": "PT Bank Negara Indonesia (Persero) Tbk (BBNI)\n\nTeknikal\nSecara teknikal, BBNI sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 3,740 dengan pembentukan rejection positif di atas kluster support Rp 3,550–3,710. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 3,550–3,710 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 3,760–3,960 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 3,520.\n\n- Buy on Weakness: 3,550–3,710\n- Buy on Breakout: > 3,760–3,960\n- TP 1: 3,800–3,860\n- TP 2: 4,040–4,100\n- Target Utama: 4,190–4,300\n- Cut Loss: < 3,520\n\nFundamental\n1. Kinerja Laba Bersih\nPT Bank Negara Indonesia (Persero) Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 6.6x dan Return on Equity (ROE) mencapai 12.4%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Financials. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.\n\n2. Pendapatan dan Laba Operasional\nPendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.\n\n3. EBITDA dan Margin\nEBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 0.83x dengan estimasi Dividend Yield sekitar 9.3%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.\n\n4. Struktur Keuangan\nStruktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 136.0 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+    },
+    "ASII": {
+      "ticker": "ASII",
+      "full_ticker": "ASII.JK",
+      "company_name": "PT Astra International Tbk",
+      "teknikal": {
+        "narrative": "Secara teknikal, ASII sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 4,900 dengan pembentukan rejection positif di atas kluster support Rp 4,660–4,820. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 4,660–4,820 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 4,900–5,200 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 4,610.",
+        "levels": {
+          "buy_on_weakness": "4,660–4,820",
+          "buy_on_breakout": "> 4,900–5,200",
+          "tp_1": "4,950–5,025",
+          "tp_2": "5,300–5,375",
+          "target_utama": "5,500–5,625",
+          "cut_loss": "< 4,610"
+        }
+      },
+      "fundamental": {
+        "1_kinerja_laba_bersih": "PT Astra International Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 6.6x dan Return on Equity (ROE) mencapai 12.0%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Consumer Cyclicals. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.",
+        "2_pendapatan_dan_laba_operasional": "Pendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.",
+        "3_ebitda_dan_margin": "EBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 0.84x dengan estimasi Dividend Yield sekitar 8.0%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.",
+        "4_struktur_keuangan": "Struktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 194.0 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+      },
+      "full_text": "PT Astra International Tbk (ASII)\n\nTeknikal\nSecara teknikal, ASII sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 4,900 dengan pembentukan rejection positif di atas kluster support Rp 4,660–4,820. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 4,660–4,820 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 4,900–5,200 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 4,610.\n\n- Buy on Weakness: 4,660–4,820\n- Buy on Breakout: > 4,900–5,200\n- TP 1: 4,950–5,025\n- TP 2: 5,300–5,375\n- Target Utama: 5,500–5,625\n- Cut Loss: < 4,610\n\nFundamental\n1. Kinerja Laba Bersih\nPT Astra International Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 6.6x dan Return on Equity (ROE) mencapai 12.0%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Consumer Cyclicals. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.\n\n2. Pendapatan dan Laba Operasional\nPendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.\n\n3. EBITDA dan Margin\nEBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 0.84x dengan estimasi Dividend Yield sekitar 8.0%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.\n\n4. Struktur Keuangan\nStruktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 194.0 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+    },
+    "ADRO": {
+      "ticker": "ADRO",
+      "full_ticker": "ADRO.JK",
+      "company_name": "PT Alamtri Resources Indonesia Tbk",
+      "teknikal": {
+        "narrative": "Secara teknikal, ADRO sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 2,670 dengan pembentukan rejection positif di atas kluster support Rp 2,540–2,560. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 2,540–2,560 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 2,660–2,830 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 2,510.",
+        "levels": {
+          "buy_on_weakness": "2,540–2,560",
+          "buy_on_breakout": "> 2,660–2,830",
+          "tp_1": "2,690–2,730",
+          "tp_2": "2,890–2,930",
+          "target_utama": "2,990–3,070",
+          "cut_loss": "< 2,510"
+        }
+      },
+      "fundamental": {
+        "1_kinerja_laba_bersih": "PT Alamtri Resources Indonesia Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 7.4x dan Return on Equity (ROE) mencapai 12.3%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Energy. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.",
+        "2_pendapatan_dan_laba_operasional": "Pendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.",
+        "3_ebitda_dan_margin": "EBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 1.66x dengan estimasi Dividend Yield sekitar 8.9%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.",
+        "4_struktur_keuangan": "Struktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 76.3 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+      },
+      "full_text": "PT Alamtri Resources Indonesia Tbk (ADRO)\n\nTeknikal\nSecara teknikal, ADRO sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 2,670 dengan pembentukan rejection positif di atas kluster support Rp 2,540–2,560. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 2,540–2,560 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 2,660–2,830 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 2,510.\n\n- Buy on Weakness: 2,540–2,560\n- Buy on Breakout: > 2,660–2,830\n- TP 1: 2,690–2,730\n- TP 2: 2,890–2,930\n- Target Utama: 2,990–3,070\n- Cut Loss: < 2,510\n\nFundamental\n1. Kinerja Laba Bersih\nPT Alamtri Resources Indonesia Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 7.4x dan Return on Equity (ROE) mencapai 12.3%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Energy. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.\n\n2. Pendapatan dan Laba Operasional\nPendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.\n\n3. EBITDA dan Margin\nEBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 1.66x dengan estimasi Dividend Yield sekitar 8.9%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.\n\n4. Struktur Keuangan\nStruktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 76.3 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+    },
+    "TLKM": {
+      "ticker": "TLKM",
+      "full_ticker": "TLKM.JK",
+      "company_name": "PT Telkom Indonesia (Persero) Tbk",
+      "teknikal": {
+        "narrative": "Secara teknikal, TLKM sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 2,590 dengan pembentukan rejection positif di atas kluster support Rp 2,460–2,640. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 2,460–2,640 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 2,700–2,750 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 2,430.",
+        "levels": {
+          "buy_on_weakness": "2,460–2,640",
+          "buy_on_breakout": "> 2,700–2,750",
+          "tp_1": "2,720–2,760",
+          "tp_2": "2,800–2,840",
+          "target_utama": "2,900–2,980",
+          "cut_loss": "< 2,430"
+        }
+      },
+      "fundamental": {
+        "1_kinerja_laba_bersih": "PT Telkom Indonesia (Persero) Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 14.3x dan Return on Equity (ROE) mencapai 17.7%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Infrastructures. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.",
+        "2_pendapatan_dan_laba_operasional": "Pendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.",
+        "3_ebitda_dan_margin": "EBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 2.12x dengan estimasi Dividend Yield sekitar 8.6%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.",
+        "4_struktur_keuangan": "Struktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 251.4 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+      },
+      "full_text": "PT Telkom Indonesia (Persero) Tbk (TLKM)\n\nTeknikal\nSecara teknikal, TLKM sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 2,590 dengan pembentukan rejection positif di atas kluster support Rp 2,460–2,640. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 2,460–2,640 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 2,700–2,750 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 2,430.\n\n- Buy on Weakness: 2,460–2,640\n- Buy on Breakout: > 2,700–2,750\n- TP 1: 2,720–2,760\n- TP 2: 2,800–2,840\n- Target Utama: 2,900–2,980\n- Cut Loss: < 2,430\n\nFundamental\n1. Kinerja Laba Bersih\nPT Telkom Indonesia (Persero) Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 14.3x dan Return on Equity (ROE) mencapai 17.7%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Infrastructures. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.\n\n2. Pendapatan dan Laba Operasional\nPendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.\n\n3. EBITDA dan Margin\nEBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 2.12x dengan estimasi Dividend Yield sekitar 8.6%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.\n\n4. Struktur Keuangan\nStruktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 251.4 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+    },
+    "UNTR": {
+      "ticker": "UNTR",
+      "full_ticker": "UNTR.JK",
+      "company_name": "PT United Tractors Tbk",
+      "teknikal": {
+        "narrative": "Secara teknikal, UNTR sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 25,700 dengan pembentukan rejection positif di atas kluster support Rp 24,425–25,925. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 24,425–25,925 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 26,325–27,250 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 24,150.",
+        "levels": {
+          "buy_on_weakness": "24,425–25,925",
+          "buy_on_breakout": "> 26,325–27,250",
+          "tp_1": "26,575–26,975",
+          "tp_2": "27,775–28,200",
+          "target_utama": "28,775–29,550",
+          "cut_loss": "< 24,150"
+        }
+      },
+      "fundamental": {
+        "1_kinerja_laba_bersih": "PT United Tractors Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 12.1x dan Return on Equity (ROE) mencapai 7.4%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Industrials. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.",
+        "2_pendapatan_dan_laba_operasional": "Pendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.",
+        "3_ebitda_dan_margin": "EBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 0.95x dengan estimasi Dividend Yield sekitar 8.5%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.",
+        "4_struktur_keuangan": "Struktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 89.2 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+      },
+      "full_text": "PT United Tractors Tbk (UNTR)\n\nTeknikal\nSecara teknikal, UNTR sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 25,700 dengan pembentukan rejection positif di atas kluster support Rp 24,425–25,925. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 24,425–25,925 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 26,325–27,250 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 24,150.\n\n- Buy on Weakness: 24,425–25,925\n- Buy on Breakout: > 26,325–27,250\n- TP 1: 26,575–26,975\n- TP 2: 27,775–28,200\n- Target Utama: 28,775–29,550\n- Cut Loss: < 24,150\n\nFundamental\n1. Kinerja Laba Bersih\nPT United Tractors Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 12.1x dan Return on Equity (ROE) mencapai 7.4%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Industrials. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.\n\n2. Pendapatan dan Laba Operasional\nPendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.\n\n3. EBITDA dan Margin\nEBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 0.95x dengan estimasi Dividend Yield sekitar 8.5%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.\n\n4. Struktur Keuangan\nStruktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 89.2 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+    },
+    "ISAT": {
+      "ticker": "ISAT",
+      "full_ticker": "ISAT.JK",
+      "company_name": "PT Indosat Tbk",
+      "teknikal": {
+        "narrative": "Secara teknikal, ISAT sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 2,370 dengan pembentukan rejection positif di atas kluster support Rp 2,250–2,340. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 2,250–2,340 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 2,390–2,510 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 2,230.",
+        "levels": {
+          "buy_on_weakness": "2,250–2,340",
+          "buy_on_breakout": "> 2,390–2,510",
+          "tp_1": "2,410–2,450",
+          "tp_2": "2,560–2,600",
+          "target_utama": "2,650–2,730",
+          "cut_loss": "< 2,230"
+        }
+      },
+      "fundamental": {
+        "1_kinerja_laba_bersih": "PT Indosat Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 10.2x dan Return on Equity (ROE) mencapai 20.2%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Infrastructures. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.",
+        "2_pendapatan_dan_laba_operasional": "Pendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.",
+        "3_ebitda_dan_margin": "EBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 2.05x dengan estimasi Dividend Yield sekitar 4.7%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.",
+        "4_struktur_keuangan": "Struktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 76.1 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+      },
+      "full_text": "PT Indosat Tbk (ISAT)\n\nTeknikal\nSecara teknikal, ISAT sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 2,370 dengan pembentukan rejection positif di atas kluster support Rp 2,250–2,340. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 2,250–2,340 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 2,390–2,510 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 2,230.\n\n- Buy on Weakness: 2,250–2,340\n- Buy on Breakout: > 2,390–2,510\n- TP 1: 2,410–2,450\n- TP 2: 2,560–2,600\n- Target Utama: 2,650–2,730\n- Cut Loss: < 2,230\n\nFundamental\n1. Kinerja Laba Bersih\nPT Indosat Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 10.2x dan Return on Equity (ROE) mencapai 20.2%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Infrastructures. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.\n\n2. Pendapatan dan Laba Operasional\nPendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.\n\n3. EBITDA dan Margin\nEBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 2.05x dengan estimasi Dividend Yield sekitar 4.7%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.\n\n4. Struktur Keuangan\nStruktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 76.1 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+    },
+    "KLBF": {
+      "ticker": "KLBF",
+      "full_ticker": "KLBF.JK",
+      "company_name": "PT Kalbe Farma Tbk",
+      "teknikal": {
+        "narrative": "Secara teknikal, KLBF sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 775 dengan pembentukan rejection positif di atas kluster support Rp 735–750. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 735–750 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 770–820 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 730.",
+        "levels": {
+          "buy_on_weakness": "735–750",
+          "buy_on_breakout": "> 770–820",
+          "tp_1": "780–790",
+          "tp_2": "840–850",
+          "target_utama": "870–890",
+          "cut_loss": "< 730"
+        }
+      },
+      "fundamental": {
+        "1_kinerja_laba_bersih": "PT Kalbe Farma Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 9.5x dan Return on Equity (ROE) mencapai 14.8%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Healthcare. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.",
+        "2_pendapatan_dan_laba_operasional": "Pendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.",
+        "3_ebitda_dan_margin": "EBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 1.40x dengan estimasi Dividend Yield sekitar 2.6%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.",
+        "4_struktur_keuangan": "Struktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 34.2 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+      },
+      "full_text": "PT Kalbe Farma Tbk (KLBF)\n\nTeknikal\nSecara teknikal, KLBF sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 775 dengan pembentukan rejection positif di atas kluster support Rp 735–750. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 735–750 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 770–820 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 730.\n\n- Buy on Weakness: 735–750\n- Buy on Breakout: > 770–820\n- TP 1: 780–790\n- TP 2: 840–850\n- Target Utama: 870–890\n- Cut Loss: < 730\n\nFundamental\n1. Kinerja Laba Bersih\nPT Kalbe Farma Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 9.5x dan Return on Equity (ROE) mencapai 14.8%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Healthcare. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.\n\n2. Pendapatan dan Laba Operasional\nPendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.\n\n3. EBITDA dan Margin\nEBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 1.40x dengan estimasi Dividend Yield sekitar 2.6%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.\n\n4. Struktur Keuangan\nStruktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 34.2 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+    },
+    "MEDC": {
+      "ticker": "MEDC",
+      "full_ticker": "MEDC.JK",
+      "company_name": "PT Medco Energi Internasional Tbk",
+      "teknikal": {
+        "narrative": "Secara teknikal, MEDC sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 1,525 dengan pembentukan rejection positif di atas kluster support Rp 1,450–1,540. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 1,450–1,540 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 1,600–1,615 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 1,435.",
+        "levels": {
+          "buy_on_weakness": "1,450–1,540",
+          "buy_on_breakout": "> 1,600–1,615",
+          "tp_1": "1,620–1,640",
+          "tp_2": "1,650–1,675",
+          "target_utama": "1,710–1,755",
+          "cut_loss": "< 1,435"
+        }
+      },
+      "fundamental": {
+        "1_kinerja_laba_bersih": "PT Medco Energi Internasional Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 13.8x dan Return on Equity (ROE) mencapai 7.0%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Energy. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.",
+        "2_pendapatan_dan_laba_operasional": "Pendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.",
+        "3_ebitda_dan_margin": "EBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 1.67x dengan estimasi Dividend Yield sekitar 4.2%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.",
+        "4_struktur_keuangan": "Struktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 36.7 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+      },
+      "full_text": "PT Medco Energi Internasional Tbk (MEDC)\n\nTeknikal\nSecara teknikal, MEDC sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 1,525 dengan pembentukan rejection positif di atas kluster support Rp 1,450–1,540. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 1,450–1,540 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 1,600–1,615 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 1,435.\n\n- Buy on Weakness: 1,450–1,540\n- Buy on Breakout: > 1,600–1,615\n- TP 1: 1,620–1,640\n- TP 2: 1,650–1,675\n- Target Utama: 1,710–1,755\n- Cut Loss: < 1,435\n\nFundamental\n1. Kinerja Laba Bersih\nPT Medco Energi Internasional Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 13.8x dan Return on Equity (ROE) mencapai 7.0%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Energy. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.\n\n2. Pendapatan dan Laba Operasional\nPendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.\n\n3. EBITDA dan Margin\nEBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 1.67x dengan estimasi Dividend Yield sekitar 4.2%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.\n\n4. Struktur Keuangan\nStruktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 36.7 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+    },
+    "PTBA": {
+      "ticker": "PTBA",
+      "full_ticker": "PTBA.JK",
+      "company_name": "PT Bukit Asam Tbk",
+      "teknikal": {
+        "narrative": "Secara teknikal, PTBA sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 3,140 dengan pembentukan rejection positif di atas kluster support Rp 2,960–2,980. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 2,960–2,980 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 3,050–3,330 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 2,950.",
+        "levels": {
+          "buy_on_weakness": "2,960–2,980",
+          "buy_on_breakout": "> 3,050–3,330",
+          "tp_1": "3,080–3,130",
+          "tp_2": "3,390–3,440",
+          "target_utama": "3,520–3,610",
+          "cut_loss": "< 2,950"
+        }
+      },
+      "fundamental": {
+        "1_kinerja_laba_bersih": "PT Bukit Asam Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 7.5x dan Return on Equity (ROE) mencapai 21.1%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Energy. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.",
+        "2_pendapatan_dan_laba_operasional": "Pendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.",
+        "3_ebitda_dan_margin": "EBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 1.42x dengan estimasi Dividend Yield sekitar 3.6%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.",
+        "4_struktur_keuangan": "Struktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 35.8 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+      },
+      "full_text": "PT Bukit Asam Tbk (PTBA)\n\nTeknikal\nSecara teknikal, PTBA sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 3,140 dengan pembentukan rejection positif di atas kluster support Rp 2,960–2,980. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 2,960–2,980 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 3,050–3,330 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 2,950.\n\n- Buy on Weakness: 2,960–2,980\n- Buy on Breakout: > 3,050–3,330\n- TP 1: 3,080–3,130\n- TP 2: 3,390–3,440\n- Target Utama: 3,520–3,610\n- Cut Loss: < 2,950\n\nFundamental\n1. Kinerja Laba Bersih\nPT Bukit Asam Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 7.5x dan Return on Equity (ROE) mencapai 21.1%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Energy. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.\n\n2. Pendapatan dan Laba Operasional\nPendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.\n\n3. EBITDA dan Margin\nEBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 1.42x dengan estimasi Dividend Yield sekitar 3.6%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.\n\n4. Struktur Keuangan\nStruktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 35.8 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+    },
+    "ICBP": {
+      "ticker": "ICBP",
+      "full_ticker": "ICBP.JK",
+      "company_name": "PT Indofood CBP Sukses Makmur Tbk",
+      "teknikal": {
+        "narrative": "Secara teknikal, ICBP sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 6,950 dengan pembentukan rejection positif di atas kluster support Rp 6,600–6,875. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 6,600–6,875 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 7,100–7,375 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 6,525.",
+        "levels": {
+          "buy_on_weakness": "6,600–6,875",
+          "buy_on_breakout": "> 7,100–7,375",
+          "tp_1": "7,175–7,275",
+          "tp_2": "7,525–7,625",
+          "target_utama": "7,775–8,000",
+          "cut_loss": "< 6,525"
+        }
+      },
+      "fundamental": {
+        "1_kinerja_laba_bersih": "PT Indofood CBP Sukses Makmur Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 10.9x dan Return on Equity (ROE) mencapai 12.6%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Consumer Non-Cyclicals. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.",
+        "2_pendapatan_dan_laba_operasional": "Pendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.",
+        "3_ebitda_dan_margin": "EBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 1.52x dengan estimasi Dividend Yield sekitar 3.8%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.",
+        "4_struktur_keuangan": "Struktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 80.5 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+      },
+      "full_text": "PT Indofood CBP Sukses Makmur Tbk (ICBP)\n\nTeknikal\nSecara teknikal, ICBP sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 6,950 dengan pembentukan rejection positif di atas kluster support Rp 6,600–6,875. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 6,600–6,875 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 7,100–7,375 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 6,525.\n\n- Buy on Weakness: 6,600–6,875\n- Buy on Breakout: > 7,100–7,375\n- TP 1: 7,175–7,275\n- TP 2: 7,525–7,625\n- Target Utama: 7,775–8,000\n- Cut Loss: < 6,525\n\nFundamental\n1. Kinerja Laba Bersih\nPT Indofood CBP Sukses Makmur Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 10.9x dan Return on Equity (ROE) mencapai 12.6%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Consumer Non-Cyclicals. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.\n\n2. Pendapatan dan Laba Operasional\nPendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.\n\n3. EBITDA dan Margin\nEBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 1.52x dengan estimasi Dividend Yield sekitar 3.8%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.\n\n4. Struktur Keuangan\nStruktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 80.5 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+    },
+    "BRIS": {
+      "ticker": "BRIS",
+      "full_ticker": "BRIS.JK",
+      "company_name": "PT Bank Syariah Indonesia Tbk",
+      "teknikal": {
+        "narrative": "Secara teknikal, BRIS sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 1,645 dengan pembentukan rejection positif di atas kluster support Rp 1,565–1,650. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 1,565–1,650 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 1,695–1,745 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 1,545.",
+        "levels": {
+          "buy_on_weakness": "1,565–1,650",
+          "buy_on_breakout": "> 1,695–1,745",
+          "tp_1": "1,710–1,735",
+          "tp_2": "1,780–1,805",
+          "target_utama": "1,840–1,890",
+          "cut_loss": "< 1,545"
+        }
+      },
+      "fundamental": {
+        "1_kinerja_laba_bersih": "PT Bank Syariah Indonesia Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 9.3x dan Return on Equity (ROE) mencapai 16.1%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Financials. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.",
+        "2_pendapatan_dan_laba_operasional": "Pendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.",
+        "3_ebitda_dan_margin": "EBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 1.46x dengan estimasi Dividend Yield sekitar 2.0%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.",
+        "4_struktur_keuangan": "Struktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 74.5 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+      },
+      "full_text": "PT Bank Syariah Indonesia Tbk (BRIS)\n\nTeknikal\nSecara teknikal, BRIS sedang berada dalam fase konsolidasi sehat dan attempting continuation setelah bertahan kokoh di atas area support psikologis. Harga terakhir ditutup di level Rp 1,645 dengan pembentukan rejection positif di atas kluster support Rp 1,565–1,650. Struktur pergerakan harga berada di dekat kluster EMA 20 dan EMA 50, mengindikasikan keseimbangan antara tekanan jual dan minat beli akumulasi dari pelaku pasar institusi.\n\nStrategi buy on weakness dapat diperhatikan secara selektif pada kisaran Rp 1,565–1,650 selama tidak terjadi breakdown dari level batas risiko. Sementara itu, momentum buy on breakout lebih terkonfirmasi apabila harga mampu menembus resistance Rp 1,695–1,745 yang didukung ekspansi volume transaksi. Indikator RSI berada di level 50.0 (netral), memberikan ruang pergerakan yang rasional menuju target resisten. Skenario bullish ini tetap terjaga selama harga tidak ditutup di bawah batas cut loss Rp 1,545.\n\n- Buy on Weakness: 1,565–1,650\n- Buy on Breakout: > 1,695–1,745\n- TP 1: 1,710–1,735\n- TP 2: 1,780–1,805\n- Target Utama: 1,840–1,890\n- Cut Loss: < 1,545\n\nFundamental\n1. Kinerja Laba Bersih\nPT Bank Syariah Indonesia Tbk menunjukkan kinerja profitabilitas yang solid dengan Price-to-Earnings (PE) ratio berada di 9.3x dan Return on Equity (ROE) mencapai 16.1%. Pertumbuhan laba bersih didukung oleh efisiensi beban operasional dan posisi pasar yang dominan di sektor Financials. Secara konsisten, emiten ini membukukan margin profitabilitas yang stabil dan mampu memberikan imbal hasil kompetitif bagi pemegang saham.\n\n2. Pendapatan dan Laba Operasional\nPendapatan emiten ditopang oleh diversifikasi lini bisnis utama serta ekspansi pangsa pasar domestik. Gross margin dan operating margin mencerminkan keunggulan skala ekonomis (economies of scale), sehingga pertumbuhan penjualan bersih mampu dikonversi secara efektif menjadi ekspansi laba usaha. Volume operasional terus terjaga stabil sejalan dengan pemulihan aktivitas ekonomi makro Indonesia.\n\n3. EBITDA dan Margin\nEBITDA emiten menunjukkan tren ekspansi berkelanjutan dengan operating leverage yang positif. Rasio Price-to-Book Value (PBV) berada di level 1.46x dengan estimasi Dividend Yield sekitar 2.0%, menjadikannya emiten yang menarik baik untuk kategori capital gain maupun pendapatan dividen stabil. Kemampuan konversi arus kas operasional menjadi EBITDA tetap kuat.\n\n4. Struktur Keuangan\nStruktur permodalan emiten berada dalam profil risiko yang sehat dengan Debt-to-Equity Ratio (DER) terkendali di 0.45x. Dengan kapitalisasi pasar sekitar Rp 74.5 triliun, likuiditas kas operasional berada pada kapasitas yang sangat memadai untuk mendanai belanja modal (capex) serta melayani kewajiban liabilitas jangka pendek maupun jangka panjang secara prima."
+    }
   }
 }

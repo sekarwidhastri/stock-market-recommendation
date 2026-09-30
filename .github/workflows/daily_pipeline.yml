@@ -2,8 +2,8 @@ name: AlphaTech Automated Daily Quantitative Pipeline
 
 on:
   schedule:
-    # Run Sunday to Thursday at 22:00 UTC (Monday to Friday 05:00 WIB before market opens)
-    - cron: '0 22 * * 0-4'
+    # Run Sunday to Thursday at 22:17 UTC (Monday to Friday 05:17 WIB before market opens, avoiding peak 00-min congestion)
+    - cron: '17 22 * * 0-4'
   workflow_dispatch:
 
 permissions:
@@ -43,7 +43,7 @@ jobs:
       - name: Step 3 - Model Training & Alpha Inference
         run: python -m src.03_model_inference
 
-      - name: Step 4 - Institutional Morning Market Brief
+      - name: Step 4 - Institutional Morning Market Brief & Watchlist Research
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python -m src.morning_brief
@@ -53,4 +53,4 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action Bot"
           git add data/processed/ data/raw/benchmark_market_data.csv data/raw/global_macro_data.csv
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update daily alpha recommendations & morning brief [skip ci]" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update daily alpha recommendations & morning brief [skip ci]" && git pull --rebase origin main && git push origin main)

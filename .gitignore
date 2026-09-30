@@ -19,3 +19,6 @@ ENV/
 .vscode/
 .idea/
 .DS_Store
+
+# Deployment & Vercel
+.vercel/
