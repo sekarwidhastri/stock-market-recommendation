@@ -1,6 +1,6 @@
 Ticker,Sector,Recommendation,Allocation_Pct,Nominal_IDR,Shares_Lot,Close_Price,Target_Price,Stop_Loss,Bullish_Probability
-ADRO.JK,Energy,HOLD,13.3,6669000.0,27,2470.0,2620.0,2400.0,0.5126
-POWR.JK,Infrastructures,HOLD,19.7,9844000.0,107,920.0,955.0,890.0,0.4951
-AUTO.JK,Consumer Cyclicals,HOLD,21.8,10890000.0,33,3300.0,3400.0,3200.0,0.4944
-MPMX.JK,Transportation & Logistics,HOLD,25.0,12484500.0,123,1015.0,1045.0,985.0,0.4887
-KAS SIAGA (CASH),Money Market / Risk Reserve,RESERVE,20.2,10112500.0,0,1.0,1.0,1.0,0.5
+ADRO.JK,Energy,HOLD,12.6,6318000.0,26,2430.0,2530.0,2360.0,0.4927
+MPMX.JK,Transportation & Logistics,HOLD,24.9,12444000.0,122,1020.0,1050.0,990.0,0.4917
+AUTO.JK,Consumer Cyclicals,HOLD,24.0,12024000.0,36,3340.0,3440.0,3240.0,0.4764
+POWR.JK,Infrastructures,HOLD,17.7,8835000.0,93,950.0,980.0,900.0,0.4664
+KAS SIAGA (CASH),Money Market / Risk Reserve,RESERVE,20.8,10379000.0,0,1.0,1.0,1.0,0.5
