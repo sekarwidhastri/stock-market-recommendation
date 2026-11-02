@@ -1,7 +1,7 @@
 {
   "capacity": 66,
-  "last_updated": "2026-10-30 02:01:30",
-  "last_rebalance_date": "2026-09-24",
+  "last_updated": "2026-11-02 01:35:40",
+  "last_rebalance_date": "2026-11-02",
   "active_tickers": [
     "AADI.JK",
     "ACES.JK",
@@ -296,5 +296,6 @@
     "UNTR.JK": 0,
     "UNVR.JK": 0
   },
-  "replacements_history": []
+  "replacements_history": [],
+  "last_rebalance_cycle": "2026-M11"
 }
